@@ -13,32 +13,85 @@ import Firebase
 
 class SignupViewController: UIViewController {
 
-    @IBOutlet weak var firstNameTextField: UITextField!
     
     
-    @IBOutlet weak var lastNameTextField: UITextField!
+    let firstNameTextField: CustomTextField = {
+        let tf = CustomTextField(padding: 20)
+        tf.autocorrectionType = .no
+        tf.placeholder = "First Name"
+        tf.backgroundColor = .white
+        
+        return tf
+    }()
+    let lastNameTextField: CustomTextField = {
+        let tf = CustomTextField(padding: 20)
+        tf.autocorrectionType = .no
+        tf.placeholder = "Last Name"
+        tf.backgroundColor = .white
+        return tf
+    }()
+    let emailTextField: CustomTextField = {
+        let tf = CustomTextField(padding: 20)
+        tf.autocorrectionType = .no
+        tf.autocapitalizationType = .none
+        tf.placeholder = "Email"
+        tf.backgroundColor = .white
+        return tf
+    }()
+    let passwordTextField: CustomTextField = {
+        let tf = CustomTextField(padding: 20)
+        tf.autocorrectionType = .no
+        tf.autocapitalizationType = .none
+        tf.placeholder = "Password"
+        tf.isSecureTextEntry = true
+        tf.backgroundColor = .white
+        return tf
+    }()
     
-    @IBOutlet weak var passwordTextField: UITextField!
+    let signupButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Sign In", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .heavy)
+        button.backgroundColor = #colorLiteral(red: 0.05882352963, green: 0.180392161, blue: 0.2470588237, alpha: 1)
+        button.heightAnchor.constraint(equalToConstant: 55).isActive = true
+        button.layer.cornerRadius = 22
+        
+//        button.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(signupTapped)))
+        return button
+    }()
     
-    @IBOutlet weak var emailTextField: UITextField!
     
     
-    @IBOutlet weak var signupButton: UIButton!
     
-    
-    @IBOutlet weak var errorLabel: UILabel!
-    
+    var errorLabel: UILabel = {
+        let label = UILabel(frame: CGRect(x:0, y:0, width:50, height:21))
+        label.numberOfLines = 0
+        label.alpha = 0
+        return label
+    }()
     
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        setupElements()
+        setupLayout()
+        setupNotificationObservers()
+        setupTapGesture()
+        
+        signupButton.addTarget(self, action: #selector(signupTapped), for: .touchUpInside)
     }
     
+    
+    fileprivate func setupTapGesture(){
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTapDismiss)))
+    }
+    
+    @objc fileprivate func handleTapDismiss(){
+        self.view.endEditing(true)
+        
+    }
     
     
     //Check that all fields have been filled out. If they have, return nil. Else return error.
@@ -55,15 +108,20 @@ class SignupViewController: UIViewController {
             
             return "Please make sure the password is at least 8 characters long, contains a spectial character and a number."
         }
-        
-        
         return nil
     }
     
-    @IBAction func signupTapped(_ sender: Any) {
+    @objc func handleUserButton(){
+        let welcomeViewController = WelcomeViewController()
+        welcomeViewController.modalPresentationStyle = .fullScreen
+        self.present(welcomeViewController, animated: true)
+    }
+    
+    
+    @objc func signupTapped() {
         // Validate the fields
+        print("Button Tapped!!!")
         let error = validateFields()
-        
         if error != nil {
             // there's something wromg with the fields.
             showError(error!)
@@ -80,18 +138,23 @@ class SignupViewController: UIViewController {
             Auth.auth().createUser(withEmail: email, password: password) { (result, err) in
                 //Check for errors:
                 if err != nil {
-                    
                     self.showError("Error creating the user!")
                 }
                 else{
                     let db = Firestore.firestore()
-                    db.collection("users").addDocument(data: ["firstName" : firstName, "lastName" : lastName, "email" : email, "uid" : result!.user.uid]) { (error) in
+                    let data: [String: Any] = ["firstName" : firstName,
+                        "lastName" : lastName,
+                        "email" : email,
+                        "uid" : result!.user.uid,
+                        "age" : 24,
+                        "minSeekingPrice": SettingsController.defaultMinSeekingPrice,
+                        "maxSeekingPrice": SettingsController.defaultMaxSeekingPrice
+                    ]
+                    db.collection("users").document(result!.user.uid).setData(data) { (error) in
                         if error != nil{
                             self.showError("DB couldn't save credentials...")
-                            
                         }
                     }
-                    
                     // Transition to home screen
                     self.transitionToHome()
                 }
@@ -107,38 +170,76 @@ class SignupViewController: UIViewController {
     
     
     func transitionToHome(){
-        let homeViewController = self.storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as? HomeViewController
-        
-        self.view.window?.rootViewController = homeViewController
-        self.view.window?.makeKeyAndVisible()
+        let homeViewController = SwiperViewController()
+        homeViewController.modalPresentationStyle = .fullScreen
+        self.present(homeViewController, animated: true)
     }
     
+    lazy var stackView = UIStackView(arrangedSubviews: [firstNameTextField,lastNameTextField, emailTextField, passwordTextField,signupButton, errorLabel])
     
-    func setupElements(){
+    let goToWelcomePage: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Back", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .heavy)
+        button.addTarget(self, action: #selector(handleGoToWelcome), for: .touchUpInside)
+        return button
         
-        //Hide the error label
-        errorLabel.alpha = 0
-        
-        
-        Utilities.styleTextField(firstNameTextField)
-        Utilities.styleTextField(lastNameTextField)
-        Utilities.styleTextField(emailTextField)
-        Utilities.styleTextField(passwordTextField)
-        Utilities.styleFilledButton(signupButton)
+    }()
+    
+    @objc fileprivate func handleGoToWelcome(){
+//        let welcomeController = WelcomeViewController()
+//        print("Intercepting")
+        navigationController?.popViewController(animated: true)
+//        self.dismiss(animated: true)
     }
     
-    
-    
-    
+    fileprivate func setupLayout() {
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        view.backgroundColor = .gray
+        view.addSubview(stackView)
+        stackView.axis = .vertical
+        stackView.spacing = 8
+        
+        stackView.anchor(top: nil, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: .init(top: 0, left: 40, bottom: 0, right: 40))
+        stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        
+        view.addSubview(goToWelcomePage)
+        goToWelcomePage.anchor(top: nil, leading: view.leadingAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: view.trailingAnchor)
     }
-    */
+    
+    
+    fileprivate func setupNotificationObservers(){
+        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyBoardShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyBoardHide),name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc fileprivate func handleKeyBoardHide(){
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            self.view.transform = .identity
+        })
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    
+    @objc fileprivate func handleKeyBoardShow(notification: Notification){
+        guard let value =
+            notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue
+            else{return}
+        let keyboardFrame = value.cgRectValue
+        
+        
+        //let's figure out how tall the gap is from the bottom of the sign in button to the button of the screen
+        
+        let bottomSpace = view.frame.height - stackView.frame.origin.y - stackView.frame.height
+        let difference = keyboardFrame.height - bottomSpace
+        self.view.transform = CGAffineTransform(translationX: 0, y: -difference - 40)
+        
+    }
 
 }

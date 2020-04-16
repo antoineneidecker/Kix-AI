@@ -19,6 +19,8 @@ pod 'MaterialComponents/Buttons'
 pod 'MaterialComponents/Buttons+Theming'
 # pod 'MaterialComponents/schemes/Color'
 
+pod 'Shuffle-iOS'
+pod 'JGProgressHUD'
 
 
 end

@@ -9,20 +9,33 @@
 /* Begin PBXBuildFile section */
 		AF2CB90C24223679007C352F /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2CB90B24223679007C352F /* SignupViewController.swift */; };
 		AF2CB90E24223688007C352F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2CB90D24223688007C352F /* LoginViewController.swift */; };
-		AF2CB910242236A0007C352F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2CB90F242236A0007C352F /* HomeViewController.swift */; };
 		AF2CB91324223912007C352F /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2CB91224223912007C352F /* WelcomeViewController.swift */; };
 		AF2CB92924239E7E007C352F /* SSVid8.mov in Resources */ = {isa = PBXBuildFile; fileRef = AF2CB92824239E7E007C352F /* SSVid8.mov */; };
-		AF2CB92D2423B720007C352F /* ShoeSizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2CB92C2423B720007C352F /* ShoeSizeViewController.swift */; };
 		AF3E715A241F97230010DE24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3E7159241F97230010DE24 /* AppDelegate.swift */; };
 		AF3E715C241F97230010DE24 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3E715B241F97230010DE24 /* SceneDelegate.swift */; };
-		AF3E715E241F97230010DE24 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3E715D241F97230010DE24 /* ViewController.swift */; };
 		AF3E7161241F97230010DE24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF3E715F241F97230010DE24 /* Main.storyboard */; };
 		AF3E7163241F97240010DE24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF3E7162241F97240010DE24 /* Assets.xcassets */; };
 		AF3E7166241F97240010DE24 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF3E7164241F97240010DE24 /* LaunchScreen.storyboard */; };
+		AF55CE902445803A00D9A57F /* LogoutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF55CE8F2445803A00D9A57F /* LogoutTableViewCell.swift */; };
+		AF55CE93244627AA00D9A57F /* ShoeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF55CE92244627AA00D9A57F /* ShoeDetailsViewController.swift */; };
+		AF55CE9524472E3F00D9A57F /* SwipingPhotosController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF55CE9424472E3F00D9A57F /* SwipingPhotosController.swift */; };
+		AF58B4402441DAAC00135387 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF58B43F2441DAAC00135387 /* SettingsController.swift */; };
+		AF58B4422441FAE500135387 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF58B4412441FAE500135387 /* SettingsCell.swift */; };
+		AF58B444244462CA00135387 /* ActualUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF58B443244462C900135387 /* ActualUser.swift */; };
+		AF58B4462444843200135387 /* AgeRangeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF58B4452444843200135387 /* AgeRangeCell.swift */; };
+		AF5E6A122448721E006D53A7 /* PhotoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5E6A112448721E006D53A7 /* PhotoController.swift */; };
+		AF6500F82429F84A00C126F8 /* SwiperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6500F72429F84A00C126F8 /* SwiperViewController.swift */; };
+		AFB5A469242A38D600E9BC3A /* Extensions+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB5A468242A38D600E9BC3A /* Extensions+UIView.swift */; };
+		AFB5A46C242A3F0400E9BC3A /* SwipeBottomControlsUIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB5A46B242A3F0400E9BC3A /* SwipeBottomControlsUIStackView.swift */; };
 		AFBBC062242650AD0099399B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBBC060242650AD0099399B /* Constants.swift */; };
 		AFBBC063242650AD0099399B /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBBC061242650AD0099399B /* Utilities.swift */; };
 		AFBBC065242651910099399B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AFBBC064242651910099399B /* GoogleService-Info.plist */; };
-		AFBBC067242691AD0099399B /* ShoeTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBBC066242691AD0099399B /* ShoeTypeViewController.swift */; };
+		AFF03160242A56B60092312A /* TopNavigationStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF0315F242A56B60092312A /* TopNavigationStackView.swift */; };
+		AFF03162242A610E0092312A /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF03161242A610E0092312A /* CardView.swift */; };
+		AFF03165242AA2680092312A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF03164242AA2680092312A /* User.swift */; };
+		AFF03168242AAD4F0092312A /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF03167242AAD4F0092312A /* CardViewModel.swift */; };
+		AFF0316A242AB4000092312A /* Advertiser.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF03169242AB4000092312A /* Advertiser.swift */; };
+		AFF0316C242B8F950092312A /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF0316B242B8F950092312A /* CustomTextField.swift */; };
 		C0338D92A2A08C3D71F0F063 /* Pods_ShoeSwiperMenus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F74A616D4FFCAA778D98AAC /* Pods_ShoeSwiperMenus.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,22 +44,35 @@
 		5681B4265695530484F5B077 /* Pods-ShoeSwiperMenus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShoeSwiperMenus.release.xcconfig"; path = "Target Support Files/Pods-ShoeSwiperMenus/Pods-ShoeSwiperMenus.release.xcconfig"; sourceTree = "<group>"; };
 		AF2CB90B24223679007C352F /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		AF2CB90D24223688007C352F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		AF2CB90F242236A0007C352F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		AF2CB91224223912007C352F /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		AF2CB92824239E7E007C352F /* SSVid8.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = SSVid8.mov; path = ShoeSwiperMenus/SSVid8.mov; sourceTree = SOURCE_ROOT; };
-		AF2CB92C2423B720007C352F /* ShoeSizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoeSizeViewController.swift; sourceTree = "<group>"; };
 		AF3E7156241F97230010DE24 /* ShoeSwiperMenus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShoeSwiperMenus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF3E7159241F97230010DE24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF3E715B241F97230010DE24 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		AF3E715D241F97230010DE24 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AF3E7160241F97230010DE24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AF3E7162241F97240010DE24 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AF3E7165241F97240010DE24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AF3E7167241F97240010DE24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AF55CE8F2445803A00D9A57F /* LogoutTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutTableViewCell.swift; sourceTree = "<group>"; };
+		AF55CE92244627AA00D9A57F /* ShoeDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoeDetailsViewController.swift; sourceTree = "<group>"; };
+		AF55CE9424472E3F00D9A57F /* SwipingPhotosController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingPhotosController.swift; sourceTree = "<group>"; };
+		AF58B43F2441DAAC00135387 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
+		AF58B4412441FAE500135387 /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
+		AF58B443244462C900135387 /* ActualUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActualUser.swift; sourceTree = "<group>"; };
+		AF58B4452444843200135387 /* AgeRangeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeRangeCell.swift; sourceTree = "<group>"; };
+		AF5E6A112448721E006D53A7 /* PhotoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoController.swift; sourceTree = "<group>"; };
+		AF6500F72429F84A00C126F8 /* SwiperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiperViewController.swift; sourceTree = "<group>"; };
+		AFB5A468242A38D600E9BC3A /* Extensions+UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Extensions+UIView.swift"; path = "/Users/antoineneidecker/Desktop/ShoeSwiper/CourseSwiper/SwipeMatchFirestoreLBTA/Extensions/Extensions+UIView.swift"; sourceTree = "<absolute>"; };
+		AFB5A46B242A3F0400E9BC3A /* SwipeBottomControlsUIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeBottomControlsUIStackView.swift; sourceTree = "<group>"; };
 		AFBBC060242650AD0099399B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		AFBBC061242650AD0099399B /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		AFBBC064242651910099399B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		AFBBC066242691AD0099399B /* ShoeTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoeTypeViewController.swift; sourceTree = "<group>"; };
+		AFF0315F242A56B60092312A /* TopNavigationStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopNavigationStackView.swift; sourceTree = "<group>"; };
+		AFF03161242A610E0092312A /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		AFF03164242AA2680092312A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		AFF03167242AAD4F0092312A /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
+		AFF03169242AB4000092312A /* Advertiser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Advertiser.swift; sourceTree = "<group>"; };
+		AFF0316B242B8F950092312A /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		EFA54689B1BF52BB2F62C793 /* Pods-ShoeSwiperMenus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShoeSwiperMenus.debug.xcconfig"; path = "Target Support Files/Pods-ShoeSwiperMenus/Pods-ShoeSwiperMenus.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -74,13 +100,12 @@
 		AF2CB911242236AA007C352F /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				AF6500F72429F84A00C126F8 /* SwiperViewController.swift */,
+				AF55CE912446277A00D9A57F /* Shoe Details */,
 				AF2CB90B24223679007C352F /* SignupViewController.swift */,
 				AF2CB90D24223688007C352F /* LoginViewController.swift */,
-				AF2CB90F242236A0007C352F /* HomeViewController.swift */,
-				AF3E715D241F97230010DE24 /* ViewController.swift */,
 				AF2CB91224223912007C352F /* WelcomeViewController.swift */,
-				AF2CB92C2423B720007C352F /* ShoeSizeViewController.swift */,
-				AFBBC066242691AD0099399B /* ShoeTypeViewController.swift */,
+				AF58B43F2441DAAC00135387 /* SettingsController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -123,6 +148,10 @@
 		AF3E7158241F97230010DE24 /* ShoeSwiperMenus */ = {
 			isa = PBXGroup;
 			children = (
+				AFF03166242AAD370092312A /* ViewModels */,
+				AFF03163242AA2450092312A /* Model */,
+				AFB5A46A242A3ED900E9BC3A /* Views */,
+				AFB5A467242A38B900E9BC3A /* Extensions */,
 				AF2CB911242236AA007C352F /* ViewControllers */,
 				AF3E7159241F97230010DE24 /* AppDelegate.swift */,
 				AF3E715B241F97230010DE24 /* SceneDelegate.swift */,
@@ -135,6 +164,56 @@
 				AF2CB91924237039007C352F /* Media */,
 			);
 			path = ShoeSwiperMenus;
+			sourceTree = "<group>";
+		};
+		AF55CE912446277A00D9A57F /* Shoe Details */ = {
+			isa = PBXGroup;
+			children = (
+				AF55CE92244627AA00D9A57F /* ShoeDetailsViewController.swift */,
+				AF55CE9424472E3F00D9A57F /* SwipingPhotosController.swift */,
+				AF5E6A112448721E006D53A7 /* PhotoController.swift */,
+			);
+			path = "Shoe Details";
+			sourceTree = "<group>";
+		};
+		AFB5A467242A38B900E9BC3A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AFB5A468242A38D600E9BC3A /* Extensions+UIView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		AFB5A46A242A3ED900E9BC3A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AFB5A46B242A3F0400E9BC3A /* SwipeBottomControlsUIStackView.swift */,
+				AFF0315F242A56B60092312A /* TopNavigationStackView.swift */,
+				AFF03161242A610E0092312A /* CardView.swift */,
+				AFF0316B242B8F950092312A /* CustomTextField.swift */,
+				AF58B4412441FAE500135387 /* SettingsCell.swift */,
+				AF58B4452444843200135387 /* AgeRangeCell.swift */,
+				AF55CE8F2445803A00D9A57F /* LogoutTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		AFF03163242AA2450092312A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AFF03164242AA2680092312A /* User.swift */,
+				AFF03169242AB4000092312A /* Advertiser.swift */,
+				AF58B443244462C900135387 /* ActualUser.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AFF03166242AAD370092312A /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				AFF03167242AAD4F0092312A /* CardViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		F5EFED74BA4AD0AA90097485 /* Frameworks */ = {
@@ -280,16 +359,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF3E715E241F97230010DE24 /* ViewController.swift in Sources */,
 				AF3E715A241F97230010DE24 /* AppDelegate.swift in Sources */,
 				AF2CB90C24223679007C352F /* SignupViewController.swift in Sources */,
-				AFBBC067242691AD0099399B /* ShoeTypeViewController.swift in Sources */,
+				AF55CE93244627AA00D9A57F /* ShoeDetailsViewController.swift in Sources */,
+				AF55CE9524472E3F00D9A57F /* SwipingPhotosController.swift in Sources */,
+				AF58B4402441DAAC00135387 /* SettingsController.swift in Sources */,
+				AFB5A46C242A3F0400E9BC3A /* SwipeBottomControlsUIStackView.swift in Sources */,
+				AF5E6A122448721E006D53A7 /* PhotoController.swift in Sources */,
+				AFF0316C242B8F950092312A /* CustomTextField.swift in Sources */,
 				AF2CB90E24223688007C352F /* LoginViewController.swift in Sources */,
-				AF2CB92D2423B720007C352F /* ShoeSizeViewController.swift in Sources */,
+				AFB5A469242A38D600E9BC3A /* Extensions+UIView.swift in Sources */,
+				AFF03165242AA2680092312A /* User.swift in Sources */,
+				AF58B4422441FAE500135387 /* SettingsCell.swift in Sources */,
+				AFF0316A242AB4000092312A /* Advertiser.swift in Sources */,
+				AFF03168242AAD4F0092312A /* CardViewModel.swift in Sources */,
 				AF3E715C241F97230010DE24 /* SceneDelegate.swift in Sources */,
-				AF2CB910242236A0007C352F /* HomeViewController.swift in Sources */,
+				AF58B4462444843200135387 /* AgeRangeCell.swift in Sources */,
+				AFF03160242A56B60092312A /* TopNavigationStackView.swift in Sources */,
 				AF2CB91324223912007C352F /* WelcomeViewController.swift in Sources */,
 				AFBBC063242650AD0099399B /* Utilities.swift in Sources */,
+				AF6500F82429F84A00C126F8 /* SwiperViewController.swift in Sources */,
+				AF55CE902445803A00D9A57F /* LogoutTableViewCell.swift in Sources */,
+				AFF03162242A610E0092312A /* CardView.swift in Sources */,
+				AF58B444244462CA00135387 /* ActualUser.swift in Sources */,
 				AFBBC062242650AD0099399B /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

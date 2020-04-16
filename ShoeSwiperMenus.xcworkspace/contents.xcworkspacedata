@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/antoineneidecker/Desktop/ShoeSwiper/ShoeSwiperMenus/ShoeSwiperMenus/SampleCard.swift">
+   </FileRef>
+   <FileRef
       location = "group:ShoeSwiperMenus.xcodeproj">
    </FileRef>
    <FileRef

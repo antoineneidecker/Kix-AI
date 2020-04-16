@@ -9,13 +9,36 @@
 import UIKit
 
 class SwipeBottomControlsUIStackView: UIStackView {
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    
+    
+    static func createButton(image: UIImage) -> UIButton{
+        let button = UIButton(type: .system)
+        button.setImage(image.withRenderingMode(.alwaysOriginal),for: .normal)
+        button.imageView?.contentMode = .scaleAspectFit
+        return button
     }
-    */
+    
+    let refreshButton = createButton(image: #imageLiteral(resourceName: "undo"))
+    let dislikeButton = createButton(image: #imageLiteral(resourceName: "pass"))
+    let superLikeButton = createButton(image: #imageLiteral(resourceName: "star"))
+    let likeButton = createButton(image: #imageLiteral(resourceName: "heart"))
+    let colorButton = createButton(image: #imageLiteral(resourceName: "lightning"))
+    
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        distribution = .fillEqually
+        heightAnchor.constraint(equalToConstant: 120).isActive = true
+        
+        // TODO:   Must reduce the size of the color change icon.
+        [refreshButton, dislikeButton, superLikeButton, likeButton, colorButton].forEach { (button) in
+            self.addArrangedSubview(button)
+        }
+        
+    }
+    required init(coder: NSCoder) {
+        fatalError("BottomSwipe not implemented")
+    }
+    
 
 }

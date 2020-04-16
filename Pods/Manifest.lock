@@ -342,6 +342,7 @@ PODS:
   - GTMSessionFetcher/Core (1.3.1)
   - GTMSessionFetcher/Full (1.3.1):
     - GTMSessionFetcher/Core (= 1.3.1)
+  - JGProgressHUD (2.1)
   - leveldb-library (1.22)
   - MaterialComponents/AnimationTiming (107.3.0)
   - MaterialComponents/Availability (107.3.0)
@@ -428,6 +429,7 @@ PODS:
   - SDWebImage (5.6.1):
     - SDWebImage/Core (= 5.6.1)
   - SDWebImage/Core (5.6.1)
+  - Shuffle-iOS (0.1.3)
 
 DEPENDENCIES:
   - Firebase/Analytics
@@ -436,8 +438,10 @@ DEPENDENCIES:
   - FirebaseUI
   - FirebaseUI/Auth
   - FirebaseUI/Google
+  - JGProgressHUD
   - MaterialComponents/Buttons
   - "MaterialComponents/Buttons+Theming"
+  - Shuffle-iOS
 
 SPEC REPOS:
   trunk:
@@ -467,6 +471,7 @@ SPEC REPOS:
     - gRPC-Core
     - GTMAppAuth
     - GTMSessionFetcher
+    - JGProgressHUD
     - leveldb-library
     - MaterialComponents
     - MDFInternationalization
@@ -474,6 +479,7 @@ SPEC REPOS:
     - nanopb
     - PromisesObjC
     - SDWebImage
+    - Shuffle-iOS
 
 SPEC CHECKSUMS:
   abseil: 18063d773f5366ff8736a050fe035a28f635fd27
@@ -502,6 +508,7 @@ SPEC CHECKSUMS:
   gRPC-Core: c9aef9a261a1247e881b18059b84d597293c9947
   GTMAppAuth: 4deac854479704f348309e7b66189e604cf5e01e
   GTMSessionFetcher: cea130bbfe5a7edc8d06d3f0d17288c32ffe9925
+  JGProgressHUD: aa403e9a5b45cae98903c4600cccdd98c0c3ec90
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   MaterialComponents: 74efa6d0c39d54850404c94352c163c6acd6cd39
   MDFInternationalization: 010097556d6b09d2c4ea38e0820ea6d37be6a314
@@ -509,7 +516,8 @@ SPEC CHECKSUMS:
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
   SDWebImage: 7edb9c3ea661e77a66661f7f044de8c1b55d1120
+  Shuffle-iOS: 03153c90ff2eb6c6f811157d601b2ac4e360c404
 
-PODFILE CHECKSUM: 1c637597978b6e07b67936bbcf3f8503c938b21d
+PODFILE CHECKSUM: 58cf67251f45a46745926f20653215498905a179
 
 COCOAPODS: 1.9.1

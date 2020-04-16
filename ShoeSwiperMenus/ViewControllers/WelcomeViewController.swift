@@ -15,22 +15,74 @@ class WelcomeViewController: UIViewController {
     
     var videoPlayerLayer:AVPlayerLayer?
     
+    let signupButton: UIButton = {
+            let button = UIButton(type: .system)
+            button.setTitle("Sign In", for: .normal)
+            button.setTitleColor(.white, for: .normal)
+            button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .heavy)
+            button.backgroundColor = #colorLiteral(red: 0.05882352963, green: 0.180392161, blue: 0.2470588237, alpha: 1)
+            button.heightAnchor.constraint(equalToConstant: 55).isActive = true
+            button.layer.cornerRadius = 22
+            
+    //        button.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(signupTapped)))
+            return button
+        }()
     
     
-    @IBOutlet weak var signupButton: UIButton!
+    let loginButton: UIButton = {
+            let button = UIButton(type: .system)
+            button.setTitle("Log In", for: .normal)
+            button.setTitleColor(.white, for: .normal)
+            button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .heavy)
+            button.backgroundColor = #colorLiteral(red: 0.05882352963, green: 0.180392161, blue: 0.2470588237, alpha: 1)
+            button.heightAnchor.constraint(equalToConstant: 55).isActive = true
+            button.layer.cornerRadius = 22
+            
+    //        button.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(signupTapped)))
+            return button
+        }()
     
-    @IBOutlet weak var loginButton: UIButton!
+    
+    
+    
+    lazy var buttonSignupWait = signupButton
+    lazy var buttonLoginWait = loginButton
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        setupElements()
         // Do any additional setup after loading the view.
+        setupLayout()
+        setupButtons()
+        
+        
+    }
+    
+    fileprivate func setupButtons(){
+        signupButton.addTarget(self, action: #selector(handleSignupButton), for: .touchUpInside)
+        
+        loginButton.addTarget(self, action: #selector(handleLoginButton), for: .touchUpInside)
+    }
+    
+    @objc fileprivate func handleLoginButton(){
+        let loginViewController = LoginViewController()
+        loginViewController.modalPresentationStyle = .fullScreen
+//        self.present(loginViewController, animated: true)
+        navigationController?.pushViewController(loginViewController, animated: true)
+    }
+    
+    @objc fileprivate func handleSignupButton(){
+        let signupViewController = SignupViewController()
+        signupViewController.modalPresentationStyle = .fullScreen
+//        self.present(signupViewController, animated: true)
+        navigationController?.pushViewController(signupViewController, animated: true)
     }
 
     override func viewWillAppear(_ animated: Bool) {
         setUpVideo()
     }
+    
+    
     
     
     func setUpVideo(){
@@ -60,20 +112,25 @@ class WelcomeViewController: UIViewController {
             self?.videoPlayer?.seek(to: CMTime.zero)
             self?.videoPlayer?.play()
         }
-    }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    func setupElements(){
-        Utilities.styleFilledButton(signupButton)
-        Utilities.styleFilledButton(loginButton)
         
+
+    }
+    
+
+    lazy var stackView = UIStackView(arrangedSubviews: [signupButton, loginButton])
+    
+    fileprivate func setupLayout() {
+                
+        navigationController?.isNavigationBarHidden = true
+        
+        self.modalPresentationStyle = .fullScreen
+        view.addSubview(stackView)
+        
+        stackView.axis = .vertical
+        stackView.spacing = 8
+        
+        stackView.anchor(top: nil, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 0, left: 40, bottom: 60, right: 40))
+//        stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
 
 }
