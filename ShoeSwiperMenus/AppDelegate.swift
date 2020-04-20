@@ -13,50 +13,40 @@ import Firebase
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
+//        let db = Firestore.firestore()
+//        let settings = db.settings
+//        db.settings = settings
+        
+        let navigation = UINavigationController(rootViewController: SwiperViewController())
         
         //This will bring up the welcome page directly
         window = UIWindow()
-        window?.makeKeyAndVisible()
-        window?.rootViewController = SwiperViewController()
-        
-        
-        UINavigationBar.appearance().barTintColor = UIColor.green
-//        
-//        window = UIWindow()
-//        window?.makeKeyAndVisible()
-//        window?.rootViewController = SwipingPhotosController(transitionStyle: .scroll, navigationOrientation: .horizontal)
+        window!.makeKeyAndVisible()
+        window!.rootViewController = navigation
         
         return true
     }
-//    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-//
-//        if let windowScene = scene as? UIWindowScene {
-//            let window = UIWindow(windowScene: windowScene)
-//            window.rootViewController = SwipingPhotosController(transitionStyle: .scroll, navigationOrientation: .horizontal)
-//            self.window = window
-//            window.makeKeyAndVisible()
-//        }
-//
-//    }
+
     // MARK: UISceneSession Lifecycle
 
-//    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
-//        // Called when a new scene session is being created.
-//        // Use this method to select a configuration to create the new scene with.
-//        return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
-//    }
-//
-//    func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
-//        // Called when the user discards a scene session.
-//        // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
-//        // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
-//    }
-//
+    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
+        // Called when a new scene session is being created.
+        // Use this method to select a configuration to create the new scene with.
+        return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
+    }
+
+    func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
+        // Called when the user discards a scene session.
+        // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
+        // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
+    }
+
     
-//
+
     
     
     func applicationWillResignActive(_ application: UIApplication) {

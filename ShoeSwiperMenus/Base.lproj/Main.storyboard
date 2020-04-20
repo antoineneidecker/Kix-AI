@@ -10,6 +10,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Ffc-jt-He7">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="clH-bB-qpe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="XDC-Lp-Rll" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7WE-Y3-2fE">
@@ -17,10 +18,9 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="1qQ-hJ-PES" kind="relationship" relationship="rootViewController" id="mej-5H-XMY"/>
+                        <segue destination="mu1-ww-n2d" kind="relationship" relationship="rootViewController" id="S8i-0P-2Qm"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="clH-bB-qpe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1007" y="124"/>
         </scene>
@@ -82,6 +82,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="a3L-ej-fYp"/>
                     </view>
+                    <navigationItem key="navigationItem" id="s94-SW-bn0"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zep-5s-mVk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

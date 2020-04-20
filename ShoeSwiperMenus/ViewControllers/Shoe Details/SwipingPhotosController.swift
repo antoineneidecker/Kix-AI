@@ -12,7 +12,6 @@ class SwipingPhotosController: UIPageViewController, UIPageViewControllerDataSou
     
     var cardViewModel: CardViewModel! {
         didSet {
-            print(cardViewModel.attributedString)
             controllers = cardViewModel.imageUrls.map({ (imageUrl) -> UIViewController in
                 let photoController = PhotoController(imageUrl: imageUrl)
                 return photoController
@@ -84,7 +83,7 @@ class SwipingPhotosController: UIPageViewController, UIPageViewControllerDataSou
     }
     
     @objc fileprivate func handleTap(gesture: UITapGestureRecognizer) {
-        print("Cycle through photos")
+
         let currentController = viewControllers!.first!
         if let index = controllers.firstIndex(of: currentController) {
             

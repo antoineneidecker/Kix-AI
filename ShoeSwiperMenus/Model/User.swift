@@ -11,6 +11,8 @@ import UIKit
 
 struct User: ProducesCardViewModel {
     //defining our propreties for our model layer
+    
+    
     var name: String?
     var price: Int?
     var brand: String?
@@ -45,7 +47,7 @@ struct User: ProducesCardViewModel {
         let brandString = brand != nil ? "\(brand!)" : "N\\A"
         attributedText.append(NSAttributedString(string: "\n\(brandString)", attributes: [.font: UIFont.systemFont(ofSize: 24, weight: .regular)]))
         
-        return CardViewModel(imageNames: imageNames, attributedString: attributedText, textAllignment: .left)
+        return CardViewModel(name: self.name ?? "", imageNames: imageNames, attributedString: attributedText, textAllignment: .left)
     }
 }
 

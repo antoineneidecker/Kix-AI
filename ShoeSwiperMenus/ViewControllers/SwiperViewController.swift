@@ -11,8 +11,7 @@ import Firebase
 import JGProgressHUD
 
 class SwiperViewController: UIViewController, SettingsControllerDelegate, LoginControllerDelegate, CardViewDelegate {
-    
-    
+
     
     let topStackView = TopNavigationStackView()
     let cardsDeckView = UIView()
@@ -24,13 +23,20 @@ class SwiperViewController: UIViewController, SettingsControllerDelegate, LoginC
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController?.navigationBar.isHidden = true
+        
         topStackView.userButton.addTarget(self, action: #selector(handleUserButton), for: .touchUpInside)
+        topStackView.messageButtons.addTarget(self, action: #selector(handleMessageButton), for: .touchUpInside)
         bottomControls.refreshButton.addTarget(self, action: #selector(handleRefresh), for: .touchUpInside)
+        bottomControls.likeButton.addTarget(self, action: #selector(handleLike), for: .touchUpInside)
+        bottomControls.dislikeButton.addTarget(self, action: #selector(handleDislike), for: .touchUpInside)
+
         
         setupLayout()
         fetchCurrentUser()
         
     }
+    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -89,16 +95,19 @@ class SwiperViewController: UIViewController, SettingsControllerDelegate, LoginC
     }
     
     @objc fileprivate func handleRefresh(){
-        fetchUsersFromFirestore()
+        if topCardView == nil {
+            fetchUsersFromFirestore()
+        }
     }
     
-    fileprivate func setupCardFromUser(user: User){
+    fileprivate func setupCardFromUser(user: User) -> CardView{
         let cardView = CardView(frame: .zero)
         cardView.delegate = self
         cardView.cardViewModel = user.toCardViewModel()
         cardsDeckView.addSubview(cardView)
         cardsDeckView.sendSubviewToBack(cardView)
         cardView.fillSuperview()
+        return cardView
         
     }
     
@@ -124,22 +133,126 @@ class SwiperViewController: UIViewController, SettingsControllerDelegate, LoginC
         hud.show(in: view)
         
 //        We will setup pagination on the following query:
+        
+        topCardView = nil
         Firestore.firestore().collection("shoes").whereField("shoePrice", isGreaterThanOrEqualTo: minPrice).whereField("shoePrice", isLessThanOrEqualTo: maxPrice).getDocuments { (snapshot, err) in
             self.hud.dismiss()
+            
             if let err = err{
                 print("Failed to load data from firebase:", err)
                 return
             }
+            
+//            We are going to setup the nextCardView relationship for all cards somehow:
+            var previousCardView: CardView?
+            
             snapshot?.documents.forEach({ (documentSnapshot) in
                 let userDictionary = documentSnapshot.data()
                 let user = User(dictionary: userDictionary)
-                self.setupCardFromUser(user: user)
+                let cardView = self.setupCardFromUser(user: user)
 //                self.cardViewModels.append(user.toCardViewModel())
 //                self.lastFetchedUser = user
+                previousCardView?.nextCardView = cardView
+                previousCardView = cardView
+//                Use this nextCardView == nil to load the pictures!!
                 
+                if self.topCardView == nil{
+                    self.topCardView = cardView
+                }
             })
         }
     }
+    
+    var topCardView: CardView?
+    
+    func didRemoveCard(cardView: CardView) {
+        self.topCardView?.removeFromSuperview()
+        self.topCardView = self.topCardView?.nextCardView
+        
+    }
+    
+    fileprivate func saveSwipeToFirestore(didLike: Int){
+        guard let uid = Auth.auth().currentUser?.uid else {return}
+        
+        guard let cardUID = topCardView?.cardViewModel?.name else {return}
+        
+        let documentData = [cardUID: didLike]
+        
+        Firestore.firestore().collection("swipes").document(uid).getDocument{ (snapshot, err) in
+            if let err = err {
+                print("Failed to fetch swipe document: ", err)
+                return
+            }
+            if snapshot?.exists == true {
+                Firestore.firestore().collection("swipes").document(uid).updateData(documentData)
+                { (err) in
+                    if let err = err{
+                        print("Failed to updated swipe data: ", err)
+                        return
+                    }
+                    print("Successfully updated swipe.")
+                }
+            }
+            else{
+                Firestore.firestore().collection("swipes").document(uid).setData(documentData)
+                { (err) in
+                    if let err = err{
+                        print("Failed to save swipe data: ", err)
+                        return
+                    }
+                    print("Successfully saved swipe.")
+                }
+            }
+        }
+    }
+    
+    @objc func handleLike(){
+        saveSwipeToFirestore(didLike: 1)
+        performSwipeAnimation(translation: 700, angle: 16)
+    }
+
+    @objc func handleDislike(){
+        saveSwipeToFirestore(didLike: 0)
+        performSwipeAnimation(translation: -700, angle: -16)
+    }
+    
+    fileprivate func performSwipeAnimation(translation: CGFloat, angle: CGFloat) {
+        
+        let duration = 0.8
+        let translationAnimation = CABasicAnimation(keyPath: "position.x")
+        translationAnimation.toValue = translation
+        translationAnimation.duration = duration
+        translationAnimation.fillMode = .forwards
+        translationAnimation.timingFunction = CAMediaTimingFunction(name: .easeOut)
+        translationAnimation.isRemovedOnCompletion = false
+        
+        let rotationAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
+        rotationAnimation.toValue = angle * CGFloat.pi / 180
+        rotationAnimation.duration = duration
+        
+        let cardView = topCardView
+        topCardView = cardView?.nextCardView
+        
+        CATransaction.setCompletionBlock {
+            cardView?.removeFromSuperview()
+        }
+        
+        cardView?.layer.add(translationAnimation, forKey: "translation")
+        cardView?.layer.add(rotationAnimation, forKey: "rotation")
+        
+        CATransaction.commit()
+    }
+    
+    @objc fileprivate func handleMessageButton(){
+        let vc = UIViewController()
+        vc.view.backgroundColor = .red
+        navigationController?.pushViewController(vc, animated: true)
+//        let navController = UINavigationController(rootViewController: vc)
+//        navController.modalPresentationStyle = .fullScreen
+//        self.present(navController, animated: true)
+    
+    }
+    
         
     fileprivate func setupLayout() {
         view.backgroundColor = .white

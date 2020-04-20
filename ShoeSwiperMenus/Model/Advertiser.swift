@@ -20,7 +20,7 @@ struct Advertiser: ProducesCardViewModel {
         attributedString.append(NSAttributedString(string: "\n" + brandName, attributes: [.font: UIFont.systemFont(ofSize: 32, weight: .heavy)]))
         
         
-        return CardViewModel(imageNames: [posterPhotoName], attributedString: attributedString, textAllignment: .center)
+        return CardViewModel(name: "", imageNames: [posterPhotoName], attributedString: attributedString, textAllignment: .center)
         
     }
 }

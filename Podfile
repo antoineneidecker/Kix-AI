@@ -21,6 +21,6 @@ pod 'MaterialComponents/Buttons+Theming'
 
 pod 'Shuffle-iOS'
 pod 'JGProgressHUD'
-
+pod 'LBTATools'
 
 end

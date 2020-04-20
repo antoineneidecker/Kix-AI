@@ -24,6 +24,7 @@
 		AF58B444244462CA00135387 /* ActualUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF58B443244462C900135387 /* ActualUser.swift */; };
 		AF58B4462444843200135387 /* AgeRangeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF58B4452444843200135387 /* AgeRangeCell.swift */; };
 		AF5E6A122448721E006D53A7 /* PhotoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5E6A112448721E006D53A7 /* PhotoController.swift */; };
+		AF5E6A152449ECAD006D53A7 /* LikesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5E6A142449ECAD006D53A7 /* LikesController.swift */; };
 		AF6500F82429F84A00C126F8 /* SwiperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6500F72429F84A00C126F8 /* SwiperViewController.swift */; };
 		AFB5A469242A38D600E9BC3A /* Extensions+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB5A468242A38D600E9BC3A /* Extensions+UIView.swift */; };
 		AFB5A46C242A3F0400E9BC3A /* SwipeBottomControlsUIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB5A46B242A3F0400E9BC3A /* SwipeBottomControlsUIStackView.swift */; };
@@ -61,6 +62,7 @@
 		AF58B443244462C900135387 /* ActualUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActualUser.swift; sourceTree = "<group>"; };
 		AF58B4452444843200135387 /* AgeRangeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeRangeCell.swift; sourceTree = "<group>"; };
 		AF5E6A112448721E006D53A7 /* PhotoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoController.swift; sourceTree = "<group>"; };
+		AF5E6A142449ECAD006D53A7 /* LikesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesController.swift; sourceTree = "<group>"; };
 		AF6500F72429F84A00C126F8 /* SwiperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiperViewController.swift; sourceTree = "<group>"; };
 		AFB5A468242A38D600E9BC3A /* Extensions+UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Extensions+UIView.swift"; path = "/Users/antoineneidecker/Desktop/ShoeSwiper/CourseSwiper/SwipeMatchFirestoreLBTA/Extensions/Extensions+UIView.swift"; sourceTree = "<absolute>"; };
 		AFB5A46B242A3F0400E9BC3A /* SwipeBottomControlsUIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeBottomControlsUIStackView.swift; sourceTree = "<group>"; };
@@ -100,12 +102,11 @@
 		AF2CB911242236AA007C352F /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				AF6500F72429F84A00C126F8 /* SwiperViewController.swift */,
 				AF55CE912446277A00D9A57F /* Shoe Details */,
-				AF2CB90B24223679007C352F /* SignupViewController.swift */,
-				AF2CB90D24223688007C352F /* LoginViewController.swift */,
-				AF2CB91224223912007C352F /* WelcomeViewController.swift */,
+				AF5E6A132449EC46006D53A7 /* Welsome */,
+				AF6500F72429F84A00C126F8 /* SwiperViewController.swift */,
 				AF58B43F2441DAAC00135387 /* SettingsController.swift */,
+				AF5E6A142449ECAD006D53A7 /* LikesController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -174,6 +175,16 @@
 				AF5E6A112448721E006D53A7 /* PhotoController.swift */,
 			);
 			path = "Shoe Details";
+			sourceTree = "<group>";
+		};
+		AF5E6A132449EC46006D53A7 /* Welsome */ = {
+			isa = PBXGroup;
+			children = (
+				AF2CB90D24223688007C352F /* LoginViewController.swift */,
+				AF2CB91224223912007C352F /* WelcomeViewController.swift */,
+				AF2CB90B24223679007C352F /* SignupViewController.swift */,
+			);
+			path = Welsome;
 			sourceTree = "<group>";
 		};
 		AFB5A467242A38B900E9BC3A /* Extensions */ = {
@@ -379,6 +390,7 @@
 				AF2CB91324223912007C352F /* WelcomeViewController.swift in Sources */,
 				AFBBC063242650AD0099399B /* Utilities.swift in Sources */,
 				AF6500F82429F84A00C126F8 /* SwiperViewController.swift in Sources */,
+				AF5E6A152449ECAD006D53A7 /* LikesController.swift in Sources */,
 				AF55CE902445803A00D9A57F /* LogoutTableViewCell.swift in Sources */,
 				AFF03162242A610E0092312A /* CardView.swift in Sources */,
 				AF58B444244462CA00135387 /* ActualUser.swift in Sources */,

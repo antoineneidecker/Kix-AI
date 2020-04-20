@@ -12,9 +12,12 @@ import SDWebImage
 
 protocol CardViewDelegate{
     func didTapMoreInfo(cardViewModel: CardViewModel)
+    func didRemoveCard(cardView: CardView)
 }
 
 class CardView: UIView {
+    
+    var nextCardView: CardView?
     
     var delegate: CardViewDelegate?
     
@@ -182,27 +185,21 @@ class CardView: UIView {
         let translationDirection: CGFloat = gesture.translation(in: nil).x > 0 ? 1 : -1
         let shouldDismissCard = abs(gesture.translation(in: nil).x) > threshold
         
-        UIView.animate(withDuration: 1.25,
-                       delay: 0,
-                       usingSpringWithDamping: 0.6,
-                       initialSpringVelocity: 0.1,
-                       options: .curveEaseOut,
-                       animations: {
-                        if shouldDismissCard {
-                            self.center = CGPoint(x: 600 * translationDirection, y: 0)
-                        } else {
-                            self.transform = .identity
-                        }
-        }) { (_) in
-            self.transform = .identity
-            if shouldDismissCard{
-                self.removeFromSuperview()
-            }
+//        Hack solution:
+        
+        if shouldDismissCard {
+            self.isUserInteractionEnabled = false
+            guard let homeController = self.delegate as? SwiperViewController else { return }
             
-//            self.frame = CGRect(x: 0,
-//                                y: 0,
-//                                width: self.superview!.frame.width,
-//                                height: self.superview!.frame.height)
+            if translationDirection == 1 {
+                homeController.handleLike()
+            } else {
+                homeController.handleDislike()
+            }
+        } else {
+            UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.1, options: .curveEaseOut, animations: {
+                self.transform = .identity
+            })
         }
     }
     
