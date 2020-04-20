@@ -25,6 +25,8 @@
 		AF58B4462444843200135387 /* AgeRangeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF58B4452444843200135387 /* AgeRangeCell.swift */; };
 		AF5E6A122448721E006D53A7 /* PhotoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5E6A112448721E006D53A7 /* PhotoController.swift */; };
 		AF5E6A152449ECAD006D53A7 /* LikesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5E6A142449ECAD006D53A7 /* LikesController.swift */; };
+		AF5EFE9D244D9FA1006642BE /* ShoeModelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5EFE9C244D9FA1006642BE /* ShoeModelViewModel.swift */; };
+		AF5EFE9F244DAF89006642BE /* Shoe.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5EFE9E244DAF89006642BE /* Shoe.swift */; };
 		AF6500F82429F84A00C126F8 /* SwiperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6500F72429F84A00C126F8 /* SwiperViewController.swift */; };
 		AFB5A469242A38D600E9BC3A /* Extensions+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB5A468242A38D600E9BC3A /* Extensions+UIView.swift */; };
 		AFB5A46C242A3F0400E9BC3A /* SwipeBottomControlsUIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB5A46B242A3F0400E9BC3A /* SwipeBottomControlsUIStackView.swift */; };
@@ -63,6 +65,8 @@
 		AF58B4452444843200135387 /* AgeRangeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeRangeCell.swift; sourceTree = "<group>"; };
 		AF5E6A112448721E006D53A7 /* PhotoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoController.swift; sourceTree = "<group>"; };
 		AF5E6A142449ECAD006D53A7 /* LikesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesController.swift; sourceTree = "<group>"; };
+		AF5EFE9C244D9FA1006642BE /* ShoeModelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoeModelViewModel.swift; sourceTree = "<group>"; };
+		AF5EFE9E244DAF89006642BE /* Shoe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shoe.swift; sourceTree = "<group>"; };
 		AF6500F72429F84A00C126F8 /* SwiperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiperViewController.swift; sourceTree = "<group>"; };
 		AFB5A468242A38D600E9BC3A /* Extensions+UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Extensions+UIView.swift"; path = "/Users/antoineneidecker/Desktop/ShoeSwiper/CourseSwiper/SwipeMatchFirestoreLBTA/Extensions/Extensions+UIView.swift"; sourceTree = "<absolute>"; };
 		AFB5A46B242A3F0400E9BC3A /* SwipeBottomControlsUIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeBottomControlsUIStackView.swift; sourceTree = "<group>"; };
@@ -149,14 +153,14 @@
 		AF3E7158241F97230010DE24 /* ShoeSwiperMenus */ = {
 			isa = PBXGroup;
 			children = (
-				AFF03166242AAD370092312A /* ViewModels */,
 				AFF03163242AA2450092312A /* Model */,
+				AFF03166242AAD370092312A /* ViewModels */,
 				AFB5A46A242A3ED900E9BC3A /* Views */,
-				AFB5A467242A38B900E9BC3A /* Extensions */,
 				AF2CB911242236AA007C352F /* ViewControllers */,
 				AF3E7159241F97230010DE24 /* AppDelegate.swift */,
 				AF3E715B241F97230010DE24 /* SceneDelegate.swift */,
 				AF3E715F241F97230010DE24 /* Main.storyboard */,
+				AFB5A467242A38B900E9BC3A /* Extensions */,
 				AF2CB914242240DE007C352F /* Helpers */,
 				AF3E7162241F97240010DE24 /* Assets.xcassets */,
 				AF3E7164241F97240010DE24 /* LaunchScreen.storyboard */,
@@ -215,6 +219,7 @@
 				AFF03164242AA2680092312A /* User.swift */,
 				AFF03169242AB4000092312A /* Advertiser.swift */,
 				AF58B443244462C900135387 /* ActualUser.swift */,
+				AF5EFE9E244DAF89006642BE /* Shoe.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -223,6 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				AFF03167242AAD4F0092312A /* CardViewModel.swift */,
+				AF5EFE9C244D9FA1006642BE /* ShoeModelViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -375,6 +381,7 @@
 				AF55CE93244627AA00D9A57F /* ShoeDetailsViewController.swift in Sources */,
 				AF55CE9524472E3F00D9A57F /* SwipingPhotosController.swift in Sources */,
 				AF58B4402441DAAC00135387 /* SettingsController.swift in Sources */,
+				AF5EFE9D244D9FA1006642BE /* ShoeModelViewModel.swift in Sources */,
 				AFB5A46C242A3F0400E9BC3A /* SwipeBottomControlsUIStackView.swift in Sources */,
 				AF5E6A122448721E006D53A7 /* PhotoController.swift in Sources */,
 				AFF0316C242B8F950092312A /* CustomTextField.swift in Sources */,
@@ -393,6 +400,7 @@
 				AF5E6A152449ECAD006D53A7 /* LikesController.swift in Sources */,
 				AF55CE902445803A00D9A57F /* LogoutTableViewCell.swift in Sources */,
 				AFF03162242A610E0092312A /* CardView.swift in Sources */,
+				AF5EFE9F244DAF89006642BE /* Shoe.swift in Sources */,
 				AF58B444244462CA00135387 /* ActualUser.swift in Sources */,
 				AFBBC062242650AD0099399B /* Constants.swift in Sources */,
 			);

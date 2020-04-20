@@ -143,15 +143,12 @@ class SwiperViewController: UIViewController, SettingsControllerDelegate, LoginC
                 return
             }
             
-//            We are going to setup the nextCardView relationship for all cards somehow:
             var previousCardView: CardView?
             
             snapshot?.documents.forEach({ (documentSnapshot) in
                 let userDictionary = documentSnapshot.data()
                 let user = User(dictionary: userDictionary)
                 let cardView = self.setupCardFromUser(user: user)
-//                self.cardViewModels.append(user.toCardViewModel())
-//                self.lastFetchedUser = user
                 previousCardView?.nextCardView = cardView
                 previousCardView = cardView
 //                Use this nextCardView == nil to load the pictures!!
@@ -218,7 +215,7 @@ class SwiperViewController: UIViewController, SettingsControllerDelegate, LoginC
     
     fileprivate func performSwipeAnimation(translation: CGFloat, angle: CGFloat) {
         
-        let duration = 0.8
+        let duration = 0.6
         let translationAnimation = CABasicAnimation(keyPath: "position.x")
         translationAnimation.toValue = translation
         translationAnimation.duration = duration

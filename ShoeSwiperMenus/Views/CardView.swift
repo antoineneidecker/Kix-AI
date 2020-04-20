@@ -23,13 +23,6 @@ class CardView: UIView {
     
     var cardViewModel: CardViewModel!{
         didSet{
-//            let imageName = cardViewModel.imageUrls.first ?? ""
-
-//
-//            load our image using a URL:
-//            if let url = URL(string: imageName){
-//                imageView.sd_setImage(with: url)
-//            }
             swipingPhotosController.cardViewModel = self.cardViewModel
             
             informationLabel.attributedText = cardViewModel.attributedString
