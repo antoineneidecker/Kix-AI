@@ -21,11 +21,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        let settings = db.settings
 //        db.settings = settings
         
-        let navigation = UINavigationController(rootViewController: SwiperViewController())
+        
         
         //This will bring up the welcome page directly
         window = UIWindow()
         window!.makeKeyAndVisible()
+        let navigation = UINavigationController(rootViewController: SwiperViewController())
         window!.rootViewController = navigation
         
         return true

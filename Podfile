@@ -2,25 +2,20 @@
 platform :ios, '13.2'
 
 target 'ShoeSwiperMenus' do
-  # Comment the next line if you don't want to use dynamic frameworks
-  use_frameworks!
-
-  # Pods for ShoeSwiperMenus
+# Comment the next line if you don't want to use dynamic frameworks
+use_frameworks!
+inhibit_all_warnings!
+# Pods for ShoeSwiperMenus
 # add the Firebase pod for Google Analytics
-pod 'Firebase/Analytics'
-# add pods for any other desired Firebase products
+
 # https://firebase.google.com/docs/ios/setup#available-pods
-pod 'Firebase/Core'
-pod 'Firebase/Firestore'
-pod ‘FirebaseUI/Auth'
-pod 'FirebaseUI/Google'
-pod 'FirebaseUI'
-pod 'MaterialComponents/Buttons'
-pod 'MaterialComponents/Buttons+Theming'
-# pod 'MaterialComponents/schemes/Color'
-
-pod 'Shuffle-iOS'
-pod 'JGProgressHUD'
-pod 'LBTATools'
-
+  pod 'Firebase/Firestore’
+  pod 'Firebase/Auth’
+  pod 'Firebase/Storage’
+  pod 'Firebase/Core’
+  pod 'GoogleAppMeasurement'
+  pod 'SDWebImage'
+  pod 'LBTATools'
+  pod 'JGProgressHUD'
+  pod 'FirebaseFirestoreSwift'
 end

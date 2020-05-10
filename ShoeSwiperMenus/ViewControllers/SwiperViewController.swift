@@ -27,9 +27,11 @@ class SwiperViewController: UIViewController, SettingsControllerDelegate, LoginC
         
         topStackView.userButton.addTarget(self, action: #selector(handleUserButton), for: .touchUpInside)
         topStackView.messageButtons.addTarget(self, action: #selector(handleMessageButton), for: .touchUpInside)
+        
         bottomControls.refreshButton.addTarget(self, action: #selector(handleRefresh), for: .touchUpInside)
         bottomControls.likeButton.addTarget(self, action: #selector(handleLike), for: .touchUpInside)
         bottomControls.dislikeButton.addTarget(self, action: #selector(handleDislike), for: .touchUpInside)
+        bottomControls.colorButton.addTarget(self, action: #selector(handleColorChange), for: .touchUpInside)
 
         
         setupLayout()
@@ -62,7 +64,6 @@ class SwiperViewController: UIViewController, SettingsControllerDelegate, LoginC
         
         hud.textLabel.text = "Loading"
         hud.show(in: view)
-        
         cardsDeckView.subviews.forEach({$0.removeFromSuperview()})
         
         guard let userUID = Auth.auth().currentUser?.uid else {
@@ -100,13 +101,54 @@ class SwiperViewController: UIViewController, SettingsControllerDelegate, LoginC
         }
     }
     
+    @objc fileprivate func handleColorChange(){
+//        Make sure to change the topCardView to the new color shoe:
+//        let cardView = topCardView
+//        topCardView = nextCard
+//        cardView?.removeFromSuperview()
+    }
+    
+    fileprivate func setupCardFromShoe(shoe: Shoe) -> [CardView]{
+    //        We must setup the SVMV here, and the list of cardViews, because we have to setup the linked list next.
+    //        Iterate through the CardViewModels of the SVMV and setup their CardView
+        let models = shoe.toCardViewModels()
+        var cardViews = [CardView]()
+        var counter = 0
+        var previousColor: CardView?
+        //        Set the first cardView of the list to the following:
+        models.forEach { (cViewModel) in
+            let cardView = CardView(frame: .zero)
+            cardView.delegate = self
+            cardView.cardViewModel = cViewModel
+            previousColor?.nextColor = cardView
+            cardView.fillSuperview()
+            if counter == 0{
+                cardsDeckView.addSubview(cardView)
+                cardsDeckView.sendSubviewToBack(cardView)
+            }
+            previousColor = cardView
+            if counter == cardViews.count - 1{
+                cardView.nextColor = cardViews[0]
+            }
+            cardViews.append(cardView)
+            counter += 1
+        }
+//        returning an array of cardViews
+        return cardViews
+}
+    
+    
     fileprivate func setupCardFromUser(user: User) -> CardView{
+//        We must setup the SVMV here, and the list of cardViews, because we have to setup the linked list next.
+//        Iterate through the CardViewModels of the SVMV and setup their CardView
         let cardView = CardView(frame: .zero)
         cardView.delegate = self
         cardView.cardViewModel = user.toCardViewModel()
+//        Set the first cardView of the list to the following:
         cardsDeckView.addSubview(cardView)
         cardsDeckView.sendSubviewToBack(cardView)
         cardView.fillSuperview()
+//        returning an array of cardViews
         return cardView
         
     }
@@ -124,6 +166,7 @@ class SwiperViewController: UIViewController, SettingsControllerDelegate, LoginC
     
     var lastFetchedUser: User?
     
+    //This is to fetch all the SHOES from firestore!!
     fileprivate func fetchUsersFromFirestore(){
         
         let minPrice = user?.minSeekingPrice ?? SettingsController.defaultMinSeekingPrice
@@ -135,6 +178,10 @@ class SwiperViewController: UIViewController, SettingsControllerDelegate, LoginC
 //        We will setup pagination on the following query:
         
         topCardView = nil
+//         TO DO: SET FILTERS FOR PRICING!!!!
+//        TOOK OFF FILTERS :/
+        
+        
         Firestore.firestore().collection("shoes").whereField("shoePrice", isGreaterThanOrEqualTo: minPrice).whereField("shoePrice", isLessThanOrEqualTo: maxPrice).getDocuments { (snapshot, err) in
             self.hud.dismiss()
             
@@ -143,22 +190,51 @@ class SwiperViewController: UIViewController, SettingsControllerDelegate, LoginC
                 return
             }
             
-            var previousCardView: CardView?
+            var previousCardView: CardView? //change this to [CardView?] when using the Shoe model
             
             snapshot?.documents.forEach({ (documentSnapshot) in
                 let userDictionary = documentSnapshot.data()
                 let user = User(dictionary: userDictionary)
                 let cardView = self.setupCardFromUser(user: user)
+                
                 previousCardView?.nextCardView = cardView
                 previousCardView = cardView
-//                Use this nextCardView == nil to load the pictures!!
                 
-                if self.topCardView == nil{
+                if self.topCardView == nil {
                     self.topCardView = cardView
                 }
+
+                
+//                Here we can extract the data from FB and directly feed it to the SVMV. The SVMV will take care of the rest.
+//                let shoeDictionary = documentSnapshot.data()
+//                print(shoeDictionary)
+//                The following line returns a Shoe object
+//                let shoe = try! FirestoreDecoder().decode(Shoe.self, from: documentSnapshot.data())
+//                let shoe = Shoe(dictionary: shoeDictionary as! [String : AnyHashable])
+                
+//                print("I AM HERE!!!")
+//                print(shoe)
+//                The following line returns an array of cardViews
+//                let cardViews = self.setupCardFromShoe(shoe: shoe)
+////                Iterate through the cardViews :
+////                Make sure to set their nextCardView equal to the first of the next SVMV series. Done next:
+//                if let previousCardView = previousCardView {
+//                    previousCardView.forEach({ (card) in
+//                        card.nextCardView = cardViews[0]
+//                    })
+//                }
+//                previousCardView = cardViews
+//
+//
+//
+//                if self.topCardView == nil{
+////                    Here the first of the first
+//                    self.topCardView = cardViews[0]
+//                }
             })
         }
     }
+    
     
     var topCardView: CardView?
     
@@ -173,7 +249,18 @@ class SwiperViewController: UIViewController, SettingsControllerDelegate, LoginC
         
         guard let cardUID = topCardView?.cardViewModel?.name else {return}
         
-        let documentData = [cardUID: didLike]
+        guard let cardUrl = topCardView?.cardViewModel?.imageUrls else {return}
+        
+        guard let brand = topCardView?.cardViewModel?.brand else {return}
+        
+        guard let price = topCardView?.cardViewModel?.price else {return}
+                
+        let documentData = ["shoeName": cardUID,
+                            "shoePrice": price,
+                            "shoeBrand": brand,
+                            "liked" : didLike,
+                            "picturesURL" : cardUrl,
+                            "timestamp" : Timestamp(date: Date())] as [String : Any]
         
         Firestore.firestore().collection("swipes").document(uid).getDocument{ (snapshot, err) in
             if let err = err {
@@ -181,7 +268,7 @@ class SwiperViewController: UIViewController, SettingsControllerDelegate, LoginC
                 return
             }
             if snapshot?.exists == true {
-                Firestore.firestore().collection("swipes").document(uid).updateData(documentData)
+                Firestore.firestore().collection("swipes").document(uid).collection("liked").document(cardUID).setData(documentData, merge: true)
                 { (err) in
                     if let err = err{
                         print("Failed to updated swipe data: ", err)
@@ -191,7 +278,7 @@ class SwiperViewController: UIViewController, SettingsControllerDelegate, LoginC
                 }
             }
             else{
-                Firestore.firestore().collection("swipes").document(uid).setData(documentData)
+                Firestore.firestore().collection("swipes").document(uid).collection("liked").document(cardUID).setData(documentData)
                 { (err) in
                     if let err = err{
                         print("Failed to save swipe data: ", err)
@@ -241,9 +328,9 @@ class SwiperViewController: UIViewController, SettingsControllerDelegate, LoginC
     }
     
     @objc fileprivate func handleMessageButton(){
-        let vc = UIViewController()
-        vc.view.backgroundColor = .red
+        let vc = LikesController()
         navigationController?.pushViewController(vc, animated: true)
+    
 //        let navController = UINavigationController(rootViewController: vc)
 //        navController.modalPresentationStyle = .fullScreen
 //        self.present(navController, animated: true)

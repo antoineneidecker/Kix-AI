@@ -13,29 +13,11 @@ protocol ProduceShoeModel{
 }
 
 class ShoeModelViewModel {
-    let shoeName: String
-    let currentShoe: CardViewModel
+
+    let cardViewModels: [CardViewModel]
     
-    fileprivate var shoeModelIndex = 0 {
-        didSet{
-//            let imageName = imageUrls[imageIndex]
-//            let image = UIImage(named: imageName)
-//            imageIndexObserver?(imageIndex, image)
-        }
+    init(cardViewModels: [CardViewModel]){
+        self.cardViewModels = cardViewModels
     }
-    
-    init(shoeName: String, currentShoe: CardViewModel){
-        self.shoeName = shoeName
-        self.currentShoe = currentShoe
-        
-    }
-    
-    var shoeImageIndexObserver: ((Int, UIImage?) -> ())?
-    
-    
-    func advanceToNextShoeModel(){
-        shoeModelIndex = (shoeModelIndex + 1 % imageUrls.count - 1)
-    }
-    
 }
 

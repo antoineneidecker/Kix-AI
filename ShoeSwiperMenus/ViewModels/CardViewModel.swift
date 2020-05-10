@@ -13,9 +13,15 @@ protocol ProducesCardViewModel {
     func toCardViewModel() -> CardViewModel
 }
 
+protocol ProduceCardViewModels {
+    func toCardViewModels() -> [CardViewModel]
+}
+
 class CardViewModel {
     //we'll define the propreties that our view will display/render out
     let name: String
+    let brand: String
+    let price: String
     let imageUrls: [String]
     let attributedString: NSAttributedString
     let textAllignment: NSTextAlignment
@@ -29,8 +35,10 @@ class CardViewModel {
     }
     
     
-    init(name: String, imageNames: [String], attributedString: NSAttributedString, textAllignment: NSTextAlignment){
+    init(name: String, brand: String, price: String, imageNames: [String], attributedString: NSAttributedString, textAllignment: NSTextAlignment){
         self.name = name
+        self.brand = brand
+        self.price = price
         self.imageUrls = imageNames
         self.attributedString = attributedString
         self.textAllignment = textAllignment

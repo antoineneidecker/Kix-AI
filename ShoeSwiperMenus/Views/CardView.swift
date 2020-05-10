@@ -15,13 +15,21 @@ protocol CardViewDelegate{
     func didRemoveCard(cardView: CardView)
 }
 
+protocol CardViewDelegateMoreInfo{
+    func didTapMoreInfo(cardViewModel: CardViewModel)
+}
+
 class CardView: UIView {
+    
+    var nextColor: CardView?
     
     var nextCardView: CardView?
     
     var delegate: CardViewDelegate?
     
     var cardViewModel: CardViewModel!{
+        
+        
         didSet{
             swipingPhotosController.cardViewModel = self.cardViewModel
             
@@ -39,6 +47,7 @@ class CardView: UIView {
         }
     }
     
+    
 //    fileprivate let imageView = UIImageView(image: #imageLiteral(resourceName: "Dior"))
     // replace the UIPageViewController with the SwipingPhotoController
     
@@ -48,25 +57,18 @@ class CardView: UIView {
     fileprivate let informationLabel = UILabel()
     
     fileprivate func setupImageIndexObserver(){
+        
         cardViewModel.imageIndexObserver = { (idx, image) in
-            
-            //Brian said to set self to optional value. Can't do that.....
-//            self.imageView.image = image
-            
             self.barsStackView.arrangedSubviews.forEach { (v) in
                 v.backgroundColor = self.barDeselectedColor
             }
-            self.barsStackView.arrangedSubviews[idx].backgroundColor = .white
             
+            self.barsStackView.arrangedSubviews[idx].backgroundColor = .white
         }
     }
     
-    
     //Configurations
     fileprivate let threshold: CGFloat = 80
-    
-    
-    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -79,6 +81,7 @@ class CardView: UIView {
     }
     
     var imageIndex = 0
+    
     fileprivate let barDeselectedColor = UIColor(white: 0, alpha: 0.1)
     
     @objc fileprivate func handleTap(gesture: UITapGestureRecognizer){
