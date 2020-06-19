@@ -11,7 +11,7 @@ import UIKit
 class TopNavigationStackView: UIStackView {
     
     let userButton = UIButton(type: .system)
-    let fireButton = UIImageView(image: #imageLiteral(resourceName: "fireIconTop"))
+    let fireButton = UIImageView(image: #imageLiteral(resourceName: "kix_logo_pink"))
     let messageButtons = UIButton(type: .system)
     
     

@@ -7,14 +7,19 @@
 //
 
 import UIKit
+import Firebase
 
-
+protocol LogoutDelegate {
+    func didTapLogout()
+}
 
 class LogoutTableViewCell: UITableViewCell {
-    
+
+    var logoutDelegate: LogoutDelegate!
+     
     
     @objc fileprivate func handleLogout(){
-        
+        logoutDelegate.didTapLogout()
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -38,8 +43,9 @@ class LogoutTableViewCell: UITableViewCell {
         let overAllStackView = UIStackView(arrangedSubviews:[logoutButton])
         overAllStackView.spacing = 16
         addSubview(overAllStackView)
-        overAllStackView.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 25, left: 16, bottom: 16, right: 16))
+        overAllStackView.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 10, left: 10, bottom: 10, right: 10))
     }
+    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

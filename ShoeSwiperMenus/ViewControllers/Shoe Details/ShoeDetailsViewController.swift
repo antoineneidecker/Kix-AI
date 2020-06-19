@@ -47,41 +47,44 @@ class ShoeDetailsViewController: UIViewController, UIScrollViewDelegate {
     
     // 3 bottom control buttons
     
-    lazy var dislikeButton = self.createButton(image: #imageLiteral(resourceName: "pass"), selector: #selector(handleDislike))
-    lazy var superLikeButton = self.createButton(image: #imageLiteral(resourceName: "star"), selector: #selector(handleDislike))
-    lazy var likeButton = self.createButton(image: #imageLiteral(resourceName: "heart"), selector: #selector(handleDislike))
-    
-    @objc fileprivate func handleDislike() {
-        print("Disliking")
-    }
-    
-    fileprivate func createButton(image: UIImage, selector: Selector) -> UIButton {
-        let button = UIButton(type: .system)
-        button.setImage(image.withRenderingMode(.alwaysOriginal), for: .normal)
-        button.addTarget(self, action: selector, for: .touchUpInside)
-        button.imageView?.contentMode = .scaleAspectFill
-        return button
-    }
+//    lazy var dislikeButton = self.createButton(image: #imageLiteral(resourceName: "pass"), selector: #selector(handleDislike))
+//    lazy var superLikeButton = self.createButton(image: #imageLiteral(resourceName: "star"), selector: #selector(handleDislike))
+//    lazy var likeButton = self.createButton(image: #imageLiteral(resourceName: "heart"), selector: #selector(handleDislike))
+//
+//    @objc fileprivate func handleDislike() {
+//        print("Disliking")
+//    }
+//
+//    fileprivate func createButton(image: UIImage, selector: Selector) -> UIButton {
+//        let button = UIButton(type: .system)
+//        button.setImage(image.withRenderingMode(.alwaysOriginal), for: .normal)
+//        button.addTarget(self, action: selector, for: .touchUpInside)
+//        button.imageView?.contentMode = .scaleAspectFill
+//        return button
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        if #available(iOS 13.0, *) {
+            self.overrideUserInterfaceStyle = .light
+        }
         
         view.backgroundColor = .white
         
         setupLayout()
         setupVisualBlurEffectView()
-        setupBottomControls()
+//        setupBottomControls()
     }
     
-    fileprivate func setupBottomControls() {
-        let stackView = UIStackView(arrangedSubviews: [dislikeButton, superLikeButton, likeButton])
-        stackView.distribution = .fillEqually
-        stackView.spacing = -32
-        view.addSubview(stackView)
-        stackView.anchor(top: nil, leading: nil, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: nil, padding: .init(top: 0, left: 0, bottom: 0, right: 0), size: .init(width: 300, height: 80))
-        stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-    }
+//    fileprivate func setupBottomControls() {
+//        let stackView = UIStackView(arrangedSubviews: [dislikeButton, superLikeButton, likeButton])
+//        stackView.distribution = .fillEqually
+//        stackView.spacing = -32
+//        view.addSubview(stackView)
+//        stackView.anchor(top: nil, leading: nil, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: nil, padding: .init(top: 0, left: 0, bottom: 0, right: 0), size: .init(width: 300, height: 80))
+//        stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+//    }
     
     fileprivate func setupVisualBlurEffectView() {
         let blurEffect = UIBlurEffect(style: .regular)

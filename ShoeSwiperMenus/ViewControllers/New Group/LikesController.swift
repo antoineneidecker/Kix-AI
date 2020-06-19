@@ -31,13 +31,16 @@ struct RecentMessage{
 
 class RecentMessageCell : LBTAListCell<RecentMessage>{
     
-    let userProfileImageView = UIImageView(image: #imageLiteral(resourceName: "Lacoste1"), contentMode: .scaleAspectFill)
+    let userProfileImageView = UIImageView(image: #imageLiteral(resourceName: "infoButton"), contentMode: .scaleAspectFill)
     let usernameLabel = UILabel(text: "SHOE HERE", font: .boldSystemFont(ofSize: 18))
     let messageTextLabel = UILabel(text: "Some long line of text that should span 2 lines", font: .systemFont(ofSize: 16), textColor: .gray, numberOfLines: 2)
         
     
     override func setupViews() {
         super.setupViews()
+        if #available(iOS 13.0, *) {
+            self.overrideUserInterfaceStyle = .light
+        }
         
         userProfileImageView.layer.cornerRadius = 94 / 2
         
@@ -74,12 +77,13 @@ class LikesController: LBTAListHeaderController<RecentMessageCell, RecentMessage
     
     var delegate: CardViewDelegate?
     
-    let customNavBar = LikedNavBar()
-
+    var customNavBar = LikedNavBar()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        items = [
-        ]
+        if #available(iOS 13.0, *) {
+            self.overrideUserInterfaceStyle = .light
+        }
         fetchMatches()
         setupUI()
         
@@ -161,33 +165,11 @@ class LikesController: LBTAListHeaderController<RecentMessageCell, RecentMessage
 
 
 struct LikedShoe {
-//    let name, price, profileImageUrl: String
-//
-//    init(dictionary: [String: Any]) {
-//        self.name = dictionary["name"] as? String ?? ""
-//        self.price = dictionary["price"] as? String ?? ""
-//        self.profileImageUrl = dictionary["picUrl"] as? String ?? ""
-//    }
+
     
 }
 
 class shoeCell: LBTAListCell<LikedShoe> {
-    
-//    let profileImageView = UIImageView(image: #imageLiteral(resourceName: "Lacoste"), contentMode: .scaleAspectFill)
-//    let userNameLabel = UILabel(text: "Shoe Name", font: .systemFont(ofSize: 16, weight: .semibold), textColor: #colorLiteral(red: 0.09019608051, green: 0, blue: 0.3019607961, alpha: 1), textAlignment: .center, numberOfLines: 0)
-//
-//    override var item: LikedShoe!{
-//        didSet{
-//            userNameLabel.text = item.name
-//        }
-//    }
-//
-//    override func setupViews() {
-//        super.setupViews()
-//        profileImageView.clipsToBounds = true
-//        profileImageView.constrainWidth(80)
-//        profileImageView.constrainHeight(80)
-//        stack(profileImageView, userNameLabel)
-//    }
+
 }
 

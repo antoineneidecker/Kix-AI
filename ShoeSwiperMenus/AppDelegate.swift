@@ -21,13 +21,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        let settings = db.settings
 //        db.settings = settings
         
-        
-        
         //This will bring up the welcome page directly
         window = UIWindow()
         window!.makeKeyAndVisible()
         let navigation = UINavigationController(rootViewController: SwiperViewController())
         window!.rootViewController = navigation
+        
+        //disable dark mode
+//        #if compiler(>=5.1)
+//            if #available(iOS 13.0, *) {
+//                self.window?.overrideUserInterfaceStyle = .light
+//            }
+//            #endif
         
         return true
     }

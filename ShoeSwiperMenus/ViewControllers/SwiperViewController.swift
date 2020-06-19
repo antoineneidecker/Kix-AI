@@ -22,7 +22,9 @@ class SwiperViewController: UIViewController, SettingsControllerDelegate, LoginC
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        if #available(iOS 13.0, *) {
+            self.overrideUserInterfaceStyle = .light
+        }
         navigationController?.navigationBar.isHidden = true
         
         topStackView.userButton.addTarget(self, action: #selector(handleUserButton), for: .touchUpInside)
@@ -203,34 +205,6 @@ class SwiperViewController: UIViewController, SettingsControllerDelegate, LoginC
                 if self.topCardView == nil {
                     self.topCardView = cardView
                 }
-
-                
-//                Here we can extract the data from FB and directly feed it to the SVMV. The SVMV will take care of the rest.
-//                let shoeDictionary = documentSnapshot.data()
-//                print(shoeDictionary)
-//                The following line returns a Shoe object
-//                let shoe = try! FirestoreDecoder().decode(Shoe.self, from: documentSnapshot.data())
-//                let shoe = Shoe(dictionary: shoeDictionary as! [String : AnyHashable])
-                
-//                print("I AM HERE!!!")
-//                print(shoe)
-//                The following line returns an array of cardViews
-//                let cardViews = self.setupCardFromShoe(shoe: shoe)
-////                Iterate through the cardViews :
-////                Make sure to set their nextCardView equal to the first of the next SVMV series. Done next:
-//                if let previousCardView = previousCardView {
-//                    previousCardView.forEach({ (card) in
-//                        card.nextCardView = cardViews[0]
-//                    })
-//                }
-//                previousCardView = cardViews
-//
-//
-//
-//                if self.topCardView == nil{
-////                    Here the first of the first
-//                    self.topCardView = cardViews[0]
-//                }
             })
         }
     }
@@ -261,6 +235,8 @@ class SwiperViewController: UIViewController, SettingsControllerDelegate, LoginC
                             "liked" : didLike,
                             "picturesURL" : cardUrl,
                             "timestamp" : Timestamp(date: Date())] as [String : Any]
+        
+        print(documentData)
         
         Firestore.firestore().collection("swipes").document(uid).getDocument{ (snapshot, err) in
             if let err = err {
@@ -330,16 +306,17 @@ class SwiperViewController: UIViewController, SettingsControllerDelegate, LoginC
     @objc fileprivate func handleMessageButton(){
         let vc = LikesController()
         navigationController?.pushViewController(vc, animated: true)
-    
-//        let navController = UINavigationController(rootViewController: vc)
-//        navController.modalPresentationStyle = .fullScreen
-//        self.present(navController, animated: true)
-    
+        print("Shoe Rack clicked!!!!")
     }
-    
+    let colors = Colors()
         
     fileprivate func setupLayout() {
+        
         view.backgroundColor = .white
+        let backgroundLayer = colors.gl
+        backgroundLayer!.frame = view.frame
+        view.layer.insertSublayer((backgroundLayer ?? nil)!, at: 0)
+        
         let overallStackView = UIStackView(arrangedSubviews: [topStackView, cardsDeckView, bottomControls]) //z index follows the order of the previous array (priority of stacking)
         overallStackView.axis = .vertical
         view.addSubview(overallStackView)
@@ -349,6 +326,21 @@ class SwiperViewController: UIViewController, SettingsControllerDelegate, LoginC
         overallStackView.isLayoutMarginsRelativeArrangement = true
         overallStackView.layoutMargins = .init(top: 0, left: 12, bottom: 0, right: 12)
         overallStackView.bringSubviewToFront(cardsDeckView)
+    
     }
 
+}
+
+class Colors {
+    var gl:CAGradientLayer!
+    
+
+    init() {
+        let colorTop = UIColor(red: 9.0 / 255.0, green: 13.0 / 255.0, blue: 75.0 / 255.0, alpha: 0.9).cgColor
+        let colorBottom = UIColor(red: 0.0 / 255.0, green: 120 / 255.0, blue: 205.0 / 255.0, alpha: 0.9).cgColor
+
+        self.gl = CAGradientLayer()
+        self.gl.colors = [colorTop, colorBottom]
+        self.gl.locations = [0.0, 1.0]
+    }
 }

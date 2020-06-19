@@ -15,12 +15,22 @@ protocol SettingsControllerDelegate {
     func didSaveSettings()
 }
 
+
 class SettingsController: UITableViewController {
 
     var delegate: SettingsControllerDelegate?
     
+    override func viewDidAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = false
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        if #available(iOS 13.0, *) {
+//            self.overrideUserInterfaceStyle = .light
+//        }
+        
         setupNavigationItems()
         tableView.backgroundColor = UIColor(white: 0.95, alpha: 1)
         tableView.tableFooterView = UIView()
@@ -59,10 +69,13 @@ class SettingsController: UITableViewController {
             self.tableView.reloadData()
             
             }
-    }
+        }
     }
     
-   
+    @objc fileprivate func handleFeedback(){
+        let chatLogController = ChatLogController()
+        self.navigationController?.pushViewController(chatLogController, animated: true)
+   }
     
     @objc fileprivate func handleLogout(){
         try? Auth.auth().signOut()
@@ -70,30 +83,16 @@ class SettingsController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if section == 6 {
-//            let cell = LogoutTableViewCell(style: .default, reuseIdentifier: nil, action: #selector(handleCancel))
-//            return cell
-//            let rect = CGRect(x: 0, y: 0, width: 100, height: 100)
-//            let logoutView = UIView(frame: rect)
-            
-            
-            let logoutButton: UIButton = {
-                let button = UIButton(type: .system)
-                button.setTitle("Log Out", for: .normal)
-                button.setTitleColor(#colorLiteral(red: 0.7137254902, green: 0.09411764706, blue: 0.1529411765, alpha: 1), for: .normal)
-                button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .heavy)
-                button.layer.borderWidth = 2
-                button.layer.borderColor = #colorLiteral(red: 0.7137254902, green: 0.09411764706, blue: 0.1529411765, alpha: 1)
-                button.layer.cornerRadius = 22
-                button.tintColor = UIColor.black
-                button.heightAnchor.constraint(equalToConstant: 55).isActive = true
-                button.addTarget(self, action: #selector(handleLogout), for: .touchUpInside)
-                
-            return button
-            }()
-//            logoutView.addSubview(logoutButton)
-////            logoutView.frame.insetBy(dx: 10, dy: 10)
-//
+        
+        if section == 6{
+            let feedbackButton = FeedBackTableViewCell()
+            feedbackButton.feedbackDelegate = self
+            return feedbackButton
+        }
+        
+        if section == 7 {
+            let logoutButton = LogoutTableViewCell()
+            logoutButton.logoutDelegate = self
             return logoutButton
         }
         let headerLabel = HeaderLabel()
@@ -119,18 +118,28 @@ class SettingsController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 6 {
-            return 65
+            return 90
         }
-        return 40
+        if section == 7{
+            return 90
+        }
+        return 50
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return section == 6 ? 0 : 1
+        switch section {
+        case 6:
+            return 0
+        case 7:
+            return 0
+        default:
+            return 1
+        }
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 7
+        return 8
     }
     
     @objc fileprivate func handleMinAgeChange(slider: UISlider){
@@ -274,5 +283,14 @@ class SettingsController: UITableViewController {
         }
     }
 }
+extension SettingsController: LogoutDelegate{
+    func didTapLogout() {
+        handleLogout()
+    }
+}
 
-
+extension SettingsController: FeedbackDelegate{
+    func didTapFeedback() {
+        handleFeedback()
+    }
+}

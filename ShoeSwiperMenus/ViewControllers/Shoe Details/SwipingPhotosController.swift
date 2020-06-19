@@ -90,13 +90,19 @@ class SwipingPhotosController: UIPageViewController, UIPageViewControllerDataSou
             barsStackView.arrangedSubviews.forEach({$0.backgroundColor = deselectedBarColor})
             
             if gesture.location(in: self.view).x > view.frame.width / 2 {
-                let nextIndex = min(index + 1, controllers.count - 1)
+//                let nextIndex = min(index + 1, controllers.count - 1)
+                let nextIndex = (index+1)%(controllers.count)
                 let nextController = controllers[nextIndex]
                 setViewControllers([nextController], direction: .forward, animated: false)
                 barsStackView.arrangedSubviews[nextIndex].backgroundColor = .white
                 
             } else {
-                let prevIndex = max(0, index - 1)
+//                let prevIndex = max(0, index - 1)
+                var prevIndex = (index - 1)%(controllers.count)
+                if (prevIndex < 0){
+                    prevIndex = prevIndex + (controllers.count)
+                }
+                print(prevIndex)
                 let prevController = controllers[prevIndex]
                 setViewControllers([prevController], direction: .forward, animated: false)
                 barsStackView.arrangedSubviews[prevIndex].backgroundColor = .white

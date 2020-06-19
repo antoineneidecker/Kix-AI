@@ -13,7 +13,7 @@ import UIKit
 
 class LikedNavBar: UIView {
     
-    let backButton = UIButton(image: #imageLiteral(resourceName: "fireIconTop"), tintColor: .lightGray)
+    let backButton = UIButton(image: #imageLiteral(resourceName: "kix_logo_pink"), tintColor: .lightGray)
     
     override init(frame: CGRect) {
         super.init(frame: frame)

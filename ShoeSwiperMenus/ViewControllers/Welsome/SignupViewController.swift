@@ -106,7 +106,7 @@ class SignupViewController: UIViewController {
         
         if Utilities.isPasswordValid(cleanedPassword) == false {
             
-            return "Please make sure the password is at least 8 characters long, contains a spectial character and a number."
+            return "Please make sure the password is at least 8 characters long."
         }
         return nil
     }

@@ -17,7 +17,7 @@ class WelcomeViewController: UIViewController {
     
     let signupButton: UIButton = {
             let button = UIButton(type: .system)
-            button.setTitle("Sign In", for: .normal)
+            button.setTitle("Sign Up", for: .normal)
             button.setTitleColor(.white, for: .normal)
             button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .heavy)
             button.backgroundColor = #colorLiteral(red: 0.05882352963, green: 0.180392161, blue: 0.2470588237, alpha: 1)

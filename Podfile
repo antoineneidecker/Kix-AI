@@ -15,7 +15,6 @@ inhibit_all_warnings!
   pod 'Firebase/Core’
   pod 'GoogleAppMeasurement'
   pod 'SDWebImage'
-  pod 'LBTATools'
   pod 'JGProgressHUD'
   pod 'FirebaseFirestoreSwift'
 end
