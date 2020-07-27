@@ -11,7 +11,7 @@ import SDWebImage
 
 class ShoeDetailsViewController: UIViewController, UIScrollViewDelegate {
     
-    // you should really create a different ViewModel object for UserDetails
+    // You should really create a different ViewModel object for UserDetails
     // ie UserDetailsViewModel
     var cardViewModel: CardViewModel! {
         didSet {
@@ -33,7 +33,7 @@ class ShoeDetailsViewController: UIViewController, UIScrollViewDelegate {
     
     let infoLabel: UILabel = {
         let label = UILabel()
-        label.text = "User name 30\nDoctor\nSome bio text down below"
+        label.text = "User name 30\nDoctor\nSome bio text down below."
         label.numberOfLines = 0
         return label
     }()
@@ -45,47 +45,15 @@ class ShoeDetailsViewController: UIViewController, UIScrollViewDelegate {
         return button
     }()
     
-    // 3 bottom control buttons
-    
-//    lazy var dislikeButton = self.createButton(image: #imageLiteral(resourceName: "pass"), selector: #selector(handleDislike))
-//    lazy var superLikeButton = self.createButton(image: #imageLiteral(resourceName: "star"), selector: #selector(handleDislike))
-//    lazy var likeButton = self.createButton(image: #imageLiteral(resourceName: "heart"), selector: #selector(handleDislike))
-//
-//    @objc fileprivate func handleDislike() {
-//        print("Disliking")
-//    }
-//
-//    fileprivate func createButton(image: UIImage, selector: Selector) -> UIButton {
-//        let button = UIButton(type: .system)
-//        button.setImage(image.withRenderingMode(.alwaysOriginal), for: .normal)
-//        button.addTarget(self, action: selector, for: .touchUpInside)
-//        button.imageView?.contentMode = .scaleAspectFill
-//        return button
-//    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        if #available(iOS 13.0, *) {
-            self.overrideUserInterfaceStyle = .light
-        }
         
         view.backgroundColor = .white
         
         setupLayout()
-        setupVisualBlurEffectView()
-//        setupBottomControls()
+//        setupVisualBlurEffectView()
     }
-    
-//    fileprivate func setupBottomControls() {
-//        let stackView = UIStackView(arrangedSubviews: [dislikeButton, superLikeButton, likeButton])
-//        stackView.distribution = .fillEqually
-//        stackView.spacing = -32
-//        view.addSubview(stackView)
-//        stackView.anchor(top: nil, leading: nil, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: nil, padding: .init(top: 0, left: 0, bottom: 0, right: 0), size: .init(width: 300, height: 80))
-//        stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-//    }
-    
+        
     fileprivate func setupVisualBlurEffectView() {
         let blurEffect = UIBlurEffect(style: .regular)
         let visualEffectView = UIVisualEffectView(effect: blurEffect)
@@ -97,15 +65,21 @@ class ShoeDetailsViewController: UIViewController, UIScrollViewDelegate {
     fileprivate func setupLayout() {
         view.addSubview(scrollView)
         scrollView.fillSuperview()
+//        scrollView.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor)
         
         let swipingView = swipingPhotosController.view!
         scrollView.addSubview(swipingView)
         
         scrollView.addSubview(infoLabel)
         infoLabel.anchor(top: swipingView.bottomAnchor, leading: scrollView.leadingAnchor, bottom: nil, trailing: scrollView.trailingAnchor, padding: .init(top: 16, left: 16, bottom: 0, right: 16))
+        infoLabel.numberOfLines = 0
+        
         
         scrollView.addSubview(dismissButton)
+        
         dismissButton.anchor(top: swipingView.bottomAnchor, leading: nil, bottom: nil, trailing: view.trailingAnchor, padding: .init(top: -25, left: 0, bottom: 0, right: 24), size: .init(width: 50, height: 50))
+        
+        
     }
     
     fileprivate let extraSwipingHeight: CGFloat = 80

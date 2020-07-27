@@ -102,7 +102,6 @@ class SwipingPhotosController: UIPageViewController, UIPageViewControllerDataSou
                 if (prevIndex < 0){
                     prevIndex = prevIndex + (controllers.count)
                 }
-                print(prevIndex)
                 let prevController = controllers[prevIndex]
                 setViewControllers([prevController], direction: .forward, animated: false)
                 barsStackView.arrangedSubviews[prevIndex].backgroundColor = .white
@@ -120,14 +119,19 @@ class SwipingPhotosController: UIPageViewController, UIPageViewControllerDataSou
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         let index = self.controllers.firstIndex(where: {$0 == viewController}) ?? 0
-        if index == controllers.count - 1 { return nil }
-        return controllers[index + 1]
+//        if index == controllers.count - 1 { return nil }
+        let nextIndex = (index+1)%(controllers.count)
+        return controllers[nextIndex]
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         let index = self.controllers.firstIndex(where: {$0 == viewController}) ?? 0
-        if index == 0 { return nil }
-        return controllers[index - 1]
+        var prevIndex = (index - 1)%(controllers.count)
+        if (prevIndex < 0){
+            prevIndex = prevIndex + (controllers.count)
+        }
+//        if index == 0 { return nil }
+        return controllers[prevIndex]
     }
 
 }

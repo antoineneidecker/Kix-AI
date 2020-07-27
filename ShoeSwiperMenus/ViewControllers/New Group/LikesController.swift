@@ -11,7 +11,8 @@ import LBTATools
 import Firebase
 
 struct RecentMessage{
-    let name, uid, price, brand : String
+    let name, uid, brand : String
+    let price : Float
     let picUrl: [String]
     
     let timestamp : Timestamp
@@ -21,11 +22,9 @@ struct RecentMessage{
         self.brand = dictionary["shoeBrand"] as? String ?? ""
         self.uid = dictionary["uid"] as? String ?? ""
         self.picUrl = dictionary["picturesURL"] as? [String] ?? [""]
-        self.price = dictionary["shoePrice"] as? String ?? ""
+        self.price = dictionary["shoePrice"] as? Float ?? 50.00
         
         self.timestamp = dictionary["timestamp"] as? Timestamp ?? Timestamp(date: Date())
-        
-        print(picUrl[0])
     }
 }
 
@@ -38,9 +37,6 @@ class RecentMessageCell : LBTAListCell<RecentMessage>{
     
     override func setupViews() {
         super.setupViews()
-        if #available(iOS 13.0, *) {
-            self.overrideUserInterfaceStyle = .light
-        }
         
         userProfileImageView.layer.cornerRadius = 94 / 2
         
@@ -57,7 +53,7 @@ class RecentMessageCell : LBTAListCell<RecentMessage>{
     override var item: RecentMessage!{
         didSet{
             usernameLabel.text = item.name
-            messageTextLabel.text = item.price
+            messageTextLabel.text = "€" + String(item.price)
             userProfileImageView.sd_setImage(with: URL(string: item.picUrl[0]))
         }
     }
@@ -75,15 +71,17 @@ class Header: UICollectionReusableView {
 
 class LikesController: LBTAListHeaderController<RecentMessageCell, RecentMessage, Header>, UICollectionViewDelegateFlowLayout, CardViewDelegateMoreInfo{
     
+    var listener: ListenerRegistration?
+    
     var delegate: CardViewDelegate?
     
     var customNavBar = LikedNavBar()
     
+    var recentMessageDictionary = [String:RecentMessage]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        if #available(iOS 13.0, *) {
-            self.overrideUserInterfaceStyle = .light
-        }
+       
         fetchMatches()
         setupUI()
         
@@ -95,40 +93,61 @@ class LikesController: LBTAListHeaderController<RecentMessageCell, RecentMessage
         customNavBar.backButton.addTarget(self, action: #selector(handleBack), for: .touchUpInside)
         
         view.addSubview(customNavBar)
-        customNavBar.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, size: .init(width: 0, height: 150))
+        customNavBar.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, size: .init(width: 0, height: 110))
         
-        collectionView.contentInset.top = 150
-        collectionView.verticalScrollIndicatorInsets.top = 150
+        collectionView.contentInset.top = 110
+        collectionView.verticalScrollIndicatorInsets.top = 110
         
         let statusBarCover = UIView(backgroundColor: .white)
         view.addSubview(statusBarCover)
         statusBarCover.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: view.safeAreaLayoutGuide.topAnchor, trailing: view.trailingAnchor)
     }
     
+    
+    
     fileprivate func fetchMatches(){
         guard let currentUserId = Auth.auth().currentUser?.uid else {return}
-        print("Here are my documents")
         
-    Firestore.firestore().collection("swipes").document(currentUserId).collection("liked").whereField("liked", isEqualTo: 1).getDocuments{ (querySnapshot, err) in
-        if let err = err {
-            print("Failed to fetch liked shoes: ", err)
-            return
-        }
-        print("Made it here!")
+        let query = Firestore.firestore().collection("swipes").document(currentUserId).collection("liked").whereField("liked", isEqualTo: 1)
 
-        querySnapshot?.documents.forEach({ (documentSnapshot) in
-            let dictionary = documentSnapshot.data()
-            self.items.append(.init(dictionary: dictionary))
-        })
+        listener = query.addSnapshotListener { (snapshot, err) in
+//
+//        Firestore.firestore().collection("swipes").document(currentUserId).collection("liked").whereField("liked", isEqualTo: 1).getDocuments{ (snapshot, err) in
+            if let err = err {
+                print("Failed to fetch liked shoes: ", err)
+                return
+            }
             
-        }
-        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-            return 0
-        }
-        
-        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-            return .init(width: view.frame.width, height: 0)
-        }
+            snapshot?.documents.forEach({ (change) in
+//                if change.type == .added || change.type == .modified{
+                let dictionary = change.data()
+                let recentMessage = RecentMessage(dictionary: dictionary)
+                let uid = recentMessage.brand + recentMessage.name
+                self.recentMessageDictionary[uid] = recentMessage
+                print("UID")
+                print(recentMessage.uid)
+//                }
+                
+            })
+//            print(self.recentMessageDictionary.values)
+            self.resetItems()
+            
+            }
+            func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+                return 0
+            }
+            
+            func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+                return .init(width: view.frame.width, height: 0)
+            }
+    }
+    fileprivate func resetItems(){
+        let values = Array(recentMessageDictionary.values)
+        print(values)
+        items = values.sorted(by: { (rm1, rm2) -> Bool in
+            return rm1.timestamp.compare(rm2.timestamp) == .orderedDescending
+        })
+        collectionView.reloadData()
     }
     @objc fileprivate func handleBack(){
         navigationController?.popViewController(animated: true)

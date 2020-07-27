@@ -24,11 +24,11 @@ class LikedNavBar: UIView {
        
        let wardrobeLabel = UILabel(text: "Shoe Rack", font: .boldSystemFont(ofSize: 20), textColor: #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1), textAlignment: .center)
        
-       let feedLabel = UILabel(text: "Feed", font: .boldSystemFont(ofSize: 20), textColor: #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1), textAlignment: .center)
+//       let feedLabel = UILabel(text: "Feed", font: .boldSystemFont(ofSize: 20), textColor: #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1), textAlignment: .center)
        
-       setupShadow(opacity: 0.5, radius: 8, offset: .init(width: 0, height: 10), color: .init(white: 0, alpha: 0.3))
+       setupShadow(opacity: 0.4, radius: 8, offset: .init(width: 0, height: 7), color: .init(white: 0, alpha: 0.3))
        
-       stack(iconImageView.withHeight(55),hstack(wardrobeLabel, feedLabel, distribution: .fillEqually)).padTop(10)
+       stack(iconImageView.withHeight(55),hstack(wardrobeLabel, distribution: .fillEqually)).padTop(10)
         
         
         addSubview(backButton)

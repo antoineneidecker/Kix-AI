@@ -21,7 +21,7 @@ class TopNavigationStackView: UIStackView {
         heightAnchor.constraint(equalToConstant: 80).isActive = true
         
         userButton.setImage(#imageLiteral(resourceName: "userProfile").withRenderingMode(.alwaysOriginal), for: .normal)
-        
+  
         
         messageButtons.setImage(#imageLiteral(resourceName: "wardrobe").withRenderingMode(.alwaysOriginal), for: .normal)
         messageButtons.contentMode = .scaleAspectFit

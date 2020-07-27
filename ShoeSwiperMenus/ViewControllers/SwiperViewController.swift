@@ -33,7 +33,7 @@ class SwiperViewController: UIViewController, SettingsControllerDelegate, LoginC
         bottomControls.refreshButton.addTarget(self, action: #selector(handleRefresh), for: .touchUpInside)
         bottomControls.likeButton.addTarget(self, action: #selector(handleLike), for: .touchUpInside)
         bottomControls.dislikeButton.addTarget(self, action: #selector(handleDislike), for: .touchUpInside)
-        bottomControls.colorButton.addTarget(self, action: #selector(handleColorChange), for: .touchUpInside)
+//        bottomControls.colorButton.addTarget(self, action: #selector(handleColorChange), for: .touchUpInside)
 
         
         setupLayout()
@@ -103,12 +103,12 @@ class SwiperViewController: UIViewController, SettingsControllerDelegate, LoginC
         }
     }
     
-    @objc fileprivate func handleColorChange(){
-//        Make sure to change the topCardView to the new color shoe:
-//        let cardView = topCardView
-//        topCardView = nextCard
-//        cardView?.removeFromSuperview()
-    }
+//    @objc fileprivate func handleColorChange(){
+////        Make sure to change the topCardView to the new color shoe:
+////        let cardView = topCardView
+////        topCardView = nextCard
+////        cardView?.removeFromSuperview()
+//    }
     
     fileprivate func setupCardFromShoe(shoe: Shoe) -> [CardView]{
     //        We must setup the SVMV here, and the list of cardViews, because we have to setup the linked list next.
@@ -193,7 +193,7 @@ class SwiperViewController: UIViewController, SettingsControllerDelegate, LoginC
             }
             
             var previousCardView: CardView? //change this to [CardView?] when using the Shoe model
-            
+
             snapshot?.documents.forEach({ (documentSnapshot) in
                 let userDictionary = documentSnapshot.data()
                 let user = User(dictionary: userDictionary)
@@ -227,16 +227,24 @@ class SwiperViewController: UIViewController, SettingsControllerDelegate, LoginC
         
         guard let brand = topCardView?.cardViewModel?.brand else {return}
         
-        guard let price = topCardView?.cardViewModel?.price else {return}
+        guard var price = topCardView?.cardViewModel?.price else {return}
+                
+//        if let i = price.firstIndex(of: "€") {
+//            price.remove(at: i)
+//        }
+        let digitPrice = price.split(separator: "€")
+        let newdigitPrice = digitPrice[0]
+        
+        let numberPrice = Float(newdigitPrice)!
+        print(numberPrice)
                 
         let documentData = ["shoeName": cardUID,
-                            "shoePrice": price,
+                            "shoePrice": numberPrice,
                             "shoeBrand": brand,
                             "liked" : didLike,
                             "picturesURL" : cardUrl,
                             "timestamp" : Timestamp(date: Date())] as [String : Any]
         
-        print(documentData)
         
         Firestore.firestore().collection("swipes").document(uid).getDocument{ (snapshot, err) in
             if let err = err {
@@ -336,8 +344,8 @@ class Colors {
     
 
     init() {
-        let colorTop = UIColor(red: 9.0 / 255.0, green: 13.0 / 255.0, blue: 75.0 / 255.0, alpha: 0.9).cgColor
-        let colorBottom = UIColor(red: 0.0 / 255.0, green: 120 / 255.0, blue: 205.0 / 255.0, alpha: 0.9).cgColor
+        let colorTop = UIColor(red: 9.0 / 255.0, green: 13.0 / 255.0, blue: 75.0 / 255.0, alpha: 0.05).cgColor
+        let colorBottom = UIColor(red: 0.0 / 255.0, green: 120 / 255.0, blue: 205.0 / 255.0, alpha: 0.2).cgColor
 
         self.gl = CAGradientLayer()
         self.gl.colors = [colorTop, colorBottom]
