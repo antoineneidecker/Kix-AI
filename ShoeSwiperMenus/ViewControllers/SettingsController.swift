@@ -67,7 +67,6 @@ class SettingsController: UITableViewController {
             guard let dictionary = querySnapshot!.documents.first?.data() else { return }
             self.user = ActualUser(dictionary: dictionary)
             self.tableView.reloadData()
-            
             }
         }
     }
@@ -210,7 +209,7 @@ class SettingsController: UITableViewController {
             cell.textField.addTarget(self, action: #selector(handleLastNameChange), for: .editingChanged)
         case 2:
             cell.textField.placeholder = "Enter Shoe Size"
-            cell.textField.text = String(user?.shoeSize ?? 24)
+            cell.textField.text = String(user?.shoeSize ?? 40)
             cell.textField.addTarget(self, action: #selector(handleShoeSizeChange), for: .editingChanged)
         case 3:
             cell.textField.placeholder = "Enter Age"
@@ -237,7 +236,7 @@ class SettingsController: UITableViewController {
         self.user?.age = Int(textField.text ?? "")
     }
     @objc fileprivate func handleShoeSizeChange(textField: UITextField){
-        self.user?.shoeSize = Int(textField.text ?? "")
+        self.user?.shoeSize = Float(textField.text ?? "")
        }
     @objc fileprivate func handleGenderChange(textField: UITextField){
         self.user?.gender = textField.text

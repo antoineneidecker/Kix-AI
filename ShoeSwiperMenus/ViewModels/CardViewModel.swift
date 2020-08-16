@@ -26,6 +26,18 @@ class CardViewModel {
     let attributedString: NSAttributedString
     let textAllignment: NSTextAlignment
     
+    let amountOfRatings: String
+    let rating: String
+    let shoeColor: String
+    let ecoFriendly: Bool
+    let hotDrop: Bool
+    let sale: Int
+    let link: String
+    
+    let description: [String: String]
+    let sizesAndPrices: [String: String]
+    let sizesAndStock: [String: String]
+    
     fileprivate var imageIndex = 0 {
         didSet{
             let imageName = imageUrls[imageIndex]
@@ -35,13 +47,25 @@ class CardViewModel {
     }
     
     
-    init(name: String, brand: String, price: String, imageNames: [String], attributedString: NSAttributedString, textAllignment: NSTextAlignment){
+    init(name: String, brand: String, price: String, imageNames: [String], attributedString: NSAttributedString, textAllignment: NSTextAlignment, link: String, amountOfRatings: String, rating: String, shoeColor : String, ecoFriendly: Bool, hotDrop: Bool, sale: Int, description: [String: String], sizesAndPrices: [String: String], sizesAndStock: [String: String]){
         self.name = name
         self.brand = brand
         self.price = price
         self.imageUrls = imageNames
         self.attributedString = attributedString
         self.textAllignment = textAllignment
+        
+        self.link = link
+        self.amountOfRatings = amountOfRatings
+        self.rating = rating
+        self.shoeColor = shoeColor
+        self.ecoFriendly = ecoFriendly
+        self.hotDrop = hotDrop
+        self.sale = sale
+        
+        self.description = description
+        self.sizesAndPrices = sizesAndPrices
+        self.sizesAndStock = sizesAndStock
     }
     
     //Reactive programming

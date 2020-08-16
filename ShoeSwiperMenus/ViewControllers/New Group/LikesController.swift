@@ -11,9 +11,11 @@ import LBTATools
 import Firebase
 
 struct RecentMessage{
-    let name, uid, brand : String
+    let name, uid, brand, link : String
     let price : Float
     let picUrl: [String]
+    let eco, hot: Bool
+    
     
     let timestamp : Timestamp
     
@@ -23,6 +25,10 @@ struct RecentMessage{
         self.uid = dictionary["uid"] as? String ?? ""
         self.picUrl = dictionary["picturesURL"] as? [String] ?? [""]
         self.price = dictionary["shoePrice"] as? Float ?? 50.00
+        self.link = dictionary["shoeLink"] as? String ?? ""
+        self.eco = dictionary["ecoFriendly"] as? Bool ?? false
+        self.hot = dictionary["hotDrop"] as? Bool ?? false
+        
         
         self.timestamp = dictionary["timestamp"] as? Timestamp ?? Timestamp(date: Date())
     }
@@ -124,8 +130,6 @@ class LikesController: LBTAListHeaderController<RecentMessageCell, RecentMessage
                 let recentMessage = RecentMessage(dictionary: dictionary)
                 let uid = recentMessage.brand + recentMessage.name
                 self.recentMessageDictionary[uid] = recentMessage
-                print("UID")
-                print(recentMessage.uid)
 //                }
                 
             })
@@ -143,7 +147,6 @@ class LikesController: LBTAListHeaderController<RecentMessageCell, RecentMessage
     }
     fileprivate func resetItems(){
         let values = Array(recentMessageDictionary.values)
-        print(values)
         items = values.sorted(by: { (rm1, rm2) -> Bool in
             return rm1.timestamp.compare(rm2.timestamp) == .orderedDescending
         })
@@ -170,7 +173,8 @@ class LikesController: LBTAListHeaderController<RecentMessageCell, RecentMessage
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let recentLike = self.items[indexPath.item]
-        let dictionary = ["shoeName": recentLike.name, "shoeBrand": recentLike.brand, "shoePrice": recentLike.price, "picturesURL": recentLike.picUrl] as [String : Any]
+//        The following dictionary initionalizes a User object. Therefore the dic elements mush match the User dic elements.
+        let dictionary = ["shoeName": recentLike.name, "shoeBrand": recentLike.brand, "shoePrice": recentLike.price, "shoeLink": recentLike.link,"shoeEcoFriendly": recentLike.eco, "shoeHotDrop": recentLike.hot, "picturesURL": recentLike.picUrl] as [String : Any]
         let user = User(dictionary: dictionary)
         let cardViewModel = user.toCardViewModel()
         didTapMoreInfo(cardViewModel: cardViewModel)

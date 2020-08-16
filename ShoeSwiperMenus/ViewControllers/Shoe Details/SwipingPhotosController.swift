@@ -1,10 +1,3 @@
-//
-//  SwipingPhotosController.swift
-//  SwipeMatchFirestoreLBTA
-//
-//  Created by Brian Voong on 11/29/18.
-//  Copyright © 2018 Brian Voong. All rights reserved.
-//
 
 import UIKit
 
@@ -43,7 +36,6 @@ class SwipingPhotosController: UIPageViewController, UIPageViewControllerDataSou
         if !isCardViewMode {
             paddingTop += UIApplication.shared.statusBarFrame.height
         }
-//        let paddingTop = UIApplication.shared.statusBarFrame.height + 8
         
         barsStackView.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: .init(top: paddingTop, left: 8, bottom: 0, right: 8), size: .init(width: 0, height: 4))
     }

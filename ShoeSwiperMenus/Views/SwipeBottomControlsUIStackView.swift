@@ -26,7 +26,7 @@ class SwipeBottomControlsUIStackView: UIStackView {
 
     
     let likeButton = createButton(image: #imageLiteral(resourceName: "LikeFluo"))
-    let refreshButton = createButton(image: #imageLiteral(resourceName: "undo"))
+//    let refreshButton = createButton(image: #imageLiteral(resourceName: "undo"))
     let dislikeButton = createButton(image: #imageLiteral(resourceName: "DislikeFluo"))
     
     override init(frame: CGRect) {
@@ -35,7 +35,7 @@ class SwipeBottomControlsUIStackView: UIStackView {
         heightAnchor.constraint(equalToConstant: 120).isActive = true
         
         // TODO:   Must reduce the size of the color change icon.
-        [dislikeButton , refreshButton, likeButton].forEach { (button) in
+        [dislikeButton , likeButton].forEach { (button) in
             self.addArrangedSubview(button)
         }
         

@@ -10,8 +10,9 @@ import UIKit
 import Firebase
 import JGProgressHUD
 
-class SwiperViewController: UIViewController, SettingsControllerDelegate, LoginControllerDelegate, CardViewDelegate {
+class SwiperViewController: UIViewController, SettingsControllerDelegate, LoginControllerDelegate, CardViewDelegate, UITextViewDelegate {
 
+    var panelTransitioningDelegate = PanelTransitioningDelegate()
     
     let topStackView = TopNavigationStackView()
     let cardsDeckView = UIView()
@@ -30,7 +31,7 @@ class SwiperViewController: UIViewController, SettingsControllerDelegate, LoginC
         topStackView.userButton.addTarget(self, action: #selector(handleUserButton), for: .touchUpInside)
         topStackView.messageButtons.addTarget(self, action: #selector(handleMessageButton), for: .touchUpInside)
         
-        bottomControls.refreshButton.addTarget(self, action: #selector(handleRefresh), for: .touchUpInside)
+//        bottomControls.refreshButton.addTarget(self, action: #selector(handleRefresh), for: .touchUpInside)
         bottomControls.likeButton.addTarget(self, action: #selector(handleLike), for: .touchUpInside)
         bottomControls.dislikeButton.addTarget(self, action: #selector(handleDislike), for: .touchUpInside)
 //        bottomControls.colorButton.addTarget(self, action: #selector(handleColorChange), for: .touchUpInside)
@@ -110,34 +111,34 @@ class SwiperViewController: UIViewController, SettingsControllerDelegate, LoginC
 ////        cardView?.removeFromSuperview()
 //    }
     
-    fileprivate func setupCardFromShoe(shoe: Shoe) -> [CardView]{
-    //        We must setup the SVMV here, and the list of cardViews, because we have to setup the linked list next.
-    //        Iterate through the CardViewModels of the SVMV and setup their CardView
-        let models = shoe.toCardViewModels()
-        var cardViews = [CardView]()
-        var counter = 0
-        var previousColor: CardView?
-        //        Set the first cardView of the list to the following:
-        models.forEach { (cViewModel) in
-            let cardView = CardView(frame: .zero)
-            cardView.delegate = self
-            cardView.cardViewModel = cViewModel
-            previousColor?.nextColor = cardView
-            cardView.fillSuperview()
-            if counter == 0{
-                cardsDeckView.addSubview(cardView)
-                cardsDeckView.sendSubviewToBack(cardView)
-            }
-            previousColor = cardView
-            if counter == cardViews.count - 1{
-                cardView.nextColor = cardViews[0]
-            }
-            cardViews.append(cardView)
-            counter += 1
-        }
-//        returning an array of cardViews
-        return cardViews
-}
+//    fileprivate func setupCardFromShoe(shoe: Shoe) -> [CardView]{
+//    //        We must setup the SVMV here, and the list of cardViews, because we have to setup the linked list next.
+//    //        Iterate through the CardViewModels of the SVMV and setup their CardView
+//        let models = shoe.toCardViewModels()
+//        var cardViews = [CardView]()
+//        var counter = 0
+//        var previousColor: CardView?
+//        //        Set the first cardView of the list to the following:
+//        models.forEach { (cViewModel) in
+//            let cardView = CardView(frame: .zero)
+//            cardView.delegate = self
+//            cardView.cardViewModel = cViewModel
+//            previousColor?.nextColor = cardView
+//            cardView.fillSuperview()
+//            if counter == 0{
+//                cardsDeckView.addSubview(cardView)
+//                cardsDeckView.sendSubviewToBack(cardView)
+//            }
+//            previousColor = cardView
+//            if counter == cardViews.count - 1{
+//                cardView.nextColor = cardViews[0]
+//            }
+//            cardViews.append(cardView)
+//            counter += 1
+//        }
+////        returning an array of cardViews
+//        return cardViews
+//}
     
     
     fileprivate func setupCardFromUser(user: User) -> CardView{
@@ -158,7 +159,11 @@ class SwiperViewController: UIViewController, SettingsControllerDelegate, LoginC
     func didTapMoreInfo(cardViewModel: CardViewModel) {
         let shoeDetailsController = ShoeDetailsViewController()
 //        shoeDetailsController.modalPresentationStyle = .fullScreen
+        
+        shoeDetailsController.transitioningDelegate                = self.panelTransitioningDelegate
+        shoeDetailsController.modalPresentationStyle                = .custom
         shoeDetailsController.cardViewModel = cardViewModel
+        shoeDetailsController.user = user
         present(shoeDetailsController, animated: true)
     }
     
@@ -180,8 +185,7 @@ class SwiperViewController: UIViewController, SettingsControllerDelegate, LoginC
 //        We will setup pagination on the following query:
         
         topCardView = nil
-//         TO DO: SET FILTERS FOR PRICING!!!!
-//        TOOK OFF FILTERS :/
+
         
         
         Firestore.firestore().collection("shoes").whereField("shoePrice", isGreaterThanOrEqualTo: minPrice).whereField("shoePrice", isLessThanOrEqualTo: maxPrice).getDocuments { (snapshot, err) in
@@ -192,7 +196,8 @@ class SwiperViewController: UIViewController, SettingsControllerDelegate, LoginC
                 return
             }
             
-            var previousCardView: CardView? //change this to [CardView?] when using the Shoe model
+            var previousCardView: CardView? //change this to [CardView?] when using the Shoe model with color
+//            var nextCardView: CardView?
 
             snapshot?.documents.forEach({ (documentSnapshot) in
                 let userDictionary = documentSnapshot.data()
@@ -215,10 +220,10 @@ class SwiperViewController: UIViewController, SettingsControllerDelegate, LoginC
     func didRemoveCard(cardView: CardView) {
         self.topCardView?.removeFromSuperview()
         self.topCardView = self.topCardView?.nextCardView
-        
     }
     
     fileprivate func saveSwipeToFirestore(didLike: Int){
+        
         guard let uid = Auth.auth().currentUser?.uid else {return}
         
         guard let cardUID = topCardView?.cardViewModel?.name else {return}
@@ -227,23 +232,41 @@ class SwiperViewController: UIViewController, SettingsControllerDelegate, LoginC
         
         guard let brand = topCardView?.cardViewModel?.brand else {return}
         
-        guard var price = topCardView?.cardViewModel?.price else {return}
-                
-//        if let i = price.firstIndex(of: "€") {
-//            price.remove(at: i)
-//        }
+        guard let price = topCardView?.cardViewModel?.price else {return}
+        
+        guard let shoeLink = topCardView?.cardViewModel.link else {return}
+        
+        guard let eco = topCardView?.cardViewModel.ecoFriendly else {return}
+        
+        guard let hot = topCardView?.cardViewModel.hotDrop else {return}
+        
+        let shoeSize = user?.shoeSize
+        
+        guard let dictionary = topCardView?.cardViewModel.description else {return}
+        
+        guard let sizesAndPrices = topCardView?.cardViewModel.sizesAndPrices else {return}
+        
+        guard let sizesAndStock = topCardView?.cardViewModel.sizesAndStock else {return}
+        
+        
         let digitPrice = price.split(separator: "€")
         let newdigitPrice = digitPrice[0]
         
         let numberPrice = Float(newdigitPrice)!
-        print(numberPrice)
                 
         let documentData = ["shoeName": cardUID,
                             "shoePrice": numberPrice,
                             "shoeBrand": brand,
                             "liked" : didLike,
                             "picturesURL" : cardUrl,
-                            "timestamp" : Timestamp(date: Date())] as [String : Any]
+                            "shoeLink" : shoeLink,
+                            "ecoFriendly": eco,
+                            "hotDrop": hot,
+                            "timestamp" : Timestamp(date: Date()),
+                            "shoeSize" : shoeSize,
+                            "dictionary" : dictionary,
+                            "sizesAndPrices": sizesAndPrices,
+                            "sizesAndStock": sizesAndStock] as [String : Any]
         
         
         Firestore.firestore().collection("swipes").document(uid).getDocument{ (snapshot, err) in
@@ -268,7 +291,6 @@ class SwiperViewController: UIViewController, SettingsControllerDelegate, LoginC
                         print("Failed to save swipe data: ", err)
                         return
                     }
-                    print("Successfully saved swipe.")
                 }
             }
         }
@@ -309,6 +331,10 @@ class SwiperViewController: UIViewController, SettingsControllerDelegate, LoginC
         cardView?.layer.add(rotationAnimation, forKey: "rotation")
         
         CATransaction.commit()
+        
+        if topCardView == nil{
+            fetchUsersFromFirestore()
+        }
     }
     
     @objc fileprivate func handleMessageButton(){

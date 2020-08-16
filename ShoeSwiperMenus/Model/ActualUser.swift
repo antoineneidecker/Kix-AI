@@ -16,7 +16,7 @@ struct ActualUser {
     var email: String?
     var gender: String?
     var age: Int?
-    var shoeSize: Int?
+    var shoeSize: Float?
     var uid: String
     
     var minSeekingPrice: Int?
@@ -28,7 +28,7 @@ struct ActualUser {
         self.email = dictionary["email"] as? String ?? ""
         self.age = dictionary["age"] as? Int ?? 24
         self.gender = dictionary["gender"] as? String ?? ""
-        self.shoeSize = dictionary["shoeSize"] as? Int ?? 42
+        self.shoeSize = dictionary["shoeSize"] as? Float ?? 42
         self.uid = dictionary["uid"] as? String ?? ""
         self.minSeekingPrice = dictionary["minSeekingPrice"] as? Int ?? 20
         self.maxSeekingPrice = dictionary["maxSeekingPrice"] as? Int ?? 200

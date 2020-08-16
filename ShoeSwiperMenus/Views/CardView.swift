@@ -126,6 +126,7 @@ class CardView: UIView {
         default:
             ()
         }
+        
     }
     
     fileprivate let moreInfoButton: UIButton = {
@@ -193,7 +194,7 @@ class CardView: UIView {
                 homeController.handleDislike()
             }
         } else {
-            UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.1, options: .curveEaseOut, animations: {
+            UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.4, options: .curveEaseOut, animations: {
                 self.transform = .identity
             })
         }
