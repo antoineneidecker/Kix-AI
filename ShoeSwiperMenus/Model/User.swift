@@ -29,6 +29,8 @@ struct User: ProducesCardViewModel {
     var sizesAndPrices: [String : String]?
     var sizesAndStock: [String : String]?
     
+    var shoeVector: Matrix
+    
     
     init(dictionary: [String: Any]){
         var tempName = dictionary["shoeName"] as? String ?? ""
@@ -59,6 +61,10 @@ struct User: ProducesCardViewModel {
         self.description = dictionary["shoeDescription"] as? [String : String] ?? ["" : ""]
         self.sizesAndPrices = dictionary["sizesAndPrices"] as? [String : String] ?? ["" : ""]
         self.sizesAndStock = dictionary["sizesAndStock"] as? [String : String] ?? ["" : ""]
+        
+        let shoeVectorDouble = dictionary["shoeVector"] as? [Double] ?? [2.2,2.2]
+        
+        self.shoeVector = Matrix(shoeVectorDouble)
         
     }
     
@@ -92,8 +98,10 @@ struct User: ProducesCardViewModel {
         let shoeDescription = description != nil ? description! : ["" : ""]
         let shoeSizesAndPrices = sizesAndPrices != nil ? sizesAndPrices! : ["" : ""]
         let shoeSizesAndStock = sizesAndStock != nil ? sizesAndStock! : ["" : ""]
+        
+        let vector = shoeVector
                 
-        return CardViewModel(name: self.name ?? "", brand: brandString, price: priceString, imageNames: imageNames, attributedString: attributedText, textAllignment: .left, link: shoeLink,  amountOfRatings: shoeAmountRating, rating: shoeRating, shoeColor: color, ecoFriendly: ecoString, hotDrop: shoeHotDrop, sale: shoeSale, description: shoeDescription, sizesAndPrices: shoeSizesAndPrices, sizesAndStock: shoeSizesAndStock)
+        return CardViewModel(name: self.name ?? "", brand: brandString, price: priceString, imageNames: imageNames, attributedString: attributedText, textAllignment: .left, link: shoeLink,  amountOfRatings: shoeAmountRating, rating: shoeRating, shoeColor: color, ecoFriendly: ecoString, hotDrop: shoeHotDrop, sale: shoeSale, description: shoeDescription, sizesAndPrices: shoeSizesAndPrices, sizesAndStock: shoeSizesAndStock, shoeVector: vector)
     }
     
     func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
