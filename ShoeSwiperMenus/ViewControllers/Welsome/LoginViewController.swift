@@ -23,7 +23,7 @@ class LoginViewController: UIViewController {
         tf.autocapitalizationType = .none
         tf.placeholder = "Email"
         tf.backgroundColor = .white
-        
+        tf.keyboardType = .emailAddress
         return tf
     }()
     
@@ -34,7 +34,6 @@ class LoginViewController: UIViewController {
         tf.placeholder = "Password"
         tf.isSecureTextEntry = true
         tf.backgroundColor = .white
-        
         return tf
     }()
     
@@ -57,11 +56,6 @@ class LoginViewController: UIViewController {
         label.alpha = 0
         return label
     }()
-    
-    
-    
-    
-    
     
     
     override func viewDidLoad() {
@@ -89,6 +83,9 @@ class LoginViewController: UIViewController {
     }
     
     @objc fileprivate func handleKeyBoardShow(notification: Notification){
+//        if self.emailTextField.isSelected{
+//            
+//        }
         guard let value =
             notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue
             else{return}

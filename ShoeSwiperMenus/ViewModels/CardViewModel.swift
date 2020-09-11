@@ -37,6 +37,9 @@ class CardViewModel {
     let description: [String: String]
     let sizesAndPrices: [String: String]
     let sizesAndStock: [String: String]
+    let shoeVector: Matrix
+    
+    let index: Int
     
     fileprivate var imageIndex = 0 {
         didSet{
@@ -47,7 +50,7 @@ class CardViewModel {
     }
     
     
-    init(name: String, brand: String, price: String, imageNames: [String], attributedString: NSAttributedString, textAllignment: NSTextAlignment, link: String, amountOfRatings: String, rating: String, shoeColor : String, ecoFriendly: Bool, hotDrop: Bool, sale: Int, description: [String: String], sizesAndPrices: [String: String], sizesAndStock: [String: String]){
+    init(name: String, brand: String, price: String, imageNames: [String], attributedString: NSAttributedString, textAllignment: NSTextAlignment, link: String, amountOfRatings: String, rating: String, shoeColor : String, ecoFriendly: Bool, hotDrop: Bool, sale: Int, description: [String: String], sizesAndPrices: [String: String], sizesAndStock: [String: String], shoeVector: Matrix, index: Int){
         self.name = name
         self.brand = brand
         self.price = price
@@ -66,6 +69,8 @@ class CardViewModel {
         self.description = description
         self.sizesAndPrices = sizesAndPrices
         self.sizesAndStock = sizesAndStock
+        self.shoeVector = shoeVector
+        self.index = index
     }
     
     //Reactive programming

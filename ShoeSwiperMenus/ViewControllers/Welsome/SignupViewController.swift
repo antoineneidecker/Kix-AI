@@ -12,8 +12,6 @@ import Firebase
 
 
 class SignupViewController: UIViewController {
-
-    
     
     let firstNameTextField: CustomTextField = {
         let tf = CustomTextField(padding: 20)
@@ -36,6 +34,7 @@ class SignupViewController: UIViewController {
         tf.autocapitalizationType = .none
         tf.placeholder = "Email"
         tf.backgroundColor = .white
+        tf.keyboardType = .emailAddress
         return tf
     }()
     let passwordTextField: CustomTextField = {
@@ -72,7 +71,7 @@ class SignupViewController: UIViewController {
     }()
     
     
-    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -117,10 +116,8 @@ class SignupViewController: UIViewController {
         self.present(welcomeViewController, animated: true)
     }
     
-    
     @objc func signupTapped() {
         // Validate the fields
-        print("Button Tapped!!!")
         let error = validateFields()
         if error != nil {
             // there's something wromg with the fields.
@@ -148,15 +145,15 @@ class SignupViewController: UIViewController {
                         "uid" : result!.user.uid,
                         "age" : 24,
                         "minSeekingPrice": SettingsController.defaultMinSeekingPrice,
-                        "maxSeekingPrice": SettingsController.defaultMaxSeekingPrice
+                        "maxSeekingPrice": SettingsController.defaultMaxSeekingPrice,
                     ]
                     db.collection("users").document(result!.user.uid).setData(data) { (error) in
                         if error != nil{
                             self.showError("DB couldn't save credentials...")
                         }
                     }
-                    // Transition to home screen
-                    self.transitionToHome()
+                    self.transitionToOnboarding()
+                    
                 }
             }
         }
@@ -169,10 +166,10 @@ class SignupViewController: UIViewController {
     }
     
     
-    func transitionToHome(){
-        let homeViewController = SwiperViewController()
-        homeViewController.modalPresentationStyle = .fullScreen
-        self.present(homeViewController, animated: true)
+    func transitionToOnboarding(){
+        let onboarding = OnboardingViewController()
+        onboarding.modalPresentationStyle = .fullScreen
+        self.present(onboarding, animated: true)
     }
     
     lazy var stackView = UIStackView(arrangedSubviews: [firstNameTextField,lastNameTextField, emailTextField, passwordTextField,signupButton, errorLabel])

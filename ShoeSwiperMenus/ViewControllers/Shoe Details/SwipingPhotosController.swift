@@ -34,7 +34,10 @@ class SwipingPhotosController: UIPageViewController, UIPageViewControllerDataSou
         
         var paddingTop: CGFloat = 8
         if !isCardViewMode {
-            paddingTop += UIApplication.shared.statusBarFrame.height
+//            paddingTop += UIApplication.shared.statusBarFrame.height
+            let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
+            let height = window?.windowScene?.statusBarManager?.statusBarFrame.height
+            paddingTop += height ?? 5
         }
         
         barsStackView.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: .init(top: paddingTop, left: 8, bottom: 0, right: 8), size: .init(width: 0, height: 4))

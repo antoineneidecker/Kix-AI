@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import LGButton
 
 protocol LogoutDelegate {
     func didTapLogout()
@@ -24,23 +25,34 @@ class LogoutTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        let logoutButton: UIButton = {
-            let button = UIButton(type: .system)
-            button.setTitle("Log Out", for: .normal)
-            button.setTitleColor(#colorLiteral(red: 0.7137254902, green: 0.09411764706, blue: 0.1529411765, alpha: 1), for: .normal)
-            button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .heavy)
-            button.layer.borderWidth = 2
-            button.layer.borderColor = #colorLiteral(red: 0.7137254902, green: 0.09411764706, blue: 0.1529411765, alpha: 1)
-            button.layer.cornerRadius = 22
-            button.tintColor = UIColor.black
-            button.heightAnchor.constraint(equalToConstant: 55).isActive = true
+        let logoutStyle: LGButton = {
+            let button = LGButton()
+            button.titleString = "Logout"
+            button.fullyRoundedCorners = true
+            button.titleFontSize = 20
+            button.titleColor = #colorLiteral(red: 0.8392156863, green: 0.2274509804, blue: 0, alpha: 1)
+            button.borderColor = #colorLiteral(red: 0.8392156863, green: 0.2274509804, blue: 0, alpha: 1)
+            button.borderWidth = 2
+            button.bgColor = .clear
             button.addTarget(self, action: #selector(handleLogout), for: .touchUpInside)
-            
-
-        return button
+            return button
         }()
         
-        let overAllStackView = UIStackView(arrangedSubviews:[logoutButton])
+//        let logoutButton: UIButton = {
+//            let button = UIButton(type: .system)
+//            button.setTitle("Log Out", for: .normal)
+//            button.setTitleColor(#colorLiteral(red: 0.7137254902, green: 0.09411764706, blue: 0.1529411765, alpha: 1), for: .normal)
+//            button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .heavy)
+//            button.layer.borderWidth = 2
+//            button.layer.borderColor = #colorLiteral(red: 0.7137254902, green: 0.09411764706, blue: 0.1529411765, alpha: 1)
+//            button.layer.cornerRadius = 22
+//            button.tintColor = UIColor.black
+//            button.heightAnchor.constraint(equalToConstant: 55).isActive = true
+//            button.addTarget(self, action: #selector(handleLogout), for: .touchUpInside)
+//        return button
+//        }()
+        
+        let overAllStackView = UIStackView(arrangedSubviews:[logoutStyle])
         overAllStackView.spacing = 16
         addSubview(overAllStackView)
         overAllStackView.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 10, left: 10, bottom: 10, right: 10))

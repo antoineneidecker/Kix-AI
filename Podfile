@@ -16,5 +16,10 @@ inhibit_all_warnings!
   pod 'GoogleAppMeasurement'
   pod 'SDWebImage'
   pod 'JGProgressHUD'
+  pod 'LBTATools'
   pod 'FirebaseFirestoreSwift'
+  pod 'LGButton'
+  pod 'Firebase/Functions'
+  pod 'Crisp'
+  pod 'InAppSettingsKit'
 end

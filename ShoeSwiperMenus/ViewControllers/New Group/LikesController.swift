@@ -11,10 +11,13 @@ import LBTATools
 import Firebase
 
 struct RecentMessage{
-    let name, uid, brand, link : String
+    let name, uid, brand, link, rating, amountOfRatings : String
     let price : Float
     let picUrl: [String]
     let eco, hot: Bool
+    let sizesAndPrices : [String : String]
+    let sizesAndStock : [String : String]
+    
     
     
     let timestamp : Timestamp
@@ -26,8 +29,14 @@ struct RecentMessage{
         self.picUrl = dictionary["picturesURL"] as? [String] ?? [""]
         self.price = dictionary["shoePrice"] as? Float ?? 50.00
         self.link = dictionary["shoeLink"] as? String ?? ""
-        self.eco = dictionary["ecoFriendly"] as? Bool ?? false
-        self.hot = dictionary["hotDrop"] as? Bool ?? false
+        self.eco = dictionary["shoeEcoFriendly"] as? Bool ?? false
+        self.hot = dictionary["shoeHotDrop"] as? Bool ?? false
+        self.rating = dictionary["shoeRating"] as? String ?? ""
+        self.amountOfRatings = dictionary["shoeAmountOfRating"] as? String ?? ""
+        self.sizesAndPrices = dictionary["sizesAndPrices"] as? [String : String] ?? ["" : ""]
+        self.sizesAndStock = dictionary["sizesAndStock"] as? [String : String] ?? ["" : ""]
+        
+        
         
         
         self.timestamp = dictionary["timestamp"] as? Timestamp ?? Timestamp(date: Date())
@@ -35,7 +44,7 @@ struct RecentMessage{
 }
 
 class RecentMessageCell : LBTAListCell<RecentMessage>{
-    
+     
     let userProfileImageView = UIImageView(image: #imageLiteral(resourceName: "infoButton"), contentMode: .scaleAspectFill)
     let usernameLabel = UILabel(text: "SHOE HERE", font: .boldSystemFont(ofSize: 18))
     let messageTextLabel = UILabel(text: "Some long line of text that should span 2 lines", font: .systemFont(ofSize: 16), textColor: .gray, numberOfLines: 2)
@@ -77,6 +86,10 @@ class Header: UICollectionReusableView {
 
 class LikesController: LBTAListHeaderController<RecentMessageCell, RecentMessage, Header>, UICollectionViewDelegateFlowLayout, CardViewDelegateMoreInfo{
     
+    var actualUser : ActualUser?
+    
+    var panelTransitioningDelegate = PanelTransitioningDelegate()
+    
     var listener: ListenerRegistration?
     
     var delegate: CardViewDelegate?
@@ -113,12 +126,9 @@ class LikesController: LBTAListHeaderController<RecentMessageCell, RecentMessage
     
     fileprivate func fetchMatches(){
         guard let currentUserId = Auth.auth().currentUser?.uid else {return}
-        
         let query = Firestore.firestore().collection("swipes").document(currentUserId).collection("liked").whereField("liked", isEqualTo: 1)
-
         listener = query.addSnapshotListener { (snapshot, err) in
-//
-//        Firestore.firestore().collection("swipes").document(currentUserId).collection("liked").whereField("liked", isEqualTo: 1).getDocuments{ (snapshot, err) in
+
             if let err = err {
                 print("Failed to fetch liked shoes: ", err)
                 return
@@ -165,16 +175,22 @@ class LikesController: LBTAListHeaderController<RecentMessageCell, RecentMessage
     
 
     func didTapMoreInfo(cardViewModel: CardViewModel) {
-            let shoeDetailsController = ShoeDetailsViewController()
-    //        shoeDetailsController.modalPresentationStyle = .fullScreen
-            shoeDetailsController.cardViewModel = cardViewModel
-            present(shoeDetailsController, animated: true)
+        let shoeDetailsController = ShoeDetailsViewController()
+        //        shoeDetailsController.modalPresentationStyle = .fullScreen
+                
+        shoeDetailsController.transitioningDelegate                = self.panelTransitioningDelegate
+        shoeDetailsController.modalPresentationStyle                = .custom
+        shoeDetailsController.cardViewModel = cardViewModel
+        shoeDetailsController.user = actualUser
+        present(shoeDetailsController, animated: true)
+        
+        
         }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let recentLike = self.items[indexPath.item]
 //        The following dictionary initionalizes a User object. Therefore the dic elements mush match the User dic elements.
-        let dictionary = ["shoeName": recentLike.name, "shoeBrand": recentLike.brand, "shoePrice": recentLike.price, "shoeLink": recentLike.link,"shoeEcoFriendly": recentLike.eco, "shoeHotDrop": recentLike.hot, "picturesURL": recentLike.picUrl] as [String : Any]
+        let dictionary = ["shoeName": recentLike.name, "shoeBrand": recentLike.brand, "shoePrice": recentLike.price, "shoeLink": recentLike.link,"shoeEcoFriendly": recentLike.eco, "shoeHotDrop": recentLike.hot, "picturesURL": recentLike.picUrl, "shoeRating": recentLike.rating, "shoeAmountOfRating": recentLike.amountOfRatings, "sizesAndPrices": recentLike.sizesAndPrices, "sizesAndStock": recentLike.sizesAndStock] as [String : Any]
         let user = User(dictionary: dictionary)
         let cardViewModel = user.toCardViewModel()
         didTapMoreInfo(cardViewModel: cardViewModel)

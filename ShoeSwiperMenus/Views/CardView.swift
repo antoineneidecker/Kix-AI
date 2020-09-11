@@ -152,7 +152,6 @@ class CardView: UIView {
         swipingPhotosView.fillSuperview()
         
 //        setupBars()
-        
         //add a gradient layer
         setupOurGradientLayer()
         
@@ -173,7 +172,6 @@ class CardView: UIView {
         let angle = degrees * .pi / 180
         let rotationalTransform = CGAffineTransform(rotationAngle: angle)
         self.transform = rotationalTransform.translatedBy(x: translation.x, y: translation.y)
-        
     }
     
     fileprivate func handleEnded(_ gesture: UIPanGestureRecognizer) {

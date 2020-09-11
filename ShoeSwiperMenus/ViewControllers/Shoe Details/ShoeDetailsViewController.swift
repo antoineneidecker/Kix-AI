@@ -2,6 +2,8 @@
 import UIKit
 import SDWebImage
 import JGProgressHUD
+import SafariServices
+
 
 
 class ShoeDetailsViewController: UIViewController, UIScrollViewDelegate, PanelAnimationControllerDelegate {
@@ -292,19 +294,8 @@ class ShoeDetailsViewController: UIViewController, UIScrollViewDelegate, PanelAn
         
         scrollView.addSubview(sideIcons)
         sideIcons.anchor(top: priceLabel.bottomAnchor, leading: scrollView.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 15, left: 8, bottom: 0, right: 8))
-        
-//        let textLong = NSAttributedString(string: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. \nIn pulvinar dui et lobortis iaculis. Mauris pretium augue et quam ultrices, nec dictum dui vestibulum. In \nhac habitasse platea dictumst. Aliquam dignissim, augue sed fringilla dapibus, est massa suscipit leo, in hendrerit nisi sapien at \nurna. Sed a massa eu nisl pharetra cursus eu id purus. Pellentesque interdum sit amet sem vitae tincidunt. Interdum et malesuada \nfames ac ante ipsum primis in faucibus. Aliquam vulputate neque eu arcu luctus feugiat. Aliquam bibendum laoreet ipsum. In hac \nhabitasse platea dictumst. Mauris erat magna, consectetur et odio a, egestas maximus mauris. Nullam aliquam, diam et molestie \nsodales, nulla metus ultricies libero, vitae egestas nisl ligula sed ligula. Vivamus sit amet nisi ipsum. Phasellus a \nsuscipit sapien, a fermentum mi. Suspendisse sit amet mi vel ligula elementum eleifend eget eu enim. Vestibulum nunc libero, \nplacerat eget faucibus eu, mollis eu felis. Nam ultrices pretium orci in pharetra. Proin sagittis finibus augue aliquet \nfinibus. Praesent at nibh quis urna aliquet varius. Nunc suscipit mauris velit, tincidunt vestibulum dui pharetra id. Aenean \nsed ex lectus. Proin fringilla dapibus orci, eu euismod ipsum semper at. Nullam lorem lectus, pellentesque ut lacus et, \nconsequat luctus mauris. Vivamus id velit metus. Aliquam risus dui, tempor id odio congue, eleifend consectetur nulla. Donec \neleifend consequat purus quis ultricies. Praesent tincidunt enim ut blandit ullamcorper. Donec lobortis nibh eget tellus \nrhoncus facilisis. Vestibulum a luctus orci. Duis hendrerit felis lectus, ut volutpat risus lacinia non. ")
-//
-//        let textLabel = UILabel()
-//        textLabel.attributedText = textLong
-//        textLabel.numberOfLines = 0
-//
-//        scrollView.addSubview(textLabel)
-//        textLabel.anchor(top: sideIcons.bottomAnchor, leading: scrollView.leadingAnchor, bottom: nil, trailing: scrollView.trailingAnchor, padding: .init(top: 15, left: 8, bottom: 0, right: 8))
 
     }
-    
-    
     
 
 //    The following will stretch the scroll view down
@@ -339,7 +330,10 @@ class ShoeDetailsViewController: UIViewController, UIScrollViewDelegate, PanelAn
     
     
     @objc func didTapZalando(sender: AnyObject) {
-        UIApplication.shared.openURL(NSURL(string: linkLabel)! as URL)
+//        UIApplication.shared.openURL(NSURL(string: linkLabel)! as URL)
+        let url = URL(string: linkLabel)
+        let vc = SFSafariViewController(url: url!)
+        present(vc, animated: true)
     }
     
     @objc func handleHotButton(){
@@ -392,7 +386,7 @@ extension UIScrollView{
             }
 
         }
-        maxHeight += 15
+        maxHeight += 30
         // set content size
         self.contentSize = CGSize(width: contentSize.width, height: maxHeight + offset)
         // show scroll indicators

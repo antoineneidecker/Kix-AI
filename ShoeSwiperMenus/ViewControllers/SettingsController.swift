@@ -10,6 +10,9 @@ import UIKit
 import Firebase
 import JGProgressHUD
 import SDWebImage
+import LGButton
+import Crisp
+
 
 protocol SettingsControllerDelegate {
     func didSaveSettings()
@@ -27,15 +30,12 @@ class SettingsController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        if #available(iOS 13.0, *) {
-//            self.overrideUserInterfaceStyle = .light
-//        }
-        
         setupNavigationItems()
         tableView.backgroundColor = UIColor(white: 0.95, alpha: 1)
         tableView.tableFooterView = UIView()
         tableView.keyboardDismissMode = .interactive
         fetchCurrentUser()
+        setupCrisp()
     }
     
     class HeaderLabel: UILabel{
@@ -59,12 +59,12 @@ class SettingsController: UITableViewController {
     
     fileprivate func fetchCurrentUser(){
         guard let userUID = Auth.auth().currentUser?.uid else {return}
-        Firestore.firestore().collection("users").whereField("uid",isEqualTo: userUID).getDocuments() { (querySnapshot, err) in
+        Firestore.firestore().collection("users").document(userUID).getDocument { (querySnapshot, err) in
         if let err = err {
             print("Error getting documents: \(err)")
         } else {
             
-            guard let dictionary = querySnapshot!.documents.first?.data() else { return }
+            guard let dictionary = querySnapshot!.data() else { return }
             self.user = ActualUser(dictionary: dictionary)
             self.tableView.reloadData()
             }
@@ -72,8 +72,10 @@ class SettingsController: UITableViewController {
     }
     
     @objc fileprivate func handleFeedback(){
-        let chatLogController = ChatLogController()
-        self.navigationController?.pushViewController(chatLogController, animated: true)
+//        let chatLogController = CrispChatViewController()
+//        self.navigationController?.present(chatLogController, animated: true)
+        
+        self.navigationController?.present(ChatViewController(), animated: true)
    }
     
     @objc fileprivate func handleLogout(){
@@ -250,6 +252,17 @@ class SettingsController: UITableViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(handleSave))
     }
     
+    fileprivate func setupCrisp() {
+        let userID = Firebase.Auth.auth().currentUser?.uid
+        let email = Firebase.Auth.auth().currentUser?.email
+        CrispSDK.setTokenID(tokenID: userID!)
+        CrispSDK.user.email = email!
+        CrispSDK.user.nickname = self.user?.firstName ?? ""
+        CrispSDK.user.avatar = URL(string: "https://cdn.thedailymash.co.uk/wp-content/uploads/20190808104736/earth-2.jpg")
+        //            CrispSDK.session.segment = userID
+        //            CrispSDK.session.setString(email!, forKey: userID!)
+    }
+    
     
     @objc fileprivate func handleSave(){
         print("Saving our data!!")
@@ -273,6 +286,7 @@ class SettingsController: UITableViewController {
                 return
             }
             print("Finished saving user info!")
+            
             
             self.dismiss(animated: true, completion: {
                 print("Dismissal complete!")

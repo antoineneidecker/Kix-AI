@@ -53,8 +53,25 @@
 		AF7163C324642FB800415F42 /* LikedNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7163C224642FB800415F42 /* LikedNavBar.swift */; };
 		AF7163C52464391700415F42 /* LikesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5E6A142449ECAD006D53A7 /* LikesController.swift */; };
 		AF7217082498E4F5008FF4D0 /* ChatLogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7217072498E4F5008FF4D0 /* ChatLogController.swift */; };
+		AF855A5B24ED516900033162 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF855A5A24ED516900033162 /* OnboardingViewController.swift */; };
+		AF855A9D24FF87B600033162 /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF855A9C24FF87B600033162 /* Matrix.swift */; };
+		AF855AA124FF899E00033162 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AF855AA024FF899E00033162 /* Settings.bundle */; };
+		AF855AA524FFB44800033162 /* NewSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF855AA424FFB44800033162 /* NewSettingsViewController.swift */; };
+		AF855AAA24FFBC8900033162 /* CustomViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AF855AA824FFBC8900033162 /* CustomViewCell.m */; };
+		AF855AAC25000FCD00033162 /* GradientDescent.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF855AAB25000FCD00033162 /* GradientDescent.swift */; };
+		AF855ACE2500EF8100033162 /* PageContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF855ABC2500EF8100033162 /* PageContainer.swift */; };
+		AF855ACF2500EF8100033162 /* PageViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF855ABE2500EF8100033162 /* PageViewItem.swift */; };
+		AF855AD02500EF8100033162 /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF855ABF2500EF8100033162 /* PageView.swift */; };
+		AF855AD12500EF8100033162 /* OnboardingContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF855AC12500EF8100033162 /* OnboardingContentView.swift */; };
+		AF855AD22500EF8100033162 /* OnboardingContantViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF855AC32500EF8100033162 /* OnboardingContantViewItem.swift */; };
+		AF855AD32500EF8100033162 /* PaperOnboardingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF855AC42500EF8100033162 /* PaperOnboardingDelegate.swift */; };
+		AF855AD42500EF8100033162 /* FillAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF855AC62500EF8100033162 /* FillAnimationView.swift */; };
+		AF855AD52500EF8100033162 /* PaperOnboardingDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF855AC72500EF8100033162 /* PaperOnboardingDataSource.swift */; };
+		AF855AD62500EF8100033162 /* GestureControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF855AC92500EF8100033162 /* GestureControl.swift */; };
+		AF855AD72500EF8100033162 /* PaperOnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF855ACA2500EF8100033162 /* PaperOnboarding.swift */; };
+		AF855AD82500EF8100033162 /* ConstraintsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF855ACC2500EF8100033162 /* ConstraintsHelper.swift */; };
+		AF855AD92500EF8100033162 /* Configuring.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF855ACD2500EF8100033162 /* Configuring.swift */; };
 		AF9A0C7A2497766500846FE3 /* FeedBackTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9A0C792497766500846FE3 /* FeedBackTableViewCell.swift */; };
-		AF9A0C7D24979BCE00846FE3 /* LBTATools in Frameworks */ = {isa = PBXBuildFile; productRef = AF9A0C7C24979BCE00846FE3 /* LBTATools */; };
 		AFB5A46C242A3F0400E9BC3A /* SwipeBottomControlsUIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB5A46B242A3F0400E9BC3A /* SwipeBottomControlsUIStackView.swift */; };
 		AFBBC062242650AD0099399B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBBC060242650AD0099399B /* Constants.swift */; };
 		AFBBC063242650AD0099399B /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBBC061242650AD0099399B /* Utilities.swift */; };
@@ -117,6 +134,37 @@
 		AF6500F72429F84A00C126F8 /* SwiperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiperViewController.swift; sourceTree = "<group>"; };
 		AF7163C224642FB800415F42 /* LikedNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedNavBar.swift; sourceTree = "<group>"; };
 		AF7217072498E4F5008FF4D0 /* ChatLogController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogController.swift; sourceTree = "<group>"; };
+		AF855A5A24ED516900033162 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OnboardingViewController.swift; path = ShoeSwiperMenus/ViewControllers/OnboardingViewController.swift; sourceTree = SOURCE_ROOT; };
+		AF855A8524FBC6FB00033162 /* PageContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageContainer.swift; sourceTree = "<group>"; };
+		AF855A8724FBC6FB00033162 /* PageViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewItem.swift; sourceTree = "<group>"; };
+		AF855A8824FBC6FB00033162 /* PageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
+		AF855A8A24FBC6FB00033162 /* OnboardingContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContentView.swift; sourceTree = "<group>"; };
+		AF855A8C24FBC6FB00033162 /* OnboardingContantViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContantViewItem.swift; sourceTree = "<group>"; };
+		AF855A8D24FBC6FB00033162 /* PaperOnboardingDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperOnboardingDelegate.swift; sourceTree = "<group>"; };
+		AF855A8F24FBC6FB00033162 /* FillAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillAnimationView.swift; sourceTree = "<group>"; };
+		AF855A9024FBC6FB00033162 /* PaperOnboardingDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperOnboardingDataSource.swift; sourceTree = "<group>"; };
+		AF855A9224FBC6FB00033162 /* GestureControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureControl.swift; sourceTree = "<group>"; };
+		AF855A9324FBC6FB00033162 /* PaperOnboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperOnboarding.swift; sourceTree = "<group>"; };
+		AF855A9524FBC6FB00033162 /* ConstraintsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintsHelper.swift; sourceTree = "<group>"; };
+		AF855A9624FBC6FB00033162 /* Configuring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuring.swift; sourceTree = "<group>"; };
+		AF855A9C24FF87B600033162 /* Matrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
+		AF855AA024FF899E00033162 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = "../../../../../Downloads/InAppSettingsKit-master/InAppSettingsKitSampleApp/Settings.bundle"; sourceTree = "<group>"; };
+		AF855AA424FFB44800033162 /* NewSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSettingsViewController.swift; sourceTree = "<group>"; };
+		AF855AA824FFBC8900033162 /* CustomViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomViewCell.m; path = "../../../../../Downloads/InAppSettingsKit-master/InAppSettingsKitSampleApp/Settings.bundle/CustomViewCell.m"; sourceTree = "<group>"; };
+		AF855AA924FFBC8900033162 /* CustomViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomViewCell.h; path = "../../../../../Downloads/InAppSettingsKit-master/InAppSettingsKitSampleApp/Settings.bundle/CustomViewCell.h"; sourceTree = "<group>"; };
+		AF855AAB25000FCD00033162 /* GradientDescent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientDescent.swift; sourceTree = "<group>"; };
+		AF855ABC2500EF8100033162 /* PageContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageContainer.swift; sourceTree = "<group>"; };
+		AF855ABE2500EF8100033162 /* PageViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewItem.swift; sourceTree = "<group>"; };
+		AF855ABF2500EF8100033162 /* PageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
+		AF855AC12500EF8100033162 /* OnboardingContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingContentView.swift; sourceTree = "<group>"; };
+		AF855AC32500EF8100033162 /* OnboardingContantViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingContantViewItem.swift; sourceTree = "<group>"; };
+		AF855AC42500EF8100033162 /* PaperOnboardingDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaperOnboardingDelegate.swift; sourceTree = "<group>"; };
+		AF855AC62500EF8100033162 /* FillAnimationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FillAnimationView.swift; sourceTree = "<group>"; };
+		AF855AC72500EF8100033162 /* PaperOnboardingDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaperOnboardingDataSource.swift; sourceTree = "<group>"; };
+		AF855AC92500EF8100033162 /* GestureControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GestureControl.swift; sourceTree = "<group>"; };
+		AF855ACA2500EF8100033162 /* PaperOnboarding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaperOnboarding.swift; sourceTree = "<group>"; };
+		AF855ACC2500EF8100033162 /* ConstraintsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintsHelper.swift; sourceTree = "<group>"; };
+		AF855ACD2500EF8100033162 /* Configuring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuring.swift; sourceTree = "<group>"; };
 		AF9A0C792497766500846FE3 /* FeedBackTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedBackTableViewCell.swift; sourceTree = "<group>"; };
 		AFB5A46B242A3F0400E9BC3A /* SwipeBottomControlsUIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeBottomControlsUIStackView.swift; sourceTree = "<group>"; };
 		AFBBC060242650AD0099399B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -139,7 +187,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B562404A2793739510F0DCD9 /* Pods_ShoeSwiperMenus.framework in Frameworks */,
-				AF9A0C7D24979BCE00846FE3 /* LBTATools in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,6 +227,10 @@
 				AF6500F72429F84A00C126F8 /* SwiperViewController.swift */,
 				AF7217072498E4F5008FF4D0 /* ChatLogController.swift */,
 				AF58B43F2441DAAC00135387 /* SettingsController.swift */,
+				AF855AA424FFB44800033162 /* NewSettingsViewController.swift */,
+				AF855AA924FFBC8900033162 /* CustomViewCell.h */,
+				AF855AA824FFBC8900033162 /* CustomViewCell.m */,
+				AF855AA024FF899E00033162 /* Settings.bundle */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -260,6 +311,7 @@
 		AF3E7158241F97230010DE24 /* ShoeSwiperMenus */ = {
 			isa = PBXGroup;
 			children = (
+				AF855A9924FF878800033162 /* Math */,
 				AFF03163242AA2450092312A /* Model */,
 				AFF03166242AAD370092312A /* ViewModels */,
 				AFB5A46A242A3ED900E9BC3A /* Views */,
@@ -292,9 +344,11 @@
 		AF5E6A132449EC46006D53A7 /* Welsome */ = {
 			isa = PBXGroup;
 			children = (
+				AF855A8224FBC6FB00033162 /* Onboarding */,
 				AF2CB90D24223688007C352F /* LoginViewController.swift */,
 				AF2CB91224223912007C352F /* WelcomeViewController.swift */,
 				AF2CB90B24223679007C352F /* SignupViewController.swift */,
+				AF855A5A24ED516900033162 /* OnboardingViewController.swift */,
 			);
 			path = Welsome;
 			sourceTree = "<group>";
@@ -306,6 +360,183 @@
 				AF7163C224642FB800415F42 /* LikedNavBar.swift */,
 			);
 			path = LikedPage;
+			sourceTree = "<group>";
+		};
+		AF855A8224FBC6FB00033162 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				AF855AB92500EF8100033162 /* Source */,
+				AF855A8324FBC6FB00033162 /* PageView */,
+				AF855A8924FBC6FB00033162 /* OnboardingContentView */,
+				AF855A8D24FBC6FB00033162 /* PaperOnboardingDelegate.swift */,
+				AF855A8E24FBC6FB00033162 /* FillAnimationView */,
+				AF855A9024FBC6FB00033162 /* PaperOnboardingDataSource.swift */,
+				AF855A9124FBC6FB00033162 /* GestureControl */,
+				AF855A9324FBC6FB00033162 /* PaperOnboarding.swift */,
+				AF855A9424FBC6FB00033162 /* Helpers */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		AF855A8324FBC6FB00033162 /* PageView */ = {
+			isa = PBXGroup;
+			children = (
+				AF855A8424FBC6FB00033162 /* PageContainerView */,
+				AF855A8624FBC6FB00033162 /* Item */,
+				AF855A8824FBC6FB00033162 /* PageView.swift */,
+			);
+			path = PageView;
+			sourceTree = "<group>";
+		};
+		AF855A8424FBC6FB00033162 /* PageContainerView */ = {
+			isa = PBXGroup;
+			children = (
+				AF855A8524FBC6FB00033162 /* PageContainer.swift */,
+			);
+			path = PageContainerView;
+			sourceTree = "<group>";
+		};
+		AF855A8624FBC6FB00033162 /* Item */ = {
+			isa = PBXGroup;
+			children = (
+				AF855A8724FBC6FB00033162 /* PageViewItem.swift */,
+			);
+			path = Item;
+			sourceTree = "<group>";
+		};
+		AF855A8924FBC6FB00033162 /* OnboardingContentView */ = {
+			isa = PBXGroup;
+			children = (
+				AF855A8A24FBC6FB00033162 /* OnboardingContentView.swift */,
+				AF855A8B24FBC6FB00033162 /* Item */,
+			);
+			path = OnboardingContentView;
+			sourceTree = "<group>";
+		};
+		AF855A8B24FBC6FB00033162 /* Item */ = {
+			isa = PBXGroup;
+			children = (
+				AF855A8C24FBC6FB00033162 /* OnboardingContantViewItem.swift */,
+			);
+			path = Item;
+			sourceTree = "<group>";
+		};
+		AF855A8E24FBC6FB00033162 /* FillAnimationView */ = {
+			isa = PBXGroup;
+			children = (
+				AF855A8F24FBC6FB00033162 /* FillAnimationView.swift */,
+			);
+			path = FillAnimationView;
+			sourceTree = "<group>";
+		};
+		AF855A9124FBC6FB00033162 /* GestureControl */ = {
+			isa = PBXGroup;
+			children = (
+				AF855A9224FBC6FB00033162 /* GestureControl.swift */,
+			);
+			path = GestureControl;
+			sourceTree = "<group>";
+		};
+		AF855A9424FBC6FB00033162 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				AF855A9524FBC6FB00033162 /* ConstraintsHelper.swift */,
+				AF855A9624FBC6FB00033162 /* Configuring.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		AF855A9924FF878800033162 /* Math */ = {
+			isa = PBXGroup;
+			children = (
+				AF855AAB25000FCD00033162 /* GradientDescent.swift */,
+				AF855A9C24FF87B600033162 /* Matrix.swift */,
+			);
+			path = Math;
+			sourceTree = "<group>";
+		};
+		AF855AB92500EF8100033162 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				AF855ABA2500EF8100033162 /* PageView */,
+				AF855AC02500EF8100033162 /* OnboardingContentView */,
+				AF855AC42500EF8100033162 /* PaperOnboardingDelegate.swift */,
+				AF855AC52500EF8100033162 /* FillAnimationView */,
+				AF855AC72500EF8100033162 /* PaperOnboardingDataSource.swift */,
+				AF855AC82500EF8100033162 /* GestureControl */,
+				AF855ACA2500EF8100033162 /* PaperOnboarding.swift */,
+				AF855ACB2500EF8100033162 /* Helpers */,
+			);
+			name = Source;
+			path = "../../../../../../../Downloads/paper-onboarding-master 3/Source";
+			sourceTree = "<group>";
+		};
+		AF855ABA2500EF8100033162 /* PageView */ = {
+			isa = PBXGroup;
+			children = (
+				AF855ABB2500EF8100033162 /* PageContainerView */,
+				AF855ABD2500EF8100033162 /* Item */,
+				AF855ABF2500EF8100033162 /* PageView.swift */,
+			);
+			path = PageView;
+			sourceTree = "<group>";
+		};
+		AF855ABB2500EF8100033162 /* PageContainerView */ = {
+			isa = PBXGroup;
+			children = (
+				AF855ABC2500EF8100033162 /* PageContainer.swift */,
+			);
+			path = PageContainerView;
+			sourceTree = "<group>";
+		};
+		AF855ABD2500EF8100033162 /* Item */ = {
+			isa = PBXGroup;
+			children = (
+				AF855ABE2500EF8100033162 /* PageViewItem.swift */,
+			);
+			path = Item;
+			sourceTree = "<group>";
+		};
+		AF855AC02500EF8100033162 /* OnboardingContentView */ = {
+			isa = PBXGroup;
+			children = (
+				AF855AC12500EF8100033162 /* OnboardingContentView.swift */,
+				AF855AC22500EF8100033162 /* Item */,
+			);
+			path = OnboardingContentView;
+			sourceTree = "<group>";
+		};
+		AF855AC22500EF8100033162 /* Item */ = {
+			isa = PBXGroup;
+			children = (
+				AF855AC32500EF8100033162 /* OnboardingContantViewItem.swift */,
+			);
+			path = Item;
+			sourceTree = "<group>";
+		};
+		AF855AC52500EF8100033162 /* FillAnimationView */ = {
+			isa = PBXGroup;
+			children = (
+				AF855AC62500EF8100033162 /* FillAnimationView.swift */,
+			);
+			path = FillAnimationView;
+			sourceTree = "<group>";
+		};
+		AF855AC82500EF8100033162 /* GestureControl */ = {
+			isa = PBXGroup;
+			children = (
+				AF855AC92500EF8100033162 /* GestureControl.swift */,
+			);
+			path = GestureControl;
+			sourceTree = "<group>";
+		};
+		AF855ACB2500EF8100033162 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				AF855ACC2500EF8100033162 /* ConstraintsHelper.swift */,
+				AF855ACD2500EF8100033162 /* Configuring.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		AFB5A467242A38B900E9BC3A /* Extensions */ = {
@@ -358,6 +589,7 @@
 			buildConfigurationList = AF3E716A241F97240010DE24 /* Build configuration list for PBXNativeTarget "ShoeSwiperMenus" */;
 			buildPhases = (
 				6A02439DDBF7BF2AF9E47A0A /* [CP] Check Pods Manifest.lock */,
+				B335A8C8AB92BD23F5CD131D /* [CP] Prepare Artifacts */,
 				AF3E7152241F97230010DE24 /* Sources */,
 				AF3E7153241F97230010DE24 /* Frameworks */,
 				AF3E7154241F97230010DE24 /* Resources */,
@@ -368,9 +600,6 @@
 			dependencies = (
 			);
 			name = ShoeSwiperMenus;
-			packageProductDependencies = (
-				AF9A0C7C24979BCE00846FE3 /* LBTATools */,
-			);
 			productName = ShoeSwiperMenus;
 			productReference = AF3E7156241F97230010DE24 /* ShoeSwiperMenus.app */;
 			productType = "com.apple.product-type.application";
@@ -438,6 +667,7 @@
 				AF39D70324DB13F20031BE5B /* Roboto-Thin.ttf in Resources */,
 				AF2CB92924239E7E007C352F /* SSVid8.mov in Resources */,
 				AF39D70024DB13F20031BE5B /* Roboto-Bold.ttf in Resources */,
+				AF855AA124FF899E00033162 /* Settings.bundle in Resources */,
 				AF39D70224DB13F20031BE5B /* Roboto-MediumItalic.ttf in Resources */,
 				AF39D6F924DB13F20031BE5B /* Roboto-Light.ttf in Resources */,
 			);
@@ -485,6 +715,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		B335A8C8AB92BD23F5CD131D /* [CP] Prepare Artifacts */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ShoeSwiperMenus/Pods-ShoeSwiperMenus-artifacts-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Prepare Artifacts";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ShoeSwiperMenus/Pods-ShoeSwiperMenus-artifacts-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ShoeSwiperMenus/Pods-ShoeSwiperMenus-artifacts.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -492,12 +739,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF855AD82500EF8100033162 /* ConstraintsHelper.swift in Sources */,
+				AF855AD02500EF8100033162 /* PageView.swift in Sources */,
 				AF3E715A241F97230010DE24 /* AppDelegate.swift in Sources */,
 				AF2CB90C24223679007C352F /* SignupViewController.swift in Sources */,
 				AF55CE93244627AA00D9A57F /* ShoeDetailsViewController.swift in Sources */,
+				AF855A5B24ED516900033162 /* OnboardingViewController.swift in Sources */,
+				AF855ACF2500EF8100033162 /* PageViewItem.swift in Sources */,
+				AF855AD32500EF8100033162 /* PaperOnboardingDelegate.swift in Sources */,
 				AF55CE9524472E3F00D9A57F /* SwipingPhotosController.swift in Sources */,
 				AF58B4402441DAAC00135387 /* SettingsController.swift in Sources */,
 				AF7163C324642FB800415F42 /* LikedNavBar.swift in Sources */,
+				AF855ACE2500EF8100033162 /* PageContainer.swift in Sources */,
+				AF855AD72500EF8100033162 /* PaperOnboarding.swift in Sources */,
+				AF855AD92500EF8100033162 /* Configuring.swift in Sources */,
 				AFB5A46C242A3F0400E9BC3A /* SwipeBottomControlsUIStackView.swift in Sources */,
 				AF5E6A122448721E006D53A7 /* PhotoController.swift in Sources */,
 				AFF0316C242B8F950092312A /* CustomTextField.swift in Sources */,
@@ -505,23 +760,32 @@
 				AFF03165242AA2680092312A /* User.swift in Sources */,
 				AF58B4422441FAE500135387 /* SettingsCell.swift in Sources */,
 				AF367F9824E934C2001F5716 /* PanelAnimationController.swift in Sources */,
+				AF855AD12500EF8100033162 /* OnboardingContentView.swift in Sources */,
 				AFF0316A242AB4000092312A /* Advertiser.swift in Sources */,
+				AF855A9D24FF87B600033162 /* Matrix.swift in Sources */,
 				AFF03168242AAD4F0092312A /* CardViewModel.swift in Sources */,
+				AF855AAA24FFBC8900033162 /* CustomViewCell.m in Sources */,
 				AF367F9624E934C2001F5716 /* PanelPresentationController.swift in Sources */,
 				AF7163C52464391700415F42 /* LikesController.swift in Sources */,
 				AF3E715C241F97230010DE24 /* SceneDelegate.swift in Sources */,
 				AF367F9524E934C2001F5716 /* PanelInteractionController.swift in Sources */,
 				AF58B4462444843200135387 /* AgeRangeCell.swift in Sources */,
 				AF9A0C7A2497766500846FE3 /* FeedBackTableViewCell.swift in Sources */,
+				AF855AD22500EF8100033162 /* OnboardingContantViewItem.swift in Sources */,
+				AF855AA524FFB44800033162 /* NewSettingsViewController.swift in Sources */,
+				AF855AAC25000FCD00033162 /* GradientDescent.swift in Sources */,
 				AFF03160242A56B60092312A /* TopNavigationStackView.swift in Sources */,
 				AF2CB91324223912007C352F /* WelcomeViewController.swift in Sources */,
 				AFBBC063242650AD0099399B /* Utilities.swift in Sources */,
 				AF6500F82429F84A00C126F8 /* SwiperViewController.swift in Sources */,
 				AF55CE902445803A00D9A57F /* LogoutTableViewCell.swift in Sources */,
+				AF855AD62500EF8100033162 /* GestureControl.swift in Sources */,
 				AFF03162242A610E0092312A /* CardView.swift in Sources */,
 				AF7217082498E4F5008FF4D0 /* ChatLogController.swift in Sources */,
 				AF5EFE9F244DAF89006642BE /* Shoe.swift in Sources */,
+				AF855AD42500EF8100033162 /* FillAnimationView.swift in Sources */,
 				AF58B444244462CA00135387 /* ActualUser.swift in Sources */,
+				AF855AD52500EF8100033162 /* PaperOnboardingDataSource.swift in Sources */,
 				AF03AC46249A33710029CAFE /* MessagesNavBar.swift in Sources */,
 				AF367F9724E934C2001F5716 /* PanelTransitioningDelegate.swift in Sources */,
 				AFBBC062242650AD0099399B /* Constants.swift in Sources */,
@@ -678,7 +942,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.02;
+				MARKETING_VERSION = 1.03;
 				PRODUCT_BUNDLE_IDENTIFIER = com.antoineneidecker.ShoeSwiper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = kixProvProf;
@@ -701,7 +965,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.02;
+				MARKETING_VERSION = 1.03;
 				PRODUCT_BUNDLE_IDENTIFIER = com.antoineneidecker.ShoeSwiper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = kixProvProf;
@@ -743,14 +1007,6 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		AF9A0C7C24979BCE00846FE3 /* LBTATools */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = AF9A0C7B24979BCE00846FE3 /* XCRemoteSwiftPackageReference "LBTATools" */;
-			productName = LBTATools;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = AF3E714E241F97230010DE24 /* Project object */;
 }

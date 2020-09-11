@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import Crisp
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,22 +18,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
-//        let db = Firestore.firestore()
-//        let settings = db.settings
-//        db.settings = settings
+        CrispSDK.configure(websiteID: "e679135c-6803-4ca2-9dbf-ddecf33890e4")
+        
         
         //This will bring up the welcome page directly
         window = UIWindow()
         window!.makeKeyAndVisible()
         let navigation = UINavigationController(rootViewController: SwiperViewController())
         window!.rootViewController = navigation
-        
-        //disable dark mode
-//        #if compiler(>=5.1)
-//            if #available(iOS 13.0, *) {
-//                self.window?.overrideUserInterfaceStyle = .light
-//            }
-//            #endif
         
         return true
     }

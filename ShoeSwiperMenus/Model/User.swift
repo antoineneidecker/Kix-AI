@@ -28,6 +28,7 @@ struct User: ProducesCardViewModel {
     var description: [String: String]?
     var sizesAndPrices: [String : String]?
     var sizesAndStock: [String : String]?
+    var index: Int?
     
     var shoeVector: Matrix
     
@@ -65,7 +66,7 @@ struct User: ProducesCardViewModel {
         let shoeVectorDouble = dictionary["shoeVector"] as? [Double] ?? [2.2,2.2]
         
         self.shoeVector = Matrix(shoeVectorDouble)
-        
+        self.index = dictionary["index"] as? Int ?? 0
     }
     
     
@@ -100,8 +101,10 @@ struct User: ProducesCardViewModel {
         let shoeSizesAndStock = sizesAndStock != nil ? sizesAndStock! : ["" : ""]
         
         let vector = shoeVector
+        
+        let shoeIndex = index != nil ? index! : 0
                 
-        return CardViewModel(name: self.name ?? "", brand: brandString, price: priceString, imageNames: imageNames, attributedString: attributedText, textAllignment: .left, link: shoeLink,  amountOfRatings: shoeAmountRating, rating: shoeRating, shoeColor: color, ecoFriendly: ecoString, hotDrop: shoeHotDrop, sale: shoeSale, description: shoeDescription, sizesAndPrices: shoeSizesAndPrices, sizesAndStock: shoeSizesAndStock, shoeVector: vector)
+        return CardViewModel(name: self.name ?? "", brand: brandString, price: priceString, imageNames: imageNames, attributedString: attributedText, textAllignment: .left, link: shoeLink,  amountOfRatings: shoeAmountRating, rating: shoeRating, shoeColor: color, ecoFriendly: ecoString, hotDrop: shoeHotDrop, sale: shoeSale, description: shoeDescription, sizesAndPrices: shoeSizesAndPrices, sizesAndStock: shoeSizesAndStock, shoeVector: vector, index: shoeIndex)
     }
     
     func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
