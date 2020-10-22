@@ -12,6 +12,8 @@
 		AF2CB90E24223688007C352F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2CB90D24223688007C352F /* LoginViewController.swift */; };
 		AF2CB91324223912007C352F /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2CB91224223912007C352F /* WelcomeViewController.swift */; };
 		AF2CB92924239E7E007C352F /* SSVid8.mov in Resources */ = {isa = PBXBuildFile; fileRef = AF2CB92824239E7E007C352F /* SSVid8.mov */; };
+		AF2DC08B25384AF200356082 /* FeedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2DC08A25384AF200356082 /* FeedController.swift */; };
+		AF2DC08D25387E5F00356082 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2DC08C25387E5F00356082 /* Post.swift */; };
 		AF367F9524E934C2001F5716 /* PanelInteractionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF367F9024E9337A001F5716 /* PanelInteractionController.swift */; };
 		AF367F9624E934C2001F5716 /* PanelPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF367F8F24E9337A001F5716 /* PanelPresentationController.swift */; };
 		AF367F9724E934C2001F5716 /* PanelTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF367F8E24E9337A001F5716 /* PanelTransitioningDelegate.swift */; };
@@ -91,6 +93,8 @@
 		AF2CB90D24223688007C352F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		AF2CB91224223912007C352F /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		AF2CB92824239E7E007C352F /* SSVid8.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = SSVid8.mov; path = ShoeSwiperMenus/SSVid8.mov; sourceTree = SOURCE_ROOT; };
+		AF2DC08A25384AF200356082 /* FeedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedController.swift; sourceTree = "<group>"; };
+		AF2DC08C25387E5F00356082 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Post.swift; path = ../../../../../Downloads/InstagramFirebase21_post_username_caption/InstagramFirebase/InstagramFirebase/Post.swift; sourceTree = "<group>"; };
 		AF367F8E24E9337A001F5716 /* PanelTransitioningDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelTransitioningDelegate.swift; sourceTree = "<group>"; };
 		AF367F8F24E9337A001F5716 /* PanelPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelPresentationController.swift; sourceTree = "<group>"; };
 		AF367F9024E9337A001F5716 /* PanelInteractionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelInteractionController.swift; sourceTree = "<group>"; };
@@ -252,6 +256,14 @@
 			path = Media;
 			sourceTree = "<group>";
 		};
+		AF2DC08925384AD500356082 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				AF2DC08A25384AF200356082 /* FeedController.swift */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
 		AF367F8D24E9336A001F5716 /* Scroll transition */ = {
 			isa = PBXGroup;
 			children = (
@@ -356,6 +368,7 @@
 		AF7163C124642F9A00415F42 /* LikedPage */ = {
 			isa = PBXGroup;
 			children = (
+				AF2DC08925384AD500356082 /* Feed */,
 				AF5E6A142449ECAD006D53A7 /* LikesController.swift */,
 				AF7163C224642FB800415F42 /* LikedNavBar.swift */,
 			);
@@ -565,6 +578,7 @@
 		AFF03163242AA2450092312A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				AF2DC08C25387E5F00356082 /* Post.swift */,
 				AFF03164242AA2680092312A /* User.swift */,
 				AFF03169242AB4000092312A /* Advertiser.swift */,
 				AF58B443244462C900135387 /* ActualUser.swift */,
@@ -752,6 +766,7 @@
 				AF7163C324642FB800415F42 /* LikedNavBar.swift in Sources */,
 				AF855ACE2500EF8100033162 /* PageContainer.swift in Sources */,
 				AF855AD72500EF8100033162 /* PaperOnboarding.swift in Sources */,
+				AF2DC08B25384AF200356082 /* FeedController.swift in Sources */,
 				AF855AD92500EF8100033162 /* Configuring.swift in Sources */,
 				AFB5A46C242A3F0400E9BC3A /* SwipeBottomControlsUIStackView.swift in Sources */,
 				AF5E6A122448721E006D53A7 /* PhotoController.swift in Sources */,
@@ -781,6 +796,7 @@
 				AF55CE902445803A00D9A57F /* LogoutTableViewCell.swift in Sources */,
 				AF855AD62500EF8100033162 /* GestureControl.swift in Sources */,
 				AFF03162242A610E0092312A /* CardView.swift in Sources */,
+				AF2DC08D25387E5F00356082 /* Post.swift in Sources */,
 				AF7217082498E4F5008FF4D0 /* ChatLogController.swift in Sources */,
 				AF5EFE9F244DAF89006642BE /* Shoe.swift in Sources */,
 				AF855AD42500EF8100033162 /* FillAnimationView.swift in Sources */,
@@ -942,7 +958,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.03;
+				MARKETING_VERSION = 1.04;
 				PRODUCT_BUNDLE_IDENTIFIER = com.antoineneidecker.ShoeSwiper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = kixProvProf;
@@ -965,7 +981,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.03;
+				MARKETING_VERSION = 1.04;
 				PRODUCT_BUNDLE_IDENTIFIER = com.antoineneidecker.ShoeSwiper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = kixProvProf;
