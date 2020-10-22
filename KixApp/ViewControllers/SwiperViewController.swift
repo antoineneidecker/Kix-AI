@@ -256,7 +256,6 @@ class SwiperViewController: UIViewController, SettingsControllerDelegate, LoginC
 //                print(documentSnapshot.data())
                 let userDictionary = documentSnapshot.data()
                 let user = User(dictionary: userDictionary)
-                print("Okay been here!!")
                 let cardView = self.setupCardFromUser(user: user)
                 
                 self.previousCardView?.nextCardView = cardView
