@@ -8,6 +8,7 @@
 
 import UIKit
 import SDWebImage
+import Firebase
 
 
 protocol CardViewDelegate{
@@ -20,16 +21,19 @@ protocol CardViewDelegateMoreInfo{
 }
 
 class CardView: UIView {
-    
     var nextColor: CardView?
     
     var nextCardView: CardView?
     
     var delegate: CardViewDelegate?
     
+    var userSwiping: User?
+    
+    var buttons: UIStackView?
+    
+    
+    
     var cardViewModel: CardViewModel!{
-        
-        
         didSet{
             swipingPhotosController.cardViewModel = self.cardViewModel
             
@@ -41,9 +45,14 @@ class CardView: UIView {
                 barView.backgroundColor = barDeselectedColor
                 barsStackView.addArrangedSubview(barView)
             }
+            setupImageIndexObserver()
             barsStackView.arrangedSubviews.first?.backgroundColor = .white
             
-            setupImageIndexObserver()
+            if (cardViewModel.ecoFriendly || cardViewModel.hotDrop){
+                buttons = setupButtons(ecoFriendly: cardViewModel.ecoFriendly, hot: cardViewModel.hotDrop)
+                addSubview(buttons!)
+                buttons!.anchor(top: nil, leading: nil, bottom: moreInfoButton.topAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: 0, bottom: 5, right: 10))
+            }
         }
     }
     
@@ -55,6 +64,8 @@ class CardView: UIView {
     
     fileprivate let gradientLayer = CAGradientLayer()
     fileprivate let informationLabel = UILabel()
+    
+    
     
     fileprivate func setupImageIndexObserver(){
         
@@ -128,13 +139,36 @@ class CardView: UIView {
         }
         
     }
+
     
     fileprivate let moreInfoButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(#imageLiteral(resourceName: "infoButton").withRenderingMode(.alwaysOriginal), for: .normal)
         button.addTarget(self, action: #selector(handleMoreInfo), for: .touchUpInside)
+        button.sizeThatFits(CGSize.init(width: 80, height: 80))
         return button
     }()
+    
+//    Can't access whether the shoe is ecofriendly or not because card is initializing before the passing any information
+//    See setupCardFromUser in SwiperVC
+    fileprivate let ecoButton: UIButton = {
+         let button = UIButton(type: .system)
+         button.setImage(#imageLiteral(resourceName: "ecoFriendlyIcon").withRenderingMode(.alwaysOriginal), for: .normal)
+         button.addTarget(self, action: #selector(handleMoreInfo), for: .touchUpInside)
+         button.heightAnchor.constraint(equalToConstant: 52).isActive = true
+         button.widthAnchor.constraint(equalToConstant: 44).isActive = true
+         return button
+    }()
+    
+    fileprivate let hotButton: UIButton = {
+         let button = UIButton(type: .system)
+         button.setImage(#imageLiteral(resourceName: "hotDropIcon").withRenderingMode(.alwaysOriginal), for: .normal)
+         button.addTarget(self, action: #selector(handleMoreInfo), for: .touchUpInside)
+         button.heightAnchor.constraint(equalToConstant: 52).isActive = true
+         button.widthAnchor.constraint(equalToConstant: 44).isActive = true
+         return button
+    }()
+    
     
     @objc fileprivate func handleMoreInfo(){
 //        Let us use a delegate to hook back to our view controller. The issue is that we can not present another view from
@@ -142,6 +176,40 @@ class CardView: UIView {
         delegate?.didTapMoreInfo(cardViewModel: self.cardViewModel)
         
     }
+    
+    fileprivate func setupButtons(ecoFriendly: Bool, hot: Bool) -> UIStackView{
+        let overAllStackView = UIStackView()
+        overAllStackView.axis = .vertical
+        overAllStackView.spacing = 10
+        overAllStackView.distribution = .equalSpacing
+
+        
+        let buttonsDic : [UIButton: Bool] = {
+            let dic = [ecoButton: ecoFriendly , hotButton: hot]
+            return dic
+        }()
+        
+        for (key,value) in buttonsDic{
+            if value{
+                overAllStackView.addArrangedSubview(key)
+            }
+        }
+        
+//        overAllStackView.addArrangedSubview(hotButton)
+//        overAllStackView.addArrangedSubview(ecoButton)
+        overAllStackView.translatesAutoresizingMaskIntoConstraints = false
+
+        
+//        if ecoFriendly {
+//            overAllStackView.addArrangedSubview(ecoButton)
+//        }
+//        if hot{
+//            overAllStackView.addArrangedSubview(hotButton)
+//        }
+        
+        return overAllStackView
+    }
+    
     
     fileprivate func setupLayout() {
         layer.cornerRadius = 10
@@ -157,11 +225,27 @@ class CardView: UIView {
         
         addSubview(informationLabel)
         
-        informationLabel.anchor(top: nil, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: 16, bottom: 16, right: 16))
+        informationLabel.anchor(top: nil, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: 16, bottom: 16, right: 35))
         informationLabel.numberOfLines = 0
+        
+        
         
         addSubview(moreInfoButton)
         moreInfoButton.anchor(top: nil, leading: nil, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: 0, bottom: 10, right: 10), size: .init(width: 44, height: 44))
+        
+        
+//        if (cardViewModel.ecoFriendly){
+//            addSubview(ecoButton)
+//            ecoButton.anchor(top: nil, leading: nil, bottom: moreInfoButton.topAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: 0, bottom: 10, right: 10), size: .init(width: 44, height: 44))
+//            if (cardViewModel.hotDrop){
+//                addSubview(hotButton)
+//                hotButton.anchor(top: nil, leading: nil, bottom: ecoButton.topAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: 0, bottom: 10, right: 10), size: .init(width: 44, height: 44))
+//            }
+//        }
+//        if (cardViewModel.hotDrop){
+//            addSubview(hotButton)
+//            hotButton.anchor(top: nil, leading: nil, bottom: moreInfoButton.topAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: 0, bottom: 10, right: 10), size: .init(width: 44, height: 44))
+//        }
     }
     
     fileprivate func handleChange(_ gesture: UIPanGestureRecognizer) {
@@ -183,12 +267,15 @@ class CardView: UIView {
 //        Hack solution:
         
         if shouldDismissCard {
+            
             self.isUserInteractionEnabled = false
             guard let homeController = self.delegate as? SwiperViewController else { return }
             
             if translationDirection == 1 {
+                Analytics.logEvent("likeSwiped", parameters: nil)
                 homeController.handleLike()
             } else {
+                Analytics.logEvent("dislikeSwiped", parameters: nil)
                 homeController.handleDislike()
             }
         } else {
@@ -216,6 +303,6 @@ class CardView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-
 }
+
+

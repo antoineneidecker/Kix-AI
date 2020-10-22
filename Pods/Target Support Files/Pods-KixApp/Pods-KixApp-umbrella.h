@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_ShoeSwiperMenusVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_ShoeSwiperMenusVersionString[];
+FOUNDATION_EXPORT double Pods_KixAppVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_KixAppVersionString[];
 

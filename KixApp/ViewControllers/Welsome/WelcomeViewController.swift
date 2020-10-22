@@ -19,7 +19,7 @@ class WelcomeViewController: UIViewController {
             let button = UIButton(type: .system)
             button.setTitle("Sign Up", for: .normal)
             button.setTitleColor(.white, for: .normal)
-            button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .heavy)
+            button.titleLabel?.font = UIFont(name: "Roboto-Bold", size: 20)
             button.backgroundColor = #colorLiteral(red: 0.05882352963, green: 0.180392161, blue: 0.2470588237, alpha: 1)
             button.heightAnchor.constraint(equalToConstant: 55).isActive = true
             button.layer.cornerRadius = 22
@@ -33,7 +33,7 @@ class WelcomeViewController: UIViewController {
             let button = UIButton(type: .system)
             button.setTitle("Log In", for: .normal)
             button.setTitleColor(.white, for: .normal)
-            button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .heavy)
+            button.titleLabel?.font = UIFont(name: "Roboto-Bold", size: 20)
             button.backgroundColor = #colorLiteral(red: 0.05882352963, green: 0.180392161, blue: 0.2470588237, alpha: 1)
             button.heightAnchor.constraint(equalToConstant: 55).isActive = true
             button.layer.cornerRadius = 22
@@ -98,6 +98,8 @@ class WelcomeViewController: UIViewController {
         let item = AVPlayerItem(url: url)
         
         videoPlayer = AVPlayer(playerItem: item)
+//        Clearly the following is not working...
+        videoPlayer?.isMuted = true
         
         videoPlayerLayer = AVPlayerLayer(player: videoPlayer!)
         
@@ -107,7 +109,6 @@ class WelcomeViewController: UIViewController {
         
         videoPlayer?.playImmediately(atRate: 1)
         
-        self.videoPlayer?.isMuted = true
 
         NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: self.videoPlayer!.currentItem, queue: .main) { [weak self] _ in
             self?.videoPlayer?.seek(to: CMTime.zero)

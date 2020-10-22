@@ -1,6 +1,6 @@
 //
 //  GradientDescent.swift
-//  ShoeSwiperMenus
+//  KixApp
 //
 //  Created by Antoine Neidecker on 26/08/2020.
 //  Copyright © 2020 Antoine Neidecker. All rights reserved.
@@ -82,8 +82,6 @@ class GradientDescent {
     func AdamOp() -> Matrix{
         newBatch = true
         dW = currentMean
-        print("Current Mean dW is:")
-        print(dW)
         V = updateV()
         S = updateS()
         iteration += 1

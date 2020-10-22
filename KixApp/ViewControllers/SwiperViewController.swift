@@ -100,22 +100,18 @@ class SwiperViewController: UIViewController, SettingsControllerDelegate, LoginC
 //        transition.timingFunction = CAMediaTimingFunction(name:CAMediaTimingFunctionName.easeInEaseOut)
 //        view.window!.layer.add(transition, forKey: kCATransition)
         
-        let appSettingsViewController = NewSettingsViewController()
-        appSettingsViewController.navigationController?.isNavigationBarHidden = false
-
-
-        //        appSettingsViewController.navigationItem.rightBarButtonItems = [UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(handleSave))]
+//        let appSettingsViewController = NewSettingsViewController()
+//        appSettingsViewController.navigationController?.isNavigationBarHidden = false
 //        appSettingsViewController.neverShowPrivacySettings = true
 //        appSettingsViewController.showDoneButton = true
-        
 //        appSettingsViewController.isModalInPresentation = true
-        navigationController!.pushViewController(appSettingsViewController, animated: true)
+//        navigationController!.pushViewController(appSettingsViewController, animated: true)
 
-//        let settingsController = SettingsController()
-//        settingsController.delegate = self
-//        let navController = UINavigationController(rootViewController: settingsController)
-//        navController.modalPresentationStyle = .fullScreen
-//        self.present(navController, animated: true)
+        let settingsController = SettingsController()
+        settingsController.delegate = self
+        let navController = UINavigationController(rootViewController: settingsController)
+        navController.modalPresentationStyle = .fullScreen
+        self.present(navController, animated: true)
     }
     
     @objc fileprivate func handleSave(){
@@ -212,6 +208,7 @@ class SwiperViewController: UIViewController, SettingsControllerDelegate, LoginC
     }
     
     func didTapMoreInfo(cardViewModel: CardViewModel) {
+        Analytics.logEvent("moreInfo", parameters: ["Brand": cardViewModel.brand, "Name": cardViewModel.name])
         let shoeDetailsController = ShoeDetailsViewController()
 //        shoeDetailsController.modalPresentationStyle = .fullScreen
         
@@ -256,9 +253,10 @@ class SwiperViewController: UIViewController, SettingsControllerDelegate, LoginC
 //            var nextCardView: CardView?
 
             snapshot?.documents.forEach({ (documentSnapshot) in
-                print(documentSnapshot.data())
+//                print(documentSnapshot.data())
                 let userDictionary = documentSnapshot.data()
                 let user = User(dictionary: userDictionary)
+                print("Okay been here!!")
                 let cardView = self.setupCardFromUser(user: user)
                 
                 self.previousCardView?.nextCardView = cardView
@@ -316,7 +314,7 @@ class SwiperViewController: UIViewController, SettingsControllerDelegate, LoginC
         guard let ecoFriendly = topCardView?.cardViewModel.ecoFriendly else {return}
         
         guard let index = topCardView?.cardViewModel.index else {return}
-        print(index)
+//        print(index)
         
         let digitPrice = price.split(separator: "€")
         let newdigitPrice = digitPrice[0]
@@ -409,8 +407,8 @@ class SwiperViewController: UIViewController, SettingsControllerDelegate, LoginC
             let shoes = array["data"]! as NSArray
             for shoe in (shoes as! [NSDictionary]) {
                 shoeCounter += 1
-                print(shoeCounter)
-                print(shoe["index"])
+//                print(shoeCounter)
+//                print(shoe["index"])
                 let user = User(dictionary: shoe as! [String : Any])
                 let cardView = self.setupCardFromUser(user: user)
                 
@@ -422,7 +420,7 @@ class SwiperViewController: UIViewController, SettingsControllerDelegate, LoginC
                 }
             }
             self.hud.dismiss()
-//            And if no more shoes match the 
+//            And if no more shoes match the
             if (shoes.count == 0){
                 let newhud = JGProgressHUD(style: .dark)
                 newhud.indicatorView = nil
@@ -434,6 +432,7 @@ class SwiperViewController: UIViewController, SettingsControllerDelegate, LoginC
     }
     
     @objc func handleLike(){
+        Analytics.logEvent("likePressed", parameters: ["userAge": user?.age, "userGender": user?.gender])
         handleGradientDescent(didLike: true, swipeW: topCardView?.cardViewModel.shoeVector ?? Matrix.random(rows: 1, columns: 40))
         saveSwipeToFirestore(didLike: 1)
         performSwipeAnimation(translation: 700, angle: 16)
@@ -441,6 +440,7 @@ class SwiperViewController: UIViewController, SettingsControllerDelegate, LoginC
         }
 
     @objc func handleDislike(){
+        Analytics.logEvent("dislikePressed", parameters: ["userAge": user?.age, "userGender": user?.gender])
         handleGradientDescent(didLike: false, swipeW: topCardView?.cardViewModel.shoeVector ?? Matrix.random(rows: 1, columns: 40))
         saveSwipeToFirestore(didLike: 0)
         performSwipeAnimation(translation: -700, angle: -16)
@@ -479,6 +479,7 @@ class SwiperViewController: UIViewController, SettingsControllerDelegate, LoginC
     }
     
     @objc fileprivate func handleMessageButton(){
+        Analytics.logEvent("shoeRack", parameters: nil)
         let vc = LikesController()
         vc.actualUser = user
         navigationController?.pushViewController(vc, animated: true)

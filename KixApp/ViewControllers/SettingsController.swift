@@ -1,6 +1,6 @@
 //
 //  SettingsController.swift
-//  ShoeSwiperMenus
+//  KixApp
 //
 //  Created by Antoine Neidecker on 11/04/2020.
 //  Copyright © 2020 Antoine Neidecker. All rights reserved.

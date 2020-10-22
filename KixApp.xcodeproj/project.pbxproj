@@ -11,7 +11,6 @@
 		AF2CB90C24223679007C352F /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2CB90B24223679007C352F /* SignupViewController.swift */; };
 		AF2CB90E24223688007C352F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2CB90D24223688007C352F /* LoginViewController.swift */; };
 		AF2CB91324223912007C352F /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2CB91224223912007C352F /* WelcomeViewController.swift */; };
-		AF2CB92924239E7E007C352F /* SSVid8.mov in Resources */ = {isa = PBXBuildFile; fileRef = AF2CB92824239E7E007C352F /* SSVid8.mov */; };
 		AF2DC08B25384AF200356082 /* FeedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2DC08A25384AF200356082 /* FeedController.swift */; };
 		AF2DC08D25387E5F00356082 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2DC08C25387E5F00356082 /* Post.swift */; };
 		AF367F9524E934C2001F5716 /* PanelInteractionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF367F9024E9337A001F5716 /* PanelInteractionController.swift */; };
@@ -55,7 +54,6 @@
 		AF7163C324642FB800415F42 /* LikedNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7163C224642FB800415F42 /* LikedNavBar.swift */; };
 		AF7163C52464391700415F42 /* LikesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5E6A142449ECAD006D53A7 /* LikesController.swift */; };
 		AF7217082498E4F5008FF4D0 /* ChatLogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7217072498E4F5008FF4D0 /* ChatLogController.swift */; };
-		AF855A5B24ED516900033162 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF855A5A24ED516900033162 /* OnboardingViewController.swift */; };
 		AF855A9D24FF87B600033162 /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF855A9C24FF87B600033162 /* Matrix.swift */; };
 		AF855AA124FF899E00033162 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AF855AA024FF899E00033162 /* Settings.bundle */; };
 		AF855AA524FFB44800033162 /* NewSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF855AA424FFB44800033162 /* NewSettingsViewController.swift */; };
@@ -78,13 +76,14 @@
 		AFBBC062242650AD0099399B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBBC060242650AD0099399B /* Constants.swift */; };
 		AFBBC063242650AD0099399B /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBBC061242650AD0099399B /* Utilities.swift */; };
 		AFBBC065242651910099399B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AFBBC064242651910099399B /* GoogleService-Info.plist */; };
+		AFDB9FA0253F40B200FD15B0 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDB9F9F253F40B200FD15B0 /* OnboardingViewController.swift */; };
 		AFF03160242A56B60092312A /* TopNavigationStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF0315F242A56B60092312A /* TopNavigationStackView.swift */; };
 		AFF03162242A610E0092312A /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF03161242A610E0092312A /* CardView.swift */; };
 		AFF03165242AA2680092312A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF03164242AA2680092312A /* User.swift */; };
 		AFF03168242AAD4F0092312A /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF03167242AAD4F0092312A /* CardViewModel.swift */; };
 		AFF0316A242AB4000092312A /* Advertiser.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF03169242AB4000092312A /* Advertiser.swift */; };
 		AFF0316C242B8F950092312A /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF0316B242B8F950092312A /* CustomTextField.swift */; };
-		B562404A2793739510F0DCD9 /* Pods_ShoeSwiperMenus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4E8D03F6FC6F86CAFC75FF3 /* Pods_ShoeSwiperMenus.framework */; };
+		EC6DE19F54CE003D795EEF1D /* Pods_KixApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F940836DFBD239FF48B079D5 /* Pods_KixApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -118,7 +117,7 @@
 		AF39D6F324DB13F20031BE5B /* RobotoCondensed-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "RobotoCondensed-Italic.ttf"; path = "../../../../Downloads/roboto/RobotoCondensed-Italic.ttf"; sourceTree = "<group>"; };
 		AF39D6F424DB13F20031BE5B /* Roboto-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-BoldItalic.ttf"; path = "../../../../Downloads/roboto/Roboto-BoldItalic.ttf"; sourceTree = "<group>"; };
 		AF39D6F524DB13F20031BE5B /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Regular.ttf"; path = "../../../../Downloads/roboto/Roboto-Regular.ttf"; sourceTree = "<group>"; };
-		AF3E7156241F97230010DE24 /* ShoeSwiperMenus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShoeSwiperMenus.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF3E7156241F97230010DE24 /* KixApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KixApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF3E7159241F97230010DE24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF3E715B241F97230010DE24 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		AF3E7160241F97230010DE24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -174,15 +173,16 @@
 		AFBBC060242650AD0099399B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		AFBBC061242650AD0099399B /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		AFBBC064242651910099399B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		AFDB9F9F253F40B200FD15B0 /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		AFF0315F242A56B60092312A /* TopNavigationStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopNavigationStackView.swift; sourceTree = "<group>"; };
 		AFF03161242A610E0092312A /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		AFF03164242AA2680092312A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		AFF03167242AAD4F0092312A /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
 		AFF03169242AB4000092312A /* Advertiser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Advertiser.swift; sourceTree = "<group>"; };
 		AFF0316B242B8F950092312A /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
-		BC992FE1D66D7ABF96A2DA15 /* Pods-ShoeSwiperMenus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShoeSwiperMenus.release.xcconfig"; path = "Target Support Files/Pods-ShoeSwiperMenus/Pods-ShoeSwiperMenus.release.xcconfig"; sourceTree = "<group>"; };
-		C65DB0985D3F56D30B52BDEA /* Pods-ShoeSwiperMenus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShoeSwiperMenus.debug.xcconfig"; path = "Target Support Files/Pods-ShoeSwiperMenus/Pods-ShoeSwiperMenus.debug.xcconfig"; sourceTree = "<group>"; };
-		D4E8D03F6FC6F86CAFC75FF3 /* Pods_ShoeSwiperMenus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShoeSwiperMenus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2414C247728AD95A2561C99 /* Pods-KixApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KixApp.release.xcconfig"; path = "Target Support Files/Pods-KixApp/Pods-KixApp.release.xcconfig"; sourceTree = "<group>"; };
+		D3933025712E50480CF7A7B4 /* Pods-KixApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KixApp.debug.xcconfig"; path = "Target Support Files/Pods-KixApp/Pods-KixApp.debug.xcconfig"; sourceTree = "<group>"; };
+		F940836DFBD239FF48B079D5 /* Pods_KixApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KixApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,7 +190,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B562404A2793739510F0DCD9 /* Pods_ShoeSwiperMenus.framework in Frameworks */,
+				EC6DE19F54CE003D795EEF1D /* Pods_KixApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,18 +200,10 @@
 		1B5E48C9C48744A6B1D770DC /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				C65DB0985D3F56D30B52BDEA /* Pods-ShoeSwiperMenus.debug.xcconfig */,
-				BC992FE1D66D7ABF96A2DA15 /* Pods-ShoeSwiperMenus.release.xcconfig */,
+				D3933025712E50480CF7A7B4 /* Pods-KixApp.debug.xcconfig */,
+				B2414C247728AD95A2561C99 /* Pods-KixApp.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		93FF0981308181CA7354A95A /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				D4E8D03F6FC6F86CAFC75FF3 /* Pods_ShoeSwiperMenus.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		AF03AC3E249A176C0029CAFE /* FeedbackMessages */ = {
@@ -232,6 +224,7 @@
 				AF7217072498E4F5008FF4D0 /* ChatLogController.swift */,
 				AF58B43F2441DAAC00135387 /* SettingsController.swift */,
 				AF855AA424FFB44800033162 /* NewSettingsViewController.swift */,
+				AFDB9F9F253F40B200FD15B0 /* OnboardingViewController.swift */,
 				AF855AA924FFBC8900033162 /* CustomViewCell.h */,
 				AF855AA824FFBC8900033162 /* CustomViewCell.m */,
 				AF855AA024FF899E00033162 /* Settings.bundle */,
@@ -304,23 +297,23 @@
 		AF3E714D241F97230010DE24 = {
 			isa = PBXGroup;
 			children = (
-				AF3E7158241F97230010DE24 /* ShoeSwiperMenus */,
+				AF3E7158241F97230010DE24 /* KixApp */,
 				AF39D6E224DB13B50031BE5B /* Fonts */,
 				AF3E7157241F97230010DE24 /* Products */,
 				1B5E48C9C48744A6B1D770DC /* Pods */,
-				93FF0981308181CA7354A95A /* Frameworks */,
+				B532CF126FB0C89CC00EF4E0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		AF3E7157241F97230010DE24 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AF3E7156241F97230010DE24 /* ShoeSwiperMenus.app */,
+				AF3E7156241F97230010DE24 /* KixApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		AF3E7158241F97230010DE24 /* ShoeSwiperMenus */ = {
+		AF3E7158241F97230010DE24 /* KixApp */ = {
 			isa = PBXGroup;
 			children = (
 				AF855A9924FF878800033162 /* Math */,
@@ -339,7 +332,7 @@
 				AFBBC064242651910099399B /* GoogleService-Info.plist */,
 				AF2CB91924237039007C352F /* Media */,
 			);
-			path = ShoeSwiperMenus;
+			path = KixApp;
 			sourceTree = "<group>";
 		};
 		AF55CE912446277A00D9A57F /* Shoe Details */ = {
@@ -595,27 +588,35 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		B532CF126FB0C89CC00EF4E0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F940836DFBD239FF48B079D5 /* Pods_KixApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		AF3E7155241F97230010DE24 /* ShoeSwiperMenus */ = {
+		AF3E7155241F97230010DE24 /* KixApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AF3E716A241F97240010DE24 /* Build configuration list for PBXNativeTarget "ShoeSwiperMenus" */;
+			buildConfigurationList = AF3E716A241F97240010DE24 /* Build configuration list for PBXNativeTarget "KixApp" */;
 			buildPhases = (
-				6A02439DDBF7BF2AF9E47A0A /* [CP] Check Pods Manifest.lock */,
+				D0446164CE36335DB14DE590 /* [CP] Check Pods Manifest.lock */,
 				B335A8C8AB92BD23F5CD131D /* [CP] Prepare Artifacts */,
 				AF3E7152241F97230010DE24 /* Sources */,
 				AF3E7153241F97230010DE24 /* Frameworks */,
 				AF3E7154241F97230010DE24 /* Resources */,
-				0A38E317DAA5A9D2779E3BD5 /* [CP] Embed Pods Frameworks */,
+				FFF7A6171680884808683D3A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = ShoeSwiperMenus;
+			name = KixApp;
 			productName = ShoeSwiperMenus;
-			productReference = AF3E7156241F97230010DE24 /* ShoeSwiperMenus.app */;
+			productReference = AF3E7156241F97230010DE24 /* KixApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -633,7 +634,7 @@
 					};
 				};
 			};
-			buildConfigurationList = AF3E7151241F97230010DE24 /* Build configuration list for PBXProject "ShoeSwiperMenus" */;
+			buildConfigurationList = AF3E7151241F97230010DE24 /* Build configuration list for PBXProject "KixApp" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -643,13 +644,13 @@
 			);
 			mainGroup = AF3E714D241F97230010DE24;
 			packageReferences = (
-				AF9A0C7B24979BCE00846FE3 /* XCRemoteSwiftPackageReference "LBTATools" */,
+				AF9A0C7B24979BCE00846FE3 /* RemoteSwiftPackageReference */,
 			);
 			productRefGroup = AF3E7157241F97230010DE24 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				AF3E7155241F97230010DE24 /* ShoeSwiperMenus */,
+				AF3E7155241F97230010DE24 /* KixApp */,
 			);
 		};
 /* End PBXProject section */
@@ -679,7 +680,6 @@
 				AF39D6F624DB13F20031BE5B /* RobotoCondensed-Light.ttf in Resources */,
 				AF39D70824DB13F20031BE5B /* Roboto-Regular.ttf in Resources */,
 				AF39D70324DB13F20031BE5B /* Roboto-Thin.ttf in Resources */,
-				AF2CB92924239E7E007C352F /* SSVid8.mov in Resources */,
 				AF39D70024DB13F20031BE5B /* Roboto-Bold.ttf in Resources */,
 				AF855AA124FF899E00033162 /* Settings.bundle in Resources */,
 				AF39D70224DB13F20031BE5B /* Roboto-MediumItalic.ttf in Resources */,
@@ -690,24 +690,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0A38E317DAA5A9D2779E3BD5 /* [CP] Embed Pods Frameworks */ = {
+		B335A8C8AB92BD23F5CD131D /* [CP] Prepare Artifacts */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ShoeSwiperMenus/Pods-ShoeSwiperMenus-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-KixApp/Pods-KixApp-artifacts-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			name = "[CP] Prepare Artifacts";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ShoeSwiperMenus/Pods-ShoeSwiperMenus-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-KixApp/Pods-KixApp-artifacts-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ShoeSwiperMenus/Pods-ShoeSwiperMenus-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KixApp/Pods-KixApp-artifacts.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6A02439DDBF7BF2AF9E47A0A /* [CP] Check Pods Manifest.lock */ = {
+		D0446164CE36335DB14DE590 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -722,28 +722,28 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ShoeSwiperMenus-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-KixApp-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B335A8C8AB92BD23F5CD131D /* [CP] Prepare Artifacts */ = {
+		FFF7A6171680884808683D3A /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ShoeSwiperMenus/Pods-ShoeSwiperMenus-artifacts-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-KixApp/Pods-KixApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Prepare Artifacts";
+			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ShoeSwiperMenus/Pods-ShoeSwiperMenus-artifacts-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-KixApp/Pods-KixApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ShoeSwiperMenus/Pods-ShoeSwiperMenus-artifacts.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KixApp/Pods-KixApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -758,7 +758,6 @@
 				AF3E715A241F97230010DE24 /* AppDelegate.swift in Sources */,
 				AF2CB90C24223679007C352F /* SignupViewController.swift in Sources */,
 				AF55CE93244627AA00D9A57F /* ShoeDetailsViewController.swift in Sources */,
-				AF855A5B24ED516900033162 /* OnboardingViewController.swift in Sources */,
 				AF855ACF2500EF8100033162 /* PageViewItem.swift in Sources */,
 				AF855AD32500EF8100033162 /* PaperOnboardingDelegate.swift in Sources */,
 				AF55CE9524472E3F00D9A57F /* SwipingPhotosController.swift in Sources */,
@@ -798,6 +797,7 @@
 				AFF03162242A610E0092312A /* CardView.swift in Sources */,
 				AF2DC08D25387E5F00356082 /* Post.swift in Sources */,
 				AF7217082498E4F5008FF4D0 /* ChatLogController.swift in Sources */,
+				AFDB9FA0253F40B200FD15B0 /* OnboardingViewController.swift in Sources */,
 				AF5EFE9F244DAF89006642BE /* Shoe.swift in Sources */,
 				AF855AD42500EF8100033162 /* FillAnimationView.swift in Sources */,
 				AF58B444244462CA00135387 /* ActualUser.swift in Sources */,
@@ -946,54 +946,54 @@
 		};
 		AF3E716B241F97240010DE24 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C65DB0985D3F56D30B52BDEA /* Pods-ShoeSwiperMenus.debug.xcconfig */;
+			baseConfigurationReference = D3933025712E50480CF7A7B4 /* Pods-KixApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PMA2LFUJAN;
-				INFOPLIST_FILE = ShoeSwiperMenus/Info.plist;
+				INFOPLIST_FILE = KixApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.04;
-				PRODUCT_BUNDLE_IDENTIFIER = com.antoineneidecker.ShoeSwiper;
+				PRODUCT_BUNDLE_IDENTIFIER = com.antoineneidecker.KixApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = kixProvProf;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		AF3E716C241F97240010DE24 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BC992FE1D66D7ABF96A2DA15 /* Pods-ShoeSwiperMenus.release.xcconfig */;
+			baseConfigurationReference = B2414C247728AD95A2561C99 /* Pods-KixApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PMA2LFUJAN;
-				INFOPLIST_FILE = ShoeSwiperMenus/Info.plist;
+				INFOPLIST_FILE = KixApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.04;
-				PRODUCT_BUNDLE_IDENTIFIER = com.antoineneidecker.ShoeSwiper;
+				PRODUCT_BUNDLE_IDENTIFIER = com.antoineneidecker.KixApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = kixProvProf;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		AF3E7151241F97230010DE24 /* Build configuration list for PBXProject "ShoeSwiperMenus" */ = {
+		AF3E7151241F97230010DE24 /* Build configuration list for PBXProject "KixApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AF3E7168241F97240010DE24 /* Debug */,
@@ -1002,7 +1002,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AF3E716A241F97240010DE24 /* Build configuration list for PBXNativeTarget "ShoeSwiperMenus" */ = {
+		AF3E716A241F97240010DE24 /* Build configuration list for PBXNativeTarget "KixApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AF3E716B241F97240010DE24 /* Debug */,
@@ -1014,7 +1014,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		AF9A0C7B24979BCE00846FE3 /* XCRemoteSwiftPackageReference "LBTATools" */ = {
+		AF9A0C7B24979BCE00846FE3 /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/bhlvoong/LBTATools.git";
 			requirement = {

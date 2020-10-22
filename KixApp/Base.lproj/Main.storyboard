@@ -10,7 +10,7 @@
         <!--Welcome View Controller-->
         <scene sceneID="vBu-C5-hS6">
             <objects>
-                <viewController id="1qQ-hJ-PES" customClass="WelcomeViewController" customModule="ShoeSwiperMenus" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="1qQ-hJ-PES" customClass="WelcomeViewController" customModule="KixApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cd6-t1-was">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -26,7 +26,7 @@
         <!--Signup View Controller-->
         <scene sceneID="CAA-z4-mXl">
             <objects>
-                <viewController id="jsk-OM-AMn" customClass="SignupViewController" customModule="ShoeSwiperMenus" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="jsk-OM-AMn" customClass="SignupViewController" customModule="KixApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Dm5-Zk-y0b">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -42,7 +42,7 @@
         <!--Login View Controller-->
         <scene sceneID="Su1-Xz-hmU">
             <objects>
-                <viewController id="I9e-Qd-1EE" customClass="LoginViewController" customModule="ShoeSwiperMenus" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="I9e-Qd-1EE" customClass="LoginViewController" customModule="KixApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="O3p-VF-W9e">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -58,7 +58,7 @@
         <!--Swiper View Controller-->
         <scene sceneID="NLy-IZ-WCu">
             <objects>
-                <viewController id="mu1-ww-n2d" customClass="SwiperViewController" customModule="ShoeSwiperMenus" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="mu1-ww-n2d" customClass="SwiperViewController" customModule="KixApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mhQ-bY-fYS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

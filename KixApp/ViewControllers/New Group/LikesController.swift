@@ -9,6 +9,8 @@
 import UIKit
 import LBTATools
 import Firebase
+import JGProgressHUD
+
 
 struct RecentMessage{
     let name, uid, brand, link, rating, amountOfRatings : String
@@ -84,7 +86,29 @@ class Header: UICollectionReusableView {
     }
 }
 
-class LikesController: LBTAListHeaderController<RecentMessageCell, RecentMessage, Header>, UICollectionViewDelegateFlowLayout, CardViewDelegateMoreInfo{
+class LikesController: LBTAListHeaderController<RecentMessageCell, RecentMessage, Header>, UICollectionViewDelegateFlowLayout, CardViewDelegateMoreInfo, likedControllerHeaderDelegate{
+    
+    var isRackView = true
+    
+    
+    func didChangeToFeedView() {
+//        isRackView = false
+//        print(isRackView)
+//        collectionView.isHidden = true
+        
+        let hud = JGProgressHUD(style: .dark)
+        hud.textLabel.text = "Coming soon!"
+        hud.indicatorView = nil
+        hud.show(in: view)
+        hud.dismiss(afterDelay: 0.7)
+        
+    }
+    func didChangeToRackView() {
+        isRackView = true
+//        collectionView.reloadData()
+//        collectionView.isHidden = false
+
+    }
     
     var actualUser : ActualUser?
     
@@ -96,7 +120,11 @@ class LikesController: LBTAListHeaderController<RecentMessageCell, RecentMessage
     
     var customNavBar = LikedNavBar()
     
-    var recentMessageDictionary = [String:RecentMessage]()
+    let homePostCellId = "homePostCellId"
+    
+    
+    
+    var recentMessageDictionary = [String: RecentMessage]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -107,16 +135,15 @@ class LikesController: LBTAListHeaderController<RecentMessageCell, RecentMessage
     }
     
     fileprivate func setupUI() {
-        collectionView.backgroundColor = .white
         
+        customNavBar.delegate = self
         customNavBar.backButton.addTarget(self, action: #selector(handleBack), for: .touchUpInside)
-        
         view.addSubview(customNavBar)
         customNavBar.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, size: .init(width: 0, height: 110))
-        
+        collectionView.backgroundColor = .white
         collectionView.contentInset.top = 110
         collectionView.verticalScrollIndicatorInsets.top = 110
-        
+                
         let statusBarCover = UIView(backgroundColor: .white)
         view.addSubview(statusBarCover)
         statusBarCover.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: view.safeAreaLayoutGuide.topAnchor, trailing: view.trailingAnchor)
@@ -135,15 +162,11 @@ class LikesController: LBTAListHeaderController<RecentMessageCell, RecentMessage
             }
             
             snapshot?.documents.forEach({ (change) in
-//                if change.type == .added || change.type == .modified{
                 let dictionary = change.data()
                 let recentMessage = RecentMessage(dictionary: dictionary)
                 let uid = recentMessage.brand + recentMessage.name
                 self.recentMessageDictionary[uid] = recentMessage
-//                }
-                
             })
-//            print(self.recentMessageDictionary.values)
             self.resetItems()
             
             }
@@ -160,6 +183,7 @@ class LikesController: LBTAListHeaderController<RecentMessageCell, RecentMessage
         items = values.sorted(by: { (rm1, rm2) -> Bool in
             return rm1.timestamp.compare(rm2.timestamp) == .orderedDescending
         })
+        
         collectionView.reloadData()
     }
     @objc fileprivate func handleBack(){
@@ -171,44 +195,30 @@ class LikesController: LBTAListHeaderController<RecentMessageCell, RecentMessage
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return .init(width: view.frame.width, height: 140)
+
     }
     
-
+    
     func didTapMoreInfo(cardViewModel: CardViewModel) {
         let shoeDetailsController = ShoeDetailsViewController()
-        //        shoeDetailsController.modalPresentationStyle = .fullScreen
                 
         shoeDetailsController.transitioningDelegate                = self.panelTransitioningDelegate
         shoeDetailsController.modalPresentationStyle                = .custom
         shoeDetailsController.cardViewModel = cardViewModel
         shoeDetailsController.user = actualUser
+        
         present(shoeDetailsController, animated: true)
         
         
         }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let recentLike = self.items[indexPath.item]
-//        The following dictionary initionalizes a User object. Therefore the dic elements mush match the User dic elements.
-        let dictionary = ["shoeName": recentLike.name, "shoeBrand": recentLike.brand, "shoePrice": recentLike.price, "shoeLink": recentLike.link,"shoeEcoFriendly": recentLike.eco, "shoeHotDrop": recentLike.hot, "picturesURL": recentLike.picUrl, "shoeRating": recentLike.rating, "shoeAmountOfRating": recentLike.amountOfRatings, "sizesAndPrices": recentLike.sizesAndPrices, "sizesAndStock": recentLike.sizesAndStock] as [String : Any]
-        let user = User(dictionary: dictionary)
-        let cardViewModel = user.toCardViewModel()
-        didTapMoreInfo(cardViewModel: cardViewModel)
+                let recentLike = self.items[indexPath.item]
+        //        The following dictionary initionalizes a User object. Therefore the dic elements must match the User dic elements.
+                let dictionary = ["shoeName": recentLike.name, "shoeBrand": recentLike.brand, "shoePrice": recentLike.price, "shoeLink": recentLike.link,"shoeEcoFriendly": recentLike.eco, "shoeHotDrop": recentLike.hot, "picturesURL": recentLike.picUrl, "shoeRating": recentLike.rating, "shoeAmountOfRating": recentLike.amountOfRatings, "sizesAndPrices": recentLike.sizesAndPrices, "sizesAndStock": recentLike.sizesAndStock] as [String : Any]
+                let user = User(dictionary: dictionary)
+                let cardViewModel = user.toCardViewModel()
+                didTapMoreInfo(cardViewModel: cardViewModel)
+        }
     }
-    }
     
-    
-
-    
-
-
-
-struct LikedShoe {
-
-    
-}
-
-class shoeCell: LBTAListCell<LikedShoe> {
-
-}
-
