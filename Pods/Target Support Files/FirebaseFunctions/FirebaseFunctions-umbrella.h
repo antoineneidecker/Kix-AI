@@ -10,9 +10,14 @@
 #endif
 #endif
 
+#import "FirebaseFunctions 2.h"
+#import "FirebaseFunctions 4.h"
 #import "FirebaseFunctions.h"
+#import "FIRError 2.h"
 #import "FIRError.h"
+#import "FIRFunctions 2.h"
 #import "FIRFunctions.h"
+#import "FIRHTTPSCallable 2.h"
 #import "FIRHTTPSCallable.h"
 
 FOUNDATION_EXPORT double FirebaseFunctionsVersionNumber;

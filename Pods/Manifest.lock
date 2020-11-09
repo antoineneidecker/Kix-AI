@@ -220,6 +220,7 @@ PODS:
     - BoringSSL-GRPC/Interface (= 0.0.7)
   - BoringSSL-GRPC/Interface (0.0.7)
   - Crisp (1.0.3)
+  - DOFavoriteButtonNew (0.0.6)
   - Firebase/Auth (6.31.1):
     - Firebase/CoreOnly
     - FirebaseAuth (~> 6.9.0)
@@ -355,6 +356,7 @@ PODS:
 DEPENDENCIES:
   - BetterSegmentedControl (~> 1.3)
   - Crisp
+  - DOFavoriteButtonNew
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Firestore
@@ -374,6 +376,7 @@ SPEC REPOS:
     - BetterSegmentedControl
     - BoringSSL-GRPC
     - Crisp
+    - DOFavoriteButtonNew
     - Firebase
     - FirebaseAnalytics
     - FirebaseAuth
@@ -404,6 +407,7 @@ SPEC CHECKSUMS:
   BetterSegmentedControl: 85d1b0343a09603b098884d527f550dfc8e6cdd9
   BoringSSL-GRPC: 8edf627ee524575e2f8d19d56f068b448eea3879
   Crisp: 25e6203d6387904611b093fd969c27c92d713501
+  DOFavoriteButtonNew: 1710b2c958e9571f9adaa023f528b495cc5e3606
   Firebase: 658370fa0181826a74b7cfca8d68c5856ca749ae
   FirebaseAnalytics: 0ca9aa2af7cc4dc92392b7a78bfc49feaa2eb60f
   FirebaseAuth: 09f086fae98643f1ef235674cf3ae171ce26f5ba
@@ -429,6 +433,6 @@ SPEC CHECKSUMS:
   PromisesObjC: b14b1c6b68e306650688599de8a45e49fae81151
   SDWebImage: 62ae4a18473520c67b79e9724c31a63599cc9423
 
-PODFILE CHECKSUM: f2cfd37f733a7e5025a973a4d60254b41729c569
+PODFILE CHECKSUM: e0a49d412d0b25b2e88e412bd119cceba6be04ff
 
 COCOAPODS: 1.9.3

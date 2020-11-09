@@ -19,6 +19,7 @@ protocol likedControllerHeaderDelegate {
 class LikedNavBar: UIView {
     
     var delegate: likedControllerHeaderDelegate?
+    var isRackView = true
     
     let backButton = UIButton(image: #imageLiteral(resourceName: "kix_logo_pink"), tintColor: .lightGray)
     
@@ -27,7 +28,8 @@ class LikedNavBar: UIView {
         button.setTitle("Rack", for: .normal)
         button.addTarget(self, action: #selector(handleChangeRackView), for: .touchUpInside)
         button.titleLabel?.font = UIFont(name: "Roboto-Bold", size: 20)
-        button.tintColor = UIColor.rgb(red: 17, green: 154, blue: 237)
+        
+//        button.tintColor = UIColor.rgb(red: 17, green: 154, blue: 237)
         return button
     }()
     
@@ -36,7 +38,7 @@ class LikedNavBar: UIView {
         button.setTitle("Feed", for: .normal)
         button.addTarget(self, action: #selector(handleChangeFeedView), for: .touchUpInside)
         button.titleLabel?.font = UIFont(name: "Roboto-Bold", size: 20)
-        button.tintColor = UIColor(white: 0, alpha: 0.2 )
+//        button.tintColor = UIColor(white: 0, alpha: 0.2 )
         return button
     }()
     
@@ -51,7 +53,14 @@ class LikedNavBar: UIView {
        
        stack(iconImageView.withHeight(55),hstack(rackButton,feedButton, distribution: .fillEqually)).padTop(10)
         
-        
+        if isRackView{
+            rackButton.tintColor = UIColor.rgb(red: 17, green: 154, blue: 237)
+            feedButton.tintColor = UIColor(white: 0, alpha: 0.2 )
+        }
+        else{
+            feedButton.tintColor = UIColor.rgb(red: 17, green: 154, blue: 237)
+            rackButton.tintColor = UIColor(white: 0, alpha: 0.2 )
+        }
         addSubview(backButton)
         backButton.anchor(top: safeAreaLayoutGuide.topAnchor, leading: leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 12, left: 12, bottom: 0, right: 0), size: .init(width: 34, height: 34))
 
@@ -65,8 +74,8 @@ class LikedNavBar: UIView {
     }
     
     @objc func handleChangeFeedView(){
-//        feedButton.tintColor = UIColor.rgb(red: 17, green: 154, blue: 237)
-//        rackButton.tintColor = UIColor(white: 0, alpha: 0.2 )
+        feedButton.tintColor = UIColor.rgb(red: 17, green: 154, blue: 237)
+        rackButton.tintColor = UIColor(white: 0, alpha: 0.2 )
         
         delegate?.didChangeToFeedView()
         return

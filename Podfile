@@ -23,4 +23,5 @@ inhibit_all_warnings!
   pod 'Crisp'
   pod 'InAppSettingsKit'
   pod 'BetterSegmentedControl', '~> 1.3'
+  pod 'DOFavoriteButtonNew'
 end

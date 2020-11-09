@@ -52,10 +52,30 @@ class RecentMessageCell : LBTAListCell<RecentMessage>{
     let messageTextLabel = UILabel(text: "Some long line of text that should span 2 lines", font: .systemFont(ofSize: 16), textColor: .gray, numberOfLines: 2)
         
     
+//    DELETE
+    let sendButton = UIButton(title: "Send", titleColor: .black, font: .boldSystemFont(ofSize: 14), target: nil, action: nil)
+    
+    let textView : UITextView = {
+        let tv = UITextView()
+        tv.backgroundColor = .clear
+        tv.font = .systemFont(ofSize: 20)
+        tv.isScrollEnabled = false
+        tv.isEditable = false
+        return tv
+    }()
+    //    DELETE
+
+    
     override func setupViews() {
         super.setupViews()
         
         userProfileImageView.layer.cornerRadius = 94 / 2
+        
+        
+        //    DELETE
+//        hstack(textView, sendButton.withSize(.init(width: 60, height: 60)), alignment: .center).withMargins(.init(top: 0, left: 16, bottom: 0, right: 16))
+        //    DELETE
+
         
         hstack(userProfileImageView.withWidth(94).withHeight(94),
                stack(usernameLabel, messageTextLabel, spacing: 2),
@@ -77,6 +97,8 @@ class RecentMessageCell : LBTAListCell<RecentMessage>{
 }
 
 
+
+
 class Header: UICollectionReusableView {
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -91,10 +113,34 @@ class LikesController: LBTAListHeaderController<RecentMessageCell, RecentMessage
     var isRackView = true
     
     
+    //    DELETE
+    let sendButton = UIButton(title: "Send", titleColor: .black, font: .boldSystemFont(ofSize: 14), target: nil, action: nil)
+    
+    let textView : UITextView = {
+        let tv = UITextView()
+        tv.backgroundColor = .clear
+        tv.font = .systemFont(ofSize: 20)
+        tv.isScrollEnabled = false
+        tv.isEditable = false
+        return tv
+    }()
+    //    DELETE
+    
+    func setupViewsForFeed(){
+
+//        hstack(textView, sendButton.withSize(.init(width: 60, height: 60)), alignment: .center).withMargins(.init(top: 0, left: 16, bottom: 0, right: 16))
+    }
+    
     func didChangeToFeedView() {
+        let controller = FeedController()
+        navigationController?.replaceTopViewController(with: controller, animated: false)
+        
+        
 //        isRackView = false
 //        print(isRackView)
 //        collectionView.isHidden = true
+        
+//        collectionView.backgroundColor = .red
         
         let hud = JGProgressHUD(style: .dark)
         hud.textLabel.text = "Coming soon!"
@@ -105,9 +151,8 @@ class LikesController: LBTAListHeaderController<RecentMessageCell, RecentMessage
     }
     func didChangeToRackView() {
         isRackView = true
-//        collectionView.reloadData()
-//        collectionView.isHidden = false
-
+        collectionView.reloadData()
+        collectionView.isHidden = false
     }
     
     var actualUser : ActualUser?
@@ -128,19 +173,21 @@ class LikesController: LBTAListHeaderController<RecentMessageCell, RecentMessage
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
+        customNavBar.isRackView = true
         fetchMatches()
         setupUI()
-        
     }
     
     fileprivate func setupUI() {
-        
         customNavBar.delegate = self
+        
+        collectionView.backgroundColor = .red
+
         customNavBar.backButton.addTarget(self, action: #selector(handleBack), for: .touchUpInside)
         view.addSubview(customNavBar)
         customNavBar.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, size: .init(width: 0, height: 110))
-        collectionView.backgroundColor = .white
+//        collectionView.backgroundColor = .white
         collectionView.contentInset.top = 110
         collectionView.verticalScrollIndicatorInsets.top = 110
                 
