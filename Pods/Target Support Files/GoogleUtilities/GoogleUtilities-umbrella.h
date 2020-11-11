@@ -10,12 +10,8 @@
 #endif
 #endif
 
-#import "GULLoggerLevel 2.h"
-#import "GULLoggerLevel 4.h"
 #import "GULLoggerLevel.h"
-#import "GULLoggerCodes 2.h"
 #import "GULLoggerCodes.h"
-#import "GULNSData+zlib 2.h"
 #import "GULNSData+zlib.h"
 
 FOUNDATION_EXPORT double GoogleUtilitiesVersionNumber;

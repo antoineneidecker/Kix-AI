@@ -1,0 +1,6 @@
+framework module DOFavoriteButtonNew {
+  umbrella header "DOFavoriteButtonNew-umbrella.h"
+
+  export *
+  module * { export * }
+}

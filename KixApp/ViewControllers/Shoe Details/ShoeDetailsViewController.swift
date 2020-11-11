@@ -3,7 +3,7 @@ import UIKit
 import SDWebImage
 import JGProgressHUD
 import SafariServices
-
+import DOFavoriteButtonNew
 
 
 class ShoeDetailsViewController: UIViewController, UIScrollViewDelegate, PanelAnimationControllerDelegate {
@@ -294,7 +294,11 @@ class ShoeDetailsViewController: UIViewController, UIScrollViewDelegate, PanelAn
         
         scrollView.addSubview(sideIcons)
         sideIcons.anchor(top: priceLabel.bottomAnchor, leading: scrollView.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 15, left: 8, bottom: 0, right: 8))
+        
+        let button = DOFavoriteButtonNew(frame: CGRect(x: 100, y:100, width: 44, height: 44), image: UIImage(named: "heartBlack.png"))
+        scrollView.addSubview(button)
 
+        
     }
     
 

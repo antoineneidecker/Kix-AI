@@ -5,6 +5,8 @@
 //  Created by George Marmaridis on 10/02/2018.
 //
 
+#if canImport(UIKit)
+
 import UIKit
 
 open class IconSegment: BetterSegmentedControlSegment {
@@ -40,6 +42,8 @@ open class IconSegment: BetterSegmentedControlSegment {
     }
     
     // MARK: BetterSegmentedControlSegment
+    public var intrinsicContentSize: CGSize? { nil }
+    
     public lazy var normalView: UIView = {
         return createView(withIcon: icon,
                           iconSize: iconSize,
@@ -91,3 +95,5 @@ public extension IconSegment {
         }
     }
 }
+
+#endif

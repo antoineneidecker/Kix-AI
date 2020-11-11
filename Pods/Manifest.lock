@@ -212,7 +212,7 @@ PODS:
     - abseil/base/base_internal
     - abseil/base/config
     - abseil/meta/type_traits
-  - BetterSegmentedControl (1.3.0)
+  - BetterSegmentedControl (2.0.1)
   - BoringSSL-GRPC (0.0.7):
     - BoringSSL-GRPC/Implementation (= 0.0.7)
     - BoringSSL-GRPC/Interface (= 0.0.7)
@@ -354,7 +354,7 @@ PODS:
   - SDWebImage/Core (5.9.0)
 
 DEPENDENCIES:
-  - BetterSegmentedControl (~> 1.3)
+  - BetterSegmentedControl (~> 2.0)
   - Crisp
   - DOFavoriteButtonNew
   - Firebase/Auth
@@ -404,7 +404,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
-  BetterSegmentedControl: 85d1b0343a09603b098884d527f550dfc8e6cdd9
+  BetterSegmentedControl: 09607b27861d49cbce48b7673b74f9150a3d371a
   BoringSSL-GRPC: 8edf627ee524575e2f8d19d56f068b448eea3879
   Crisp: 25e6203d6387904611b093fd969c27c92d713501
   DOFavoriteButtonNew: 1710b2c958e9571f9adaa023f528b495cc5e3606
@@ -433,6 +433,6 @@ SPEC CHECKSUMS:
   PromisesObjC: b14b1c6b68e306650688599de8a45e49fae81151
   SDWebImage: 62ae4a18473520c67b79e9724c31a63599cc9423
 
-PODFILE CHECKSUM: e0a49d412d0b25b2e88e412bd119cceba6be04ff
+PODFILE CHECKSUM: 04b040afff8153760f1dfa4af6b67c23a0b9b011
 
 COCOAPODS: 1.9.3

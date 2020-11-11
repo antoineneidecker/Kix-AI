@@ -19,7 +19,7 @@ protocol likedControllerHeaderDelegate {
 class LikedNavBar: UIView {
     
     var delegate: likedControllerHeaderDelegate?
-    var isRackView = true
+    var isRackViewMeta = true
     
     let backButton = UIButton(image: #imageLiteral(resourceName: "kix_logo_pink"), tintColor: .lightGray)
     
@@ -53,7 +53,7 @@ class LikedNavBar: UIView {
        
        stack(iconImageView.withHeight(55),hstack(rackButton,feedButton, distribution: .fillEqually)).padTop(10)
         
-        if isRackView{
+        if isRackViewMeta{
             rackButton.tintColor = UIColor.rgb(red: 17, green: 154, blue: 237)
             feedButton.tintColor = UIColor(white: 0, alpha: 0.2 )
         }

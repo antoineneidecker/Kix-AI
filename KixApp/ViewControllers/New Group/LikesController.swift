@@ -174,7 +174,7 @@ class LikesController: LBTAListHeaderController<RecentMessageCell, RecentMessage
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        customNavBar.isRackView = true
+        customNavBar.isRackViewMeta = true
         fetchMatches()
         setupUI()
     }

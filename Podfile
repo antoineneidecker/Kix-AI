@@ -18,10 +18,10 @@ inhibit_all_warnings!
   pod 'JGProgressHUD'
   pod 'LBTATools'
   pod 'FirebaseFirestoreSwift'
-  pod 'LGButton'
   pod 'Firebase/Functions'
   pod 'Crisp'
   pod 'InAppSettingsKit'
-  pod 'BetterSegmentedControl', '~> 1.3'
+  pod 'BetterSegmentedControl', '~> 2.0'
   pod 'DOFavoriteButtonNew'
+  pod 'LGButton'
 end
