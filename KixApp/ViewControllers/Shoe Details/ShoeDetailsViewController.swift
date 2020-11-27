@@ -4,11 +4,15 @@ import SDWebImage
 import JGProgressHUD
 import SafariServices
 import DOFavoriteButtonNew
+import Firebase
+
 
 
 class ShoeDetailsViewController: UIViewController, UIScrollViewDelegate, PanelAnimationControllerDelegate {
 //    UITextViewDelegate
-    
+    var changed = false
+    var favoriteButton = DOFavoriteButtonNew(frame: CGRect(x: 100, y:100, width: 60, height: 60), image: UIImage(named: "starBlack.png"))
+
     // You should really create a different ViewModel object for UserDetails
     // ie UserDetailsViewModel
     
@@ -23,8 +27,9 @@ class ShoeDetailsViewController: UIViewController, UIScrollViewDelegate, PanelAn
             rating = cardViewModel.rating
             amountOfRatings = cardViewModel.amountOfRatings
             shoeColor = cardViewModel.shoeColor
-            name = cardViewModel.name
+            shoeName = cardViewModel.name
             brand = cardViewModel.brand
+            
             sideIcons.axis = .horizontal
             sideIcons.spacing = 15
             
@@ -37,7 +42,28 @@ class ShoeDetailsViewController: UIViewController, UIScrollViewDelegate, PanelAn
             sideIcons.addArrangedSubview(zalandoButton)
             
             price = sizesAndPrices[String(shoeSize)] ?? cardViewModel.price
-                
+            
+            self.pictures = cardViewModel.imageUrls
+            
+            shoeData = [
+                   "shoeName": shoeName,
+                   "shoeBrand": brand,
+                   "shoePrice": price,
+                   "picturesURL": pictures,
+                   "shoeLink": linkLabel,
+                   "timestamp": Timestamp(date: Date()),
+                   "sizesAndPrices": sizesAndPrices,
+                   "sizesAndStock": sizesAndStock,
+                   "shoeRating": rating,
+                   "shoeAmountOfRating": amountOfRatings,
+                   "shoeHotDrop": hotDrop,
+                   "shoeEcoFriendly": ecoFriendly,
+                   "shoeColor": shoeColor,
+                   "shoeSale": sale,
+                   "shoeDescription": shoeDescription,
+                   "shoeInStock": inStock,
+                   "userID": user.uid
+            ]
         }
     }
     
@@ -49,7 +75,7 @@ class ShoeDetailsViewController: UIViewController, UIScrollViewDelegate, PanelAn
     }
     
     
-    fileprivate var name = String()
+    fileprivate var shoeName = String()
     fileprivate var brand = String()
     fileprivate var price = String()
     fileprivate var linkLabel = String()
@@ -68,14 +94,15 @@ class ShoeDetailsViewController: UIViewController, UIScrollViewDelegate, PanelAn
     fileprivate var userShoePrice = String()
     fileprivate var userShoeStock = String()
     fileprivate var inStock = String()
-    
+    fileprivate var pictures = [String()]
+    fileprivate var shoeData: [String: Any] = [:]
     
     
     
     lazy var priceString = NSAttributedString(string: price, attributes: [.font: UIFont(name: "Roboto", size: 26) as Any])
 //    Set the price brand name centered just like on la redoute. Then a horizontal stack with rating hot eco. Finally image with link of shoe.
     
-    lazy var nameString = NSAttributedString(string: name, attributes: [.font: UIFont(name: "Roboto-Bold", size: 26) as Any])
+    lazy var nameString = NSAttributedString(string: shoeName, attributes: [.font: UIFont(name: "Roboto-Bold", size: 26) as Any])
     
 
     lazy var brandString = NSAttributedString(string: brand, attributes: [.font: UIFont(name: "Roboto-Light", size: 22) as Any, NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue])
@@ -132,13 +159,6 @@ class ShoeDetailsViewController: UIViewController, UIScrollViewDelegate, PanelAn
     var stackRating = UIStackView()
     
     var starLabel = UILabel()
-    
-    func createButton(image: UIImage) -> UIButton{
-        let button = UIButton(type: .system)
-        button.setImage(image.withRenderingMode(.alwaysOriginal),for: .normal)
-        button.imageView?.contentMode = .scaleAspectFit
-        return button
-    }
     
     func getInStockIcon(stock: String) -> UIButton{
         var button = UIButton(type: .system)
@@ -225,8 +245,6 @@ class ShoeDetailsViewController: UIViewController, UIScrollViewDelegate, PanelAn
         
         
     }
-    
-
         
 //    fileprivate func setupVisualBlurEffectView() {
 //        let blurEffect = UIBlurEffect(style: .regular)
@@ -294,22 +312,136 @@ class ShoeDetailsViewController: UIViewController, UIScrollViewDelegate, PanelAn
         
         scrollView.addSubview(sideIcons)
         sideIcons.anchor(top: priceLabel.bottomAnchor, leading: scrollView.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 15, left: 8, bottom: 0, right: 8))
+    
+        isFavorite { (doesExist) in
+            if doesExist{
+                self.favoriteButton.select()
+            }
+            else{
+                self.favoriteButton.deselect()
+            }
+        }
         
-        let button = DOFavoriteButtonNew(frame: CGRect(x: 100, y:100, width: 44, height: 44), image: UIImage(named: "heartBlack.png"))
-        scrollView.addSubview(button)
+        favoriteButton.addTarget(self, action: #selector(favoriteButtonTapped(sender:)), for: .touchUpInside)
+        
+        let bottomIcons = UIStackView()
+        bottomIcons.addArrangedSubview(favoriteButton)
+        scrollView.addSubview(bottomIcons)
 
+        bottomIcons.anchor(top: sideIcons.bottomAnchor, leading: scrollView.leadingAnchor, bottom: nil, trailing: scrollView.trailingAnchor, padding: .init(top: 5, left: 0, bottom: 0, right: 0))
+        
+        
         
     }
     
-
+    
+//    Why is it not fetching the document?
+//    Why is it running again after?
+    
+    fileprivate func isFavorite(CompletionHandler : @escaping  (Bool) -> ()){
+        let docRef = Firestore.firestore().collection("users").document(user.uid).collection("favorites").document(brand + shoeName)
+        var doesExist = false
+        docRef.getDocument{ (doc, err) in
+            if let err = err{
+                print("Document can't be retrieved because: \(err)")
+            }
+            else{
+                if let doc = doc, doc.exists{
+                    print("So it does exist!")
+                    doesExist = true
+                }
+                else{
+                    print("Nope still doesn't exist...")
+                    doesExist = false
+                }
+            }
+        CompletionHandler(doesExist)
+        }
+    }
+    
+    @objc func favoriteButtonTapped(sender: DOFavoriteButtonNew){
+        changed = !changed
+        if sender.isSelected {
+            print("Deselecting....")
+            // deselect
+            sender.deselect()
+        } else {
+            // select with animation
+            print("Selecting....")
+            sender.select()
+        }
+    }
+    
+    
+    
 //    The following will stretch the scroll view down
     fileprivate let extraSwipingHeight: CGFloat = 80
     
     override func viewDidAppear(_ animated: Bool) {
         scrollView.setContentViewSize()
         scrollView.delegate = self
+        
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        print("Has disappeared")
+        print("Something has changed: \(changed)")
+        if changed{
+            if !favoriteButton.isSelected {
+                print("Okay... removing")
+// So if the button is not selected, it is not a favorite. Therefore remove from firebase
+                Firestore.firestore().collection("users").document(user.uid).collection("favorites").document(brand + shoeName).delete { (err) in
+                    if let err = err{
+                        print("Error removing document: \(err)")
+                    }
+                    else{
+                        print("Document removed successfully!")
+                        print(self.user.uid)
+                    }
+                }
+//                Then for all users that follow me, also remove this from their feed.
+//                TODO
+                
+            } else {
+                print("Okay... adding")
+
+//                If it is selected, add it to firebase.
+                Firestore.firestore().collection("users").document(user.uid).collection("favorites").document(brand + shoeName).setData(shoeData) { (err) in
+                    if let err = err{
+                        print("Error adding document to favorites: \(err)")
+                    }
+                    else{
+                        print("Document successfully added to favorites.")
+                    }
+                }
+//                Now let's add my favorite to all my follower's feeds. But first, who are my followers?
+                Firestore.firestore().collection("users").document(user.uid).collection("isFollowingMe").document("users").getDocument{ (document, err) in
+                    if let err = err{
+                        print("error retrieving my followers: \(err)")
+                    }
+                    else{
+                        if let document = document, document.exists {
+                            let dataDescription = document.data()
+                            let followers = dataDescription?["uid"] as! [String]
+                            self.addToFollowersFeed(followers: followers)
+                        } else {
+                            print("Document does not exist")
+                        }
+                    }
+                }
+                
+            }
+            
+        }
     }
     
+    func addToFollowersFeed(followers: [String]){
+        for uid in followers{
+//           CHECK IF THE USERID IS APPENDED! This is when different users which a person follows like the shoe
+            Firestore.firestore().collection("users").document(uid).collection("feed").document(shoeName).setData(shoeData, merge: true)
+            
+        }
+    }
+
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         let swipingView = swipingPhotosController.view!

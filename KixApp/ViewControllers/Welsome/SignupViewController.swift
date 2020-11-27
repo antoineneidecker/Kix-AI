@@ -313,9 +313,11 @@ class SignupViewController: UIViewController {
     
     
     func transitionToOnboarding(){
-        let onboarding = OnboardingViewController()
-        onboarding.modalPresentationStyle = .fullScreen
-        self.present(onboarding, animated: true)
+        let controller = OnboardingViewController()
+        controller.modalPresentationStyle = .fullScreen
+        self.navigationController?.pushViewController(controller, animated: true)
+        
+        
     }
     
     

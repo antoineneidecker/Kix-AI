@@ -140,7 +140,6 @@ class LoginViewController: UIViewController {
     
     
     @objc fileprivate func loginTapped() {
-        print("Button tapped!!")
         //TODO:Validate text fields
         //Check in there are any errors
         
@@ -157,14 +156,11 @@ class LoginViewController: UIViewController {
                 self.errorLabel.alpha = 1
             }
             else{
-                let homeViewController = SwiperViewController()
-                homeViewController.modalPresentationStyle = .fullScreen
-                self.present(homeViewController, animated: true) {
-                    self.delegate?.didFinishLogingIn()
-                }
+                let controller = SwiperViewController()
+                controller.modalPresentationStyle = .fullScreen
+                self.navigationController?.pushViewController(controller, animated: true)
+                self.delegate?.didFinishLogingIn()
             }
         }
-        
-        
     }
 }

@@ -27,6 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navigation = UINavigationController(rootViewController: SwiperViewController())
         window!.rootViewController = navigation
         
+
+        
         return true
     }
 

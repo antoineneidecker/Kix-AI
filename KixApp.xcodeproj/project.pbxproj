@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9364E8A501CB0CACF949CCF3 /* Pods_KixApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5222ABC644FCD10C36C1B8C3 /* Pods_KixApp.framework */; };
+		471439EC5E3987FAF68D753F /* Pods_KixApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C3A948466A2D38AD39622C7 /* Pods_KixApp.framework */; };
 		AF03AC46249A33710029CAFE /* MessagesNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF03AC45249A33710029CAFE /* MessagesNavBar.swift */; };
 		AF2CB90C24223679007C352F /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2CB90B24223679007C352F /* SignupViewController.swift */; };
 		AF2CB90E24223688007C352F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2CB90D24223688007C352F /* LoginViewController.swift */; };
@@ -72,8 +72,10 @@
 		AF855AD72500EF8100033162 /* PaperOnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF855ACA2500EF8100033162 /* PaperOnboarding.swift */; };
 		AF855AD82500EF8100033162 /* ConstraintsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF855ACC2500EF8100033162 /* ConstraintsHelper.swift */; };
 		AF855AD92500EF8100033162 /* Configuring.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF855ACD2500EF8100033162 /* Configuring.swift */; };
+		AF9763DE25627B1B0006BDDF /* FavoritesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9763DD25627B1B0006BDDF /* FavoritesController.swift */; };
 		AF9A0C7A2497766500846FE3 /* FeedBackTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9A0C792497766500846FE3 /* FeedBackTableViewCell.swift */; };
 		AFB5A46C242A3F0400E9BC3A /* SwipeBottomControlsUIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB5A46B242A3F0400E9BC3A /* SwipeBottomControlsUIStackView.swift */; };
+		AFB5F54F255D82BB00D19872 /* SSVid8.mov in Resources */ = {isa = PBXBuildFile; fileRef = AFB5F54E255D82BA00D19872 /* SSVid8.mov */; };
 		AFBBC062242650AD0099399B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBBC060242650AD0099399B /* Constants.swift */; };
 		AFBBC063242650AD0099399B /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBBC061242650AD0099399B /* Utilities.swift */; };
 		AFBBC065242651910099399B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AFBBC064242651910099399B /* GoogleService-Info.plist */; };
@@ -87,13 +89,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		438028FDF2F4CE1AE1E7C758 /* Pods-KixApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KixApp.release.xcconfig"; path = "Target Support Files/Pods-KixApp/Pods-KixApp.release.xcconfig"; sourceTree = "<group>"; };
-		5222ABC644FCD10C36C1B8C3 /* Pods_KixApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KixApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C3A948466A2D38AD39622C7 /* Pods_KixApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KixApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		954CEAF7294F8CD22A326425 /* Pods-KixApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KixApp.debug.xcconfig"; path = "Target Support Files/Pods-KixApp/Pods-KixApp.debug.xcconfig"; sourceTree = "<group>"; };
+		998EDF648D4ECDBCF361D8DA /* Pods-KixApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KixApp.release.xcconfig"; path = "Target Support Files/Pods-KixApp/Pods-KixApp.release.xcconfig"; sourceTree = "<group>"; };
 		AF03AC45249A33710029CAFE /* MessagesNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesNavBar.swift; sourceTree = "<group>"; };
 		AF2CB90B24223679007C352F /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		AF2CB90D24223688007C352F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		AF2CB91224223912007C352F /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
-		AF2CB92824239E7E007C352F /* SSVid8.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = SSVid8.mov; path = ShoeSwiperMenus/SSVid8.mov; sourceTree = SOURCE_ROOT; };
 		AF2DC08A25384AF200356082 /* FeedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedController.swift; sourceTree = "<group>"; };
 		AF2DC08C25387E5F00356082 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Post.swift; path = ../../../../../Downloads/InstagramFirebase21_post_username_caption/InstagramFirebase/InstagramFirebase/Post.swift; sourceTree = "<group>"; };
 		AF367F8E24E9337A001F5716 /* PanelTransitioningDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelTransitioningDelegate.swift; sourceTree = "<group>"; };
@@ -139,7 +141,6 @@
 		AF6500F72429F84A00C126F8 /* SwiperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiperViewController.swift; sourceTree = "<group>"; };
 		AF7163C224642FB800415F42 /* LikedNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedNavBar.swift; sourceTree = "<group>"; };
 		AF7217072498E4F5008FF4D0 /* ChatLogController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogController.swift; sourceTree = "<group>"; };
-		AF855A5A24ED516900033162 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OnboardingViewController.swift; path = ShoeSwiperMenus/ViewControllers/OnboardingViewController.swift; sourceTree = SOURCE_ROOT; };
 		AF855A8524FBC6FB00033162 /* PageContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageContainer.swift; sourceTree = "<group>"; };
 		AF855A8724FBC6FB00033162 /* PageViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewItem.swift; sourceTree = "<group>"; };
 		AF855A8824FBC6FB00033162 /* PageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
@@ -170,8 +171,10 @@
 		AF855ACA2500EF8100033162 /* PaperOnboarding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaperOnboarding.swift; sourceTree = "<group>"; };
 		AF855ACC2500EF8100033162 /* ConstraintsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintsHelper.swift; sourceTree = "<group>"; };
 		AF855ACD2500EF8100033162 /* Configuring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuring.swift; sourceTree = "<group>"; };
+		AF9763DD25627B1B0006BDDF /* FavoritesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesController.swift; sourceTree = "<group>"; };
 		AF9A0C792497766500846FE3 /* FeedBackTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedBackTableViewCell.swift; sourceTree = "<group>"; };
 		AFB5A46B242A3F0400E9BC3A /* SwipeBottomControlsUIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeBottomControlsUIStackView.swift; sourceTree = "<group>"; };
+		AFB5F54E255D82BA00D19872 /* SSVid8.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = SSVid8.mov; path = KixApp/SSVid8.mov; sourceTree = SOURCE_ROOT; };
 		AFBBC060242650AD0099399B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		AFBBC061242650AD0099399B /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		AFBBC064242651910099399B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -182,7 +185,6 @@
 		AFF03167242AAD4F0092312A /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
 		AFF03169242AB4000092312A /* Advertiser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Advertiser.swift; sourceTree = "<group>"; };
 		AFF0316B242B8F950092312A /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
-		BA7431923EA919A2C344EA86 /* Pods-KixApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KixApp.debug.xcconfig"; path = "Target Support Files/Pods-KixApp/Pods-KixApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,7 +192,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9364E8A501CB0CACF949CCF3 /* Pods_KixApp.framework in Frameworks */,
+				471439EC5E3987FAF68D753F /* Pods_KixApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,16 +202,16 @@
 		1B5E48C9C48744A6B1D770DC /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				BA7431923EA919A2C344EA86 /* Pods-KixApp.debug.xcconfig */,
-				438028FDF2F4CE1AE1E7C758 /* Pods-KixApp.release.xcconfig */,
+				954CEAF7294F8CD22A326425 /* Pods-KixApp.debug.xcconfig */,
+				998EDF648D4ECDBCF361D8DA /* Pods-KixApp.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		55B444843088074D886B1B79 /* Frameworks */ = {
+		A51F113FF4257F63C1C2B2DA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5222ABC644FCD10C36C1B8C3 /* Pods_KixApp.framework */,
+				6C3A948466A2D38AD39622C7 /* Pods_KixApp.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -232,7 +234,6 @@
 				AF7217072498E4F5008FF4D0 /* ChatLogController.swift */,
 				AF58B43F2441DAAC00135387 /* SettingsController.swift */,
 				AF855AA424FFB44800033162 /* NewSettingsViewController.swift */,
-				AFDB9F9F253F40B200FD15B0 /* OnboardingViewController.swift */,
 				AF855AA924FFBC8900033162 /* CustomViewCell.h */,
 				AF855AA824FFBC8900033162 /* CustomViewCell.m */,
 				AF855AA024FF899E00033162 /* Settings.bundle */,
@@ -252,17 +253,9 @@
 		AF2CB91924237039007C352F /* Media */ = {
 			isa = PBXGroup;
 			children = (
-				AF2CB92824239E7E007C352F /* SSVid8.mov */,
+				AFB5F54E255D82BA00D19872 /* SSVid8.mov */,
 			);
 			path = Media;
-			sourceTree = "<group>";
-		};
-		AF2DC08925384AD500356082 /* Feed */ = {
-			isa = PBXGroup;
-			children = (
-				AF2DC08A25384AF200356082 /* FeedController.swift */,
-			);
-			path = Feed;
 			sourceTree = "<group>";
 		};
 		AF367F8D24E9336A001F5716 /* Scroll transition */ = {
@@ -309,7 +302,7 @@
 				AF39D6E224DB13B50031BE5B /* Fonts */,
 				AF3E7157241F97230010DE24 /* Products */,
 				1B5E48C9C48744A6B1D770DC /* Pods */,
-				55B444843088074D886B1B79 /* Frameworks */,
+				A51F113FF4257F63C1C2B2DA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -361,7 +354,7 @@
 				AF2CB90D24223688007C352F /* LoginViewController.swift */,
 				AF2CB91224223912007C352F /* WelcomeViewController.swift */,
 				AF2CB90B24223679007C352F /* SignupViewController.swift */,
-				AF855A5A24ED516900033162 /* OnboardingViewController.swift */,
+				AFDB9F9F253F40B200FD15B0 /* OnboardingViewController.swift */,
 			);
 			path = Welsome;
 			sourceTree = "<group>";
@@ -369,9 +362,10 @@
 		AF7163C124642F9A00415F42 /* LikedPage */ = {
 			isa = PBXGroup;
 			children = (
-				AF2DC08925384AD500356082 /* Feed */,
-				AF5E6A142449ECAD006D53A7 /* LikesController.swift */,
 				AF7163C224642FB800415F42 /* LikedNavBar.swift */,
+				AF5E6A142449ECAD006D53A7 /* LikesController.swift */,
+				AF9763DD25627B1B0006BDDF /* FavoritesController.swift */,
+				AF2DC08A25384AF200356082 /* FeedController.swift */,
 			);
 			path = LikedPage;
 			sourceTree = "<group>";
@@ -603,12 +597,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AF3E716A241F97240010DE24 /* Build configuration list for PBXNativeTarget "KixApp" */;
 			buildPhases = (
-				2F8205209FC704A8855E0B35 /* [CP] Check Pods Manifest.lock */,
+				5B690D33A8025BCB7461B162 /* [CP] Check Pods Manifest.lock */,
 				B335A8C8AB92BD23F5CD131D /* [CP] Prepare Artifacts */,
 				AF3E7152241F97230010DE24 /* Sources */,
 				AF3E7153241F97230010DE24 /* Frameworks */,
 				AF3E7154241F97230010DE24 /* Resources */,
-				895F667817789DE2A864B5B7 /* [CP] Embed Pods Frameworks */,
+				A6F68F5FFCD29120D2784BC4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -644,7 +638,7 @@
 			);
 			mainGroup = AF3E714D241F97230010DE24;
 			packageReferences = (
-				AF9A0C7B24979BCE00846FE3 /* RemoteSwiftPackageReference */,
+				AF9A0C7B24979BCE00846FE3 /* XCRemoteSwiftPackageReference "LBTATools" */,
 			);
 			productRefGroup = AF3E7157241F97230010DE24 /* Products */;
 			projectDirPath = "";
@@ -673,6 +667,7 @@
 				AF39D6F724DB13F20031BE5B /* Apache License.txt in Resources */,
 				AF39D6FC24DB13F20031BE5B /* RobotoCondensed-Regular.ttf in Resources */,
 				AF39D70524DB13F20031BE5B /* RobotoCondensed-LightItalic.ttf in Resources */,
+				AFB5F54F255D82BB00D19872 /* SSVid8.mov in Resources */,
 				AF3E7161241F97230010DE24 /* Main.storyboard in Resources */,
 				AF39D6F824DB13F20031BE5B /* Roboto-Italic.ttf in Resources */,
 				AF39D70624DB13F20031BE5B /* RobotoCondensed-Italic.ttf in Resources */,
@@ -690,7 +685,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2F8205209FC704A8855E0B35 /* [CP] Check Pods Manifest.lock */ = {
+		5B690D33A8025BCB7461B162 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -712,7 +707,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		895F667817789DE2A864B5B7 /* [CP] Embed Pods Frameworks */ = {
+		A6F68F5FFCD29120D2784BC4 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -786,6 +781,7 @@
 				AF58B4462444843200135387 /* AgeRangeCell.swift in Sources */,
 				AF9A0C7A2497766500846FE3 /* FeedBackTableViewCell.swift in Sources */,
 				AF855AD22500EF8100033162 /* OnboardingContantViewItem.swift in Sources */,
+				AF9763DE25627B1B0006BDDF /* FavoritesController.swift in Sources */,
 				AF855AA524FFB44800033162 /* NewSettingsViewController.swift in Sources */,
 				AF855AAC25000FCD00033162 /* GradientDescent.swift in Sources */,
 				AFF03160242A56B60092312A /* TopNavigationStackView.swift in Sources */,
@@ -946,7 +942,7 @@
 		};
 		AF3E716B241F97240010DE24 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BA7431923EA919A2C344EA86 /* Pods-KixApp.debug.xcconfig */;
+			baseConfigurationReference = 954CEAF7294F8CD22A326425 /* Pods-KixApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
@@ -970,7 +966,7 @@
 		};
 		AF3E716C241F97240010DE24 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 438028FDF2F4CE1AE1E7C758 /* Pods-KixApp.release.xcconfig */;
+			baseConfigurationReference = 998EDF648D4ECDBCF361D8DA /* Pods-KixApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
@@ -1016,7 +1012,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		AF9A0C7B24979BCE00846FE3 /* RemoteSwiftPackageReference */ = {
+		AF9A0C7B24979BCE00846FE3 /* XCRemoteSwiftPackageReference "LBTATools" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/bhlvoong/LBTATools.git";
 			requirement = {

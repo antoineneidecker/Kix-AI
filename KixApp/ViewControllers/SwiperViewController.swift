@@ -60,7 +60,7 @@ class SwiperViewController: UIViewController, SettingsControllerDelegate, LoginC
         }
        }
     func didFinishLogingIn() {
-        fetchCurrentUser()
+//        fetchCurrentUser()
     }
     
     
@@ -68,7 +68,7 @@ class SwiperViewController: UIViewController, SettingsControllerDelegate, LoginC
     fileprivate var hud = JGProgressHUD(style: .dark)
     
     
-    fileprivate func fetchCurrentUser(){
+    fileprivate func fetchCurrentUser(){ 
         
         hud.textLabel.text = "Loading"
         hud.show(in: view)
@@ -78,6 +78,7 @@ class SwiperViewController: UIViewController, SettingsControllerDelegate, LoginC
         guard let userUID = Auth.auth().currentUser?.uid else {
             print("Oh shit..... no user id.")
             return}
+        print(userUID)
         Firestore.firestore().collection("users").document(userUID).getDocument { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
@@ -214,8 +215,8 @@ class SwiperViewController: UIViewController, SettingsControllerDelegate, LoginC
         
         shoeDetailsController.transitioningDelegate = self.panelTransitioningDelegate
         shoeDetailsController.modalPresentationStyle = .custom
-        shoeDetailsController.cardViewModel = cardViewModel
         shoeDetailsController.user = user
+        shoeDetailsController.cardViewModel = cardViewModel
         present(shoeDetailsController, animated: true)
         
     }
@@ -478,11 +479,13 @@ class SwiperViewController: UIViewController, SettingsControllerDelegate, LoginC
     }
     
     @objc fileprivate func handleMessageButton(){
+        isRackViewMeta = 0
         Analytics.logEvent("shoeRack", parameters: nil)
         let vc = LikesController()
         vc.actualUser = user
         navigationController?.pushViewController(vc, animated: true)
-        print("Shoe Rack clicked!!!!")
+        print(self.navigationController)
+        print(navigationController)
     }
     let colors = Colors()
         

@@ -52,18 +52,7 @@ class RecentMessageCell : LBTAListCell<RecentMessage>{
     let messageTextLabel = UILabel(text: "Some long line of text that should span 2 lines", font: .systemFont(ofSize: 16), textColor: .gray, numberOfLines: 2)
         
     
-//    DELETE
-    let sendButton = UIButton(title: "Send", titleColor: .black, font: .boldSystemFont(ofSize: 14), target: nil, action: nil)
-    
-    let textView : UITextView = {
-        let tv = UITextView()
-        tv.backgroundColor = .clear
-        tv.font = .systemFont(ofSize: 20)
-        tv.isScrollEnabled = false
-        tv.isEditable = false
-        return tv
-    }()
-    //    DELETE
+
 
     
     override func setupViews() {
@@ -109,51 +98,28 @@ class Header: UICollectionReusableView {
 }
 
 class LikesController: LBTAListHeaderController<RecentMessageCell, RecentMessage, Header>, UICollectionViewDelegateFlowLayout, CardViewDelegateMoreInfo, likedControllerHeaderDelegate{
-    
-    var isRackView = true
-    
-    
-    //    DELETE
-    let sendButton = UIButton(title: "Send", titleColor: .black, font: .boldSystemFont(ofSize: 14), target: nil, action: nil)
-    
-    let textView : UITextView = {
-        let tv = UITextView()
-        tv.backgroundColor = .clear
-        tv.font = .systemFont(ofSize: 20)
-        tv.isScrollEnabled = false
-        tv.isEditable = false
-        return tv
-    }()
-    //    DELETE
-    
-    func setupViewsForFeed(){
 
-//        hstack(textView, sendButton.withSize(.init(width: 60, height: 60)), alignment: .center).withMargins(.init(top: 0, left: 16, bottom: 0, right: 16))
+    
+    
+    func didChangeToRackView() {
+        isRackViewMeta = 0
+
+        collectionView.reloadData()
+    }
+    
+    func didChangeToFavortiesView() {
+        isRackViewMeta = 1
+        let controller = FavoritesController()
+        navigationController?.replaceTopViewController(with: controller, animated: false)
     }
     
     func didChangeToFeedView() {
+        isRackViewMeta = 2
         let controller = FeedController()
         navigationController?.replaceTopViewController(with: controller, animated: false)
         
-        
-//        isRackView = false
-//        print(isRackView)
-//        collectionView.isHidden = true
-        
-//        collectionView.backgroundColor = .red
-        
-        let hud = JGProgressHUD(style: .dark)
-        hud.textLabel.text = "Coming soon!"
-        hud.indicatorView = nil
-        hud.show(in: view)
-        hud.dismiss(afterDelay: 0.7)
-        
     }
-    func didChangeToRackView() {
-        isRackView = true
-        collectionView.reloadData()
-        collectionView.isHidden = false
-    }
+
     
     var actualUser : ActualUser?
     
@@ -171,10 +137,13 @@ class LikesController: LBTAListHeaderController<RecentMessageCell, RecentMessage
     
     var recentMessageDictionary = [String: RecentMessage]()
     
+
+//    The collection view background color does not change when going back and forth between tabs.
+//    This means that the collection view is not changing.
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        customNavBar.isRackViewMeta = true
+        collectionView.backgroundColor = .red
         fetchMatches()
         setupUI()
     }
@@ -182,7 +151,6 @@ class LikesController: LBTAListHeaderController<RecentMessageCell, RecentMessage
     fileprivate func setupUI() {
         customNavBar.delegate = self
         
-        collectionView.backgroundColor = .red
 
         customNavBar.backButton.addTarget(self, action: #selector(handleBack), for: .touchUpInside)
         view.addSubview(customNavBar)
@@ -249,10 +217,11 @@ class LikesController: LBTAListHeaderController<RecentMessageCell, RecentMessage
     func didTapMoreInfo(cardViewModel: CardViewModel) {
         let shoeDetailsController = ShoeDetailsViewController()
                 
-        shoeDetailsController.transitioningDelegate                = self.panelTransitioningDelegate
-        shoeDetailsController.modalPresentationStyle                = .custom
-        shoeDetailsController.cardViewModel = cardViewModel
+        shoeDetailsController.transitioningDelegate = self.panelTransitioningDelegate
+        shoeDetailsController.modalPresentationStyle = .custom
         shoeDetailsController.user = actualUser
+        shoeDetailsController.cardViewModel = cardViewModel
+        
         
         present(shoeDetailsController, animated: true)
         
