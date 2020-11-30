@@ -13,7 +13,6 @@
 		AF2CB90E24223688007C352F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2CB90D24223688007C352F /* LoginViewController.swift */; };
 		AF2CB91324223912007C352F /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2CB91224223912007C352F /* WelcomeViewController.swift */; };
 		AF2DC08B25384AF200356082 /* FeedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2DC08A25384AF200356082 /* FeedController.swift */; };
-		AF2DC08D25387E5F00356082 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2DC08C25387E5F00356082 /* Post.swift */; };
 		AF367F9524E934C2001F5716 /* PanelInteractionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF367F9024E9337A001F5716 /* PanelInteractionController.swift */; };
 		AF367F9624E934C2001F5716 /* PanelPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF367F8F24E9337A001F5716 /* PanelPresentationController.swift */; };
 		AF367F9724E934C2001F5716 /* PanelTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF367F8E24E9337A001F5716 /* PanelTransitioningDelegate.swift */; };
@@ -55,23 +54,24 @@
 		AF7163C324642FB800415F42 /* LikedNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7163C224642FB800415F42 /* LikedNavBar.swift */; };
 		AF7163C52464391700415F42 /* LikesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5E6A142449ECAD006D53A7 /* LikesController.swift */; };
 		AF7217082498E4F5008FF4D0 /* ChatLogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7217072498E4F5008FF4D0 /* ChatLogController.swift */; };
+		AF8140B42574F822005C5C5B /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8140B32574F822005C5C5B /* Post.swift */; };
+		AF8140CF2574FA4A005C5C5B /* PageContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8140BD2574FA4A005C5C5B /* PageContainer.swift */; };
+		AF8140D02574FA4A005C5C5B /* PageViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8140BF2574FA4A005C5C5B /* PageViewItem.swift */; };
+		AF8140D12574FA4A005C5C5B /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8140C02574FA4A005C5C5B /* PageView.swift */; };
+		AF8140D22574FA4A005C5C5B /* OnboardingContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8140C22574FA4A005C5C5B /* OnboardingContentView.swift */; };
+		AF8140D32574FA4A005C5C5B /* OnboardingContantViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8140C42574FA4A005C5C5B /* OnboardingContantViewItem.swift */; };
+		AF8140D42574FA4A005C5C5B /* PaperOnboardingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8140C52574FA4A005C5C5B /* PaperOnboardingDelegate.swift */; };
+		AF8140D52574FA4A005C5C5B /* FillAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8140C72574FA4A005C5C5B /* FillAnimationView.swift */; };
+		AF8140D62574FA4A005C5C5B /* PaperOnboardingDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8140C82574FA4A005C5C5B /* PaperOnboardingDataSource.swift */; };
+		AF8140D72574FA4A005C5C5B /* GestureControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8140CA2574FA4A005C5C5B /* GestureControl.swift */; };
+		AF8140D82574FA4A005C5C5B /* PaperOnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8140CB2574FA4A005C5C5B /* PaperOnboarding.swift */; };
+		AF8140D92574FA4A005C5C5B /* ConstraintsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8140CD2574FA4A005C5C5B /* ConstraintsHelper.swift */; };
+		AF8140DA2574FA4A005C5C5B /* Configuring.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8140CE2574FA4A005C5C5B /* Configuring.swift */; };
 		AF855A9D24FF87B600033162 /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF855A9C24FF87B600033162 /* Matrix.swift */; };
 		AF855AA124FF899E00033162 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AF855AA024FF899E00033162 /* Settings.bundle */; };
 		AF855AA524FFB44800033162 /* NewSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF855AA424FFB44800033162 /* NewSettingsViewController.swift */; };
 		AF855AAA24FFBC8900033162 /* CustomViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AF855AA824FFBC8900033162 /* CustomViewCell.m */; };
 		AF855AAC25000FCD00033162 /* GradientDescent.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF855AAB25000FCD00033162 /* GradientDescent.swift */; };
-		AF855ACE2500EF8100033162 /* PageContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF855ABC2500EF8100033162 /* PageContainer.swift */; };
-		AF855ACF2500EF8100033162 /* PageViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF855ABE2500EF8100033162 /* PageViewItem.swift */; };
-		AF855AD02500EF8100033162 /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF855ABF2500EF8100033162 /* PageView.swift */; };
-		AF855AD12500EF8100033162 /* OnboardingContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF855AC12500EF8100033162 /* OnboardingContentView.swift */; };
-		AF855AD22500EF8100033162 /* OnboardingContantViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF855AC32500EF8100033162 /* OnboardingContantViewItem.swift */; };
-		AF855AD32500EF8100033162 /* PaperOnboardingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF855AC42500EF8100033162 /* PaperOnboardingDelegate.swift */; };
-		AF855AD42500EF8100033162 /* FillAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF855AC62500EF8100033162 /* FillAnimationView.swift */; };
-		AF855AD52500EF8100033162 /* PaperOnboardingDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF855AC72500EF8100033162 /* PaperOnboardingDataSource.swift */; };
-		AF855AD62500EF8100033162 /* GestureControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF855AC92500EF8100033162 /* GestureControl.swift */; };
-		AF855AD72500EF8100033162 /* PaperOnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF855ACA2500EF8100033162 /* PaperOnboarding.swift */; };
-		AF855AD82500EF8100033162 /* ConstraintsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF855ACC2500EF8100033162 /* ConstraintsHelper.swift */; };
-		AF855AD92500EF8100033162 /* Configuring.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF855ACD2500EF8100033162 /* Configuring.swift */; };
 		AF9763DE25627B1B0006BDDF /* FavoritesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9763DD25627B1B0006BDDF /* FavoritesController.swift */; };
 		AF9A0C7A2497766500846FE3 /* FeedBackTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9A0C792497766500846FE3 /* FeedBackTableViewCell.swift */; };
 		AFB5A46C242A3F0400E9BC3A /* SwipeBottomControlsUIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB5A46B242A3F0400E9BC3A /* SwipeBottomControlsUIStackView.swift */; };
@@ -97,7 +97,6 @@
 		AF2CB90D24223688007C352F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		AF2CB91224223912007C352F /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		AF2DC08A25384AF200356082 /* FeedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedController.swift; sourceTree = "<group>"; };
-		AF2DC08C25387E5F00356082 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Post.swift; path = ../../../../../Downloads/InstagramFirebase21_post_username_caption/InstagramFirebase/InstagramFirebase/Post.swift; sourceTree = "<group>"; };
 		AF367F8E24E9337A001F5716 /* PanelTransitioningDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelTransitioningDelegate.swift; sourceTree = "<group>"; };
 		AF367F8F24E9337A001F5716 /* PanelPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelPresentationController.swift; sourceTree = "<group>"; };
 		AF367F9024E9337A001F5716 /* PanelInteractionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelInteractionController.swift; sourceTree = "<group>"; };
@@ -141,36 +140,25 @@
 		AF6500F72429F84A00C126F8 /* SwiperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiperViewController.swift; sourceTree = "<group>"; };
 		AF7163C224642FB800415F42 /* LikedNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedNavBar.swift; sourceTree = "<group>"; };
 		AF7217072498E4F5008FF4D0 /* ChatLogController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogController.swift; sourceTree = "<group>"; };
-		AF855A8524FBC6FB00033162 /* PageContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageContainer.swift; sourceTree = "<group>"; };
-		AF855A8724FBC6FB00033162 /* PageViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewItem.swift; sourceTree = "<group>"; };
-		AF855A8824FBC6FB00033162 /* PageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
-		AF855A8A24FBC6FB00033162 /* OnboardingContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContentView.swift; sourceTree = "<group>"; };
-		AF855A8C24FBC6FB00033162 /* OnboardingContantViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContantViewItem.swift; sourceTree = "<group>"; };
-		AF855A8D24FBC6FB00033162 /* PaperOnboardingDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperOnboardingDelegate.swift; sourceTree = "<group>"; };
-		AF855A8F24FBC6FB00033162 /* FillAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillAnimationView.swift; sourceTree = "<group>"; };
-		AF855A9024FBC6FB00033162 /* PaperOnboardingDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperOnboardingDataSource.swift; sourceTree = "<group>"; };
-		AF855A9224FBC6FB00033162 /* GestureControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureControl.swift; sourceTree = "<group>"; };
-		AF855A9324FBC6FB00033162 /* PaperOnboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperOnboarding.swift; sourceTree = "<group>"; };
-		AF855A9524FBC6FB00033162 /* ConstraintsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintsHelper.swift; sourceTree = "<group>"; };
-		AF855A9624FBC6FB00033162 /* Configuring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuring.swift; sourceTree = "<group>"; };
+		AF8140B32574F822005C5C5B /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		AF8140BD2574FA4A005C5C5B /* PageContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageContainer.swift; sourceTree = "<group>"; };
+		AF8140BF2574FA4A005C5C5B /* PageViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewItem.swift; sourceTree = "<group>"; };
+		AF8140C02574FA4A005C5C5B /* PageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
+		AF8140C22574FA4A005C5C5B /* OnboardingContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingContentView.swift; sourceTree = "<group>"; };
+		AF8140C42574FA4A005C5C5B /* OnboardingContantViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingContantViewItem.swift; sourceTree = "<group>"; };
+		AF8140C52574FA4A005C5C5B /* PaperOnboardingDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaperOnboardingDelegate.swift; sourceTree = "<group>"; };
+		AF8140C72574FA4A005C5C5B /* FillAnimationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FillAnimationView.swift; sourceTree = "<group>"; };
+		AF8140C82574FA4A005C5C5B /* PaperOnboardingDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaperOnboardingDataSource.swift; sourceTree = "<group>"; };
+		AF8140CA2574FA4A005C5C5B /* GestureControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GestureControl.swift; sourceTree = "<group>"; };
+		AF8140CB2574FA4A005C5C5B /* PaperOnboarding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaperOnboarding.swift; sourceTree = "<group>"; };
+		AF8140CD2574FA4A005C5C5B /* ConstraintsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintsHelper.swift; sourceTree = "<group>"; };
+		AF8140CE2574FA4A005C5C5B /* Configuring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuring.swift; sourceTree = "<group>"; };
 		AF855A9C24FF87B600033162 /* Matrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
 		AF855AA024FF899E00033162 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = "../../../../../Downloads/InAppSettingsKit-master/InAppSettingsKitSampleApp/Settings.bundle"; sourceTree = "<group>"; };
 		AF855AA424FFB44800033162 /* NewSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSettingsViewController.swift; sourceTree = "<group>"; };
 		AF855AA824FFBC8900033162 /* CustomViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomViewCell.m; path = "../../../../../Downloads/InAppSettingsKit-master/InAppSettingsKitSampleApp/Settings.bundle/CustomViewCell.m"; sourceTree = "<group>"; };
 		AF855AA924FFBC8900033162 /* CustomViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomViewCell.h; path = "../../../../../Downloads/InAppSettingsKit-master/InAppSettingsKitSampleApp/Settings.bundle/CustomViewCell.h"; sourceTree = "<group>"; };
 		AF855AAB25000FCD00033162 /* GradientDescent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientDescent.swift; sourceTree = "<group>"; };
-		AF855ABC2500EF8100033162 /* PageContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageContainer.swift; sourceTree = "<group>"; };
-		AF855ABE2500EF8100033162 /* PageViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewItem.swift; sourceTree = "<group>"; };
-		AF855ABF2500EF8100033162 /* PageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
-		AF855AC12500EF8100033162 /* OnboardingContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingContentView.swift; sourceTree = "<group>"; };
-		AF855AC32500EF8100033162 /* OnboardingContantViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingContantViewItem.swift; sourceTree = "<group>"; };
-		AF855AC42500EF8100033162 /* PaperOnboardingDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaperOnboardingDelegate.swift; sourceTree = "<group>"; };
-		AF855AC62500EF8100033162 /* FillAnimationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FillAnimationView.swift; sourceTree = "<group>"; };
-		AF855AC72500EF8100033162 /* PaperOnboardingDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaperOnboardingDataSource.swift; sourceTree = "<group>"; };
-		AF855AC92500EF8100033162 /* GestureControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GestureControl.swift; sourceTree = "<group>"; };
-		AF855ACA2500EF8100033162 /* PaperOnboarding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaperOnboarding.swift; sourceTree = "<group>"; };
-		AF855ACC2500EF8100033162 /* ConstraintsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintsHelper.swift; sourceTree = "<group>"; };
-		AF855ACD2500EF8100033162 /* Configuring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuring.swift; sourceTree = "<group>"; };
 		AF9763DD25627B1B0006BDDF /* FavoritesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesController.swift; sourceTree = "<group>"; };
 		AF9A0C792497766500846FE3 /* FeedBackTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedBackTableViewCell.swift; sourceTree = "<group>"; };
 		AFB5A46B242A3F0400E9BC3A /* SwipeBottomControlsUIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeBottomControlsUIStackView.swift; sourceTree = "<group>"; };
@@ -350,7 +338,7 @@
 		AF5E6A132449EC46006D53A7 /* Welsome */ = {
 			isa = PBXGroup;
 			children = (
-				AF855A8224FBC6FB00033162 /* Onboarding */,
+				AF8140BA2574FA4A005C5C5B /* Source */,
 				AF2CB90D24223688007C352F /* LoginViewController.swift */,
 				AF2CB91224223912007C352F /* WelcomeViewController.swift */,
 				AF2CB90B24223679007C352F /* SignupViewController.swift */,
@@ -370,86 +358,85 @@
 			path = LikedPage;
 			sourceTree = "<group>";
 		};
-		AF855A8224FBC6FB00033162 /* Onboarding */ = {
+		AF8140BA2574FA4A005C5C5B /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				AF855AB92500EF8100033162 /* Source */,
-				AF855A8324FBC6FB00033162 /* PageView */,
-				AF855A8924FBC6FB00033162 /* OnboardingContentView */,
-				AF855A8D24FBC6FB00033162 /* PaperOnboardingDelegate.swift */,
-				AF855A8E24FBC6FB00033162 /* FillAnimationView */,
-				AF855A9024FBC6FB00033162 /* PaperOnboardingDataSource.swift */,
-				AF855A9124FBC6FB00033162 /* GestureControl */,
-				AF855A9324FBC6FB00033162 /* PaperOnboarding.swift */,
-				AF855A9424FBC6FB00033162 /* Helpers */,
+				AF8140BB2574FA4A005C5C5B /* PageView */,
+				AF8140C12574FA4A005C5C5B /* OnboardingContentView */,
+				AF8140C52574FA4A005C5C5B /* PaperOnboardingDelegate.swift */,
+				AF8140C62574FA4A005C5C5B /* FillAnimationView */,
+				AF8140C82574FA4A005C5C5B /* PaperOnboardingDataSource.swift */,
+				AF8140C92574FA4A005C5C5B /* GestureControl */,
+				AF8140CB2574FA4A005C5C5B /* PaperOnboarding.swift */,
+				AF8140CC2574FA4A005C5C5B /* Helpers */,
 			);
-			path = Onboarding;
+			path = Source;
 			sourceTree = "<group>";
 		};
-		AF855A8324FBC6FB00033162 /* PageView */ = {
+		AF8140BB2574FA4A005C5C5B /* PageView */ = {
 			isa = PBXGroup;
 			children = (
-				AF855A8424FBC6FB00033162 /* PageContainerView */,
-				AF855A8624FBC6FB00033162 /* Item */,
-				AF855A8824FBC6FB00033162 /* PageView.swift */,
+				AF8140BC2574FA4A005C5C5B /* PageContainerView */,
+				AF8140BE2574FA4A005C5C5B /* Item */,
+				AF8140C02574FA4A005C5C5B /* PageView.swift */,
 			);
 			path = PageView;
 			sourceTree = "<group>";
 		};
-		AF855A8424FBC6FB00033162 /* PageContainerView */ = {
+		AF8140BC2574FA4A005C5C5B /* PageContainerView */ = {
 			isa = PBXGroup;
 			children = (
-				AF855A8524FBC6FB00033162 /* PageContainer.swift */,
+				AF8140BD2574FA4A005C5C5B /* PageContainer.swift */,
 			);
 			path = PageContainerView;
 			sourceTree = "<group>";
 		};
-		AF855A8624FBC6FB00033162 /* Item */ = {
+		AF8140BE2574FA4A005C5C5B /* Item */ = {
 			isa = PBXGroup;
 			children = (
-				AF855A8724FBC6FB00033162 /* PageViewItem.swift */,
+				AF8140BF2574FA4A005C5C5B /* PageViewItem.swift */,
 			);
 			path = Item;
 			sourceTree = "<group>";
 		};
-		AF855A8924FBC6FB00033162 /* OnboardingContentView */ = {
+		AF8140C12574FA4A005C5C5B /* OnboardingContentView */ = {
 			isa = PBXGroup;
 			children = (
-				AF855A8A24FBC6FB00033162 /* OnboardingContentView.swift */,
-				AF855A8B24FBC6FB00033162 /* Item */,
+				AF8140C22574FA4A005C5C5B /* OnboardingContentView.swift */,
+				AF8140C32574FA4A005C5C5B /* Item */,
 			);
 			path = OnboardingContentView;
 			sourceTree = "<group>";
 		};
-		AF855A8B24FBC6FB00033162 /* Item */ = {
+		AF8140C32574FA4A005C5C5B /* Item */ = {
 			isa = PBXGroup;
 			children = (
-				AF855A8C24FBC6FB00033162 /* OnboardingContantViewItem.swift */,
+				AF8140C42574FA4A005C5C5B /* OnboardingContantViewItem.swift */,
 			);
 			path = Item;
 			sourceTree = "<group>";
 		};
-		AF855A8E24FBC6FB00033162 /* FillAnimationView */ = {
+		AF8140C62574FA4A005C5C5B /* FillAnimationView */ = {
 			isa = PBXGroup;
 			children = (
-				AF855A8F24FBC6FB00033162 /* FillAnimationView.swift */,
+				AF8140C72574FA4A005C5C5B /* FillAnimationView.swift */,
 			);
 			path = FillAnimationView;
 			sourceTree = "<group>";
 		};
-		AF855A9124FBC6FB00033162 /* GestureControl */ = {
+		AF8140C92574FA4A005C5C5B /* GestureControl */ = {
 			isa = PBXGroup;
 			children = (
-				AF855A9224FBC6FB00033162 /* GestureControl.swift */,
+				AF8140CA2574FA4A005C5C5B /* GestureControl.swift */,
 			);
 			path = GestureControl;
 			sourceTree = "<group>";
 		};
-		AF855A9424FBC6FB00033162 /* Helpers */ = {
+		AF8140CC2574FA4A005C5C5B /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				AF855A9524FBC6FB00033162 /* ConstraintsHelper.swift */,
-				AF855A9624FBC6FB00033162 /* Configuring.swift */,
+				AF8140CD2574FA4A005C5C5B /* ConstraintsHelper.swift */,
+				AF8140CE2574FA4A005C5C5B /* Configuring.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -461,90 +448,6 @@
 				AF855A9C24FF87B600033162 /* Matrix.swift */,
 			);
 			path = Math;
-			sourceTree = "<group>";
-		};
-		AF855AB92500EF8100033162 /* Source */ = {
-			isa = PBXGroup;
-			children = (
-				AF855ABA2500EF8100033162 /* PageView */,
-				AF855AC02500EF8100033162 /* OnboardingContentView */,
-				AF855AC42500EF8100033162 /* PaperOnboardingDelegate.swift */,
-				AF855AC52500EF8100033162 /* FillAnimationView */,
-				AF855AC72500EF8100033162 /* PaperOnboardingDataSource.swift */,
-				AF855AC82500EF8100033162 /* GestureControl */,
-				AF855ACA2500EF8100033162 /* PaperOnboarding.swift */,
-				AF855ACB2500EF8100033162 /* Helpers */,
-			);
-			name = Source;
-			path = "../../../../../../../Downloads/paper-onboarding-master 3/Source";
-			sourceTree = "<group>";
-		};
-		AF855ABA2500EF8100033162 /* PageView */ = {
-			isa = PBXGroup;
-			children = (
-				AF855ABB2500EF8100033162 /* PageContainerView */,
-				AF855ABD2500EF8100033162 /* Item */,
-				AF855ABF2500EF8100033162 /* PageView.swift */,
-			);
-			path = PageView;
-			sourceTree = "<group>";
-		};
-		AF855ABB2500EF8100033162 /* PageContainerView */ = {
-			isa = PBXGroup;
-			children = (
-				AF855ABC2500EF8100033162 /* PageContainer.swift */,
-			);
-			path = PageContainerView;
-			sourceTree = "<group>";
-		};
-		AF855ABD2500EF8100033162 /* Item */ = {
-			isa = PBXGroup;
-			children = (
-				AF855ABE2500EF8100033162 /* PageViewItem.swift */,
-			);
-			path = Item;
-			sourceTree = "<group>";
-		};
-		AF855AC02500EF8100033162 /* OnboardingContentView */ = {
-			isa = PBXGroup;
-			children = (
-				AF855AC12500EF8100033162 /* OnboardingContentView.swift */,
-				AF855AC22500EF8100033162 /* Item */,
-			);
-			path = OnboardingContentView;
-			sourceTree = "<group>";
-		};
-		AF855AC22500EF8100033162 /* Item */ = {
-			isa = PBXGroup;
-			children = (
-				AF855AC32500EF8100033162 /* OnboardingContantViewItem.swift */,
-			);
-			path = Item;
-			sourceTree = "<group>";
-		};
-		AF855AC52500EF8100033162 /* FillAnimationView */ = {
-			isa = PBXGroup;
-			children = (
-				AF855AC62500EF8100033162 /* FillAnimationView.swift */,
-			);
-			path = FillAnimationView;
-			sourceTree = "<group>";
-		};
-		AF855AC82500EF8100033162 /* GestureControl */ = {
-			isa = PBXGroup;
-			children = (
-				AF855AC92500EF8100033162 /* GestureControl.swift */,
-			);
-			path = GestureControl;
-			sourceTree = "<group>";
-		};
-		AF855ACB2500EF8100033162 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				AF855ACC2500EF8100033162 /* ConstraintsHelper.swift */,
-				AF855ACD2500EF8100033162 /* Configuring.swift */,
-			);
-			path = Helpers;
 			sourceTree = "<group>";
 		};
 		AFB5A467242A38B900E9BC3A /* Extensions */ = {
@@ -573,11 +476,11 @@
 		AFF03163242AA2450092312A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				AF2DC08C25387E5F00356082 /* Post.swift */,
 				AFF03164242AA2680092312A /* User.swift */,
 				AFF03169242AB4000092312A /* Advertiser.swift */,
 				AF58B443244462C900135387 /* ActualUser.swift */,
 				AF5EFE9E244DAF89006642BE /* Shoe.swift */,
+				AF8140B32574F822005C5C5B /* Post.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -748,59 +651,59 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF855AD82500EF8100033162 /* ConstraintsHelper.swift in Sources */,
-				AF855AD02500EF8100033162 /* PageView.swift in Sources */,
 				AF3E715A241F97230010DE24 /* AppDelegate.swift in Sources */,
 				AF2CB90C24223679007C352F /* SignupViewController.swift in Sources */,
 				AF55CE93244627AA00D9A57F /* ShoeDetailsViewController.swift in Sources */,
-				AF855ACF2500EF8100033162 /* PageViewItem.swift in Sources */,
-				AF855AD32500EF8100033162 /* PaperOnboardingDelegate.swift in Sources */,
 				AF55CE9524472E3F00D9A57F /* SwipingPhotosController.swift in Sources */,
+				AF8140D52574FA4A005C5C5B /* FillAnimationView.swift in Sources */,
+				AF8140D82574FA4A005C5C5B /* PaperOnboarding.swift in Sources */,
 				AF58B4402441DAAC00135387 /* SettingsController.swift in Sources */,
 				AF7163C324642FB800415F42 /* LikedNavBar.swift in Sources */,
-				AF855ACE2500EF8100033162 /* PageContainer.swift in Sources */,
-				AF855AD72500EF8100033162 /* PaperOnboarding.swift in Sources */,
+				AF8140D72574FA4A005C5C5B /* GestureControl.swift in Sources */,
 				AF2DC08B25384AF200356082 /* FeedController.swift in Sources */,
-				AF855AD92500EF8100033162 /* Configuring.swift in Sources */,
+				AF8140D02574FA4A005C5C5B /* PageViewItem.swift in Sources */,
 				AFB5A46C242A3F0400E9BC3A /* SwipeBottomControlsUIStackView.swift in Sources */,
 				AF5E6A122448721E006D53A7 /* PhotoController.swift in Sources */,
+				AF8140D32574FA4A005C5C5B /* OnboardingContantViewItem.swift in Sources */,
+				AF8140D92574FA4A005C5C5B /* ConstraintsHelper.swift in Sources */,
 				AFF0316C242B8F950092312A /* CustomTextField.swift in Sources */,
 				AF2CB90E24223688007C352F /* LoginViewController.swift in Sources */,
 				AFF03165242AA2680092312A /* User.swift in Sources */,
 				AF58B4422441FAE500135387 /* SettingsCell.swift in Sources */,
 				AF367F9824E934C2001F5716 /* PanelAnimationController.swift in Sources */,
-				AF855AD12500EF8100033162 /* OnboardingContentView.swift in Sources */,
 				AFF0316A242AB4000092312A /* Advertiser.swift in Sources */,
 				AF855A9D24FF87B600033162 /* Matrix.swift in Sources */,
 				AFF03168242AAD4F0092312A /* CardViewModel.swift in Sources */,
 				AF855AAA24FFBC8900033162 /* CustomViewCell.m in Sources */,
+				AF8140B42574F822005C5C5B /* Post.swift in Sources */,
 				AF367F9624E934C2001F5716 /* PanelPresentationController.swift in Sources */,
+				AF8140D42574FA4A005C5C5B /* PaperOnboardingDelegate.swift in Sources */,
 				AF7163C52464391700415F42 /* LikesController.swift in Sources */,
 				AF3E715C241F97230010DE24 /* SceneDelegate.swift in Sources */,
 				AF367F9524E934C2001F5716 /* PanelInteractionController.swift in Sources */,
 				AF58B4462444843200135387 /* AgeRangeCell.swift in Sources */,
 				AF9A0C7A2497766500846FE3 /* FeedBackTableViewCell.swift in Sources */,
-				AF855AD22500EF8100033162 /* OnboardingContantViewItem.swift in Sources */,
 				AF9763DE25627B1B0006BDDF /* FavoritesController.swift in Sources */,
 				AF855AA524FFB44800033162 /* NewSettingsViewController.swift in Sources */,
 				AF855AAC25000FCD00033162 /* GradientDescent.swift in Sources */,
+				AF8140D62574FA4A005C5C5B /* PaperOnboardingDataSource.swift in Sources */,
+				AF8140D22574FA4A005C5C5B /* OnboardingContentView.swift in Sources */,
+				AF8140CF2574FA4A005C5C5B /* PageContainer.swift in Sources */,
 				AFF03160242A56B60092312A /* TopNavigationStackView.swift in Sources */,
 				AF2CB91324223912007C352F /* WelcomeViewController.swift in Sources */,
 				AFBBC063242650AD0099399B /* Utilities.swift in Sources */,
 				AF6500F82429F84A00C126F8 /* SwiperViewController.swift in Sources */,
 				AF55CE902445803A00D9A57F /* LogoutTableViewCell.swift in Sources */,
-				AF855AD62500EF8100033162 /* GestureControl.swift in Sources */,
 				AFF03162242A610E0092312A /* CardView.swift in Sources */,
-				AF2DC08D25387E5F00356082 /* Post.swift in Sources */,
 				AF7217082498E4F5008FF4D0 /* ChatLogController.swift in Sources */,
 				AFDB9FA0253F40B200FD15B0 /* OnboardingViewController.swift in Sources */,
 				AF5EFE9F244DAF89006642BE /* Shoe.swift in Sources */,
-				AF855AD42500EF8100033162 /* FillAnimationView.swift in Sources */,
 				AF58B444244462CA00135387 /* ActualUser.swift in Sources */,
-				AF855AD52500EF8100033162 /* PaperOnboardingDataSource.swift in Sources */,
 				AF03AC46249A33710029CAFE /* MessagesNavBar.swift in Sources */,
+				AF8140D12574FA4A005C5C5B /* PageView.swift in Sources */,
 				AF367F9724E934C2001F5716 /* PanelTransitioningDelegate.swift in Sources */,
 				AFBBC062242650AD0099399B /* Constants.swift in Sources */,
+				AF8140DA2574FA4A005C5C5B /* Configuring.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
