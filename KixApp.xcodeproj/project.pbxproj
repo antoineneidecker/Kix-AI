@@ -8,11 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		471439EC5E3987FAF68D753F /* Pods_KixApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C3A948466A2D38AD39622C7 /* Pods_KixApp.framework */; };
+		5227B44A257677B4005C5CC5 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5227B449257677B4005C5CC5 /* PostCell.swift */; };
+		52391F852575301100E8CC32 /* ASCollectionView in Frameworks */ = {isa = PBXBuildFile; productRef = 52391F842575301100E8CC32 /* ASCollectionView */; };
+		528A937E257658D900BB25A9 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528A937D257658D900BB25A9 /* FeedViewController.swift */; };
+		528A938125765B0000BB25A9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528A938025765B0000BB25A9 /* ContentView.swift */; };
+		528A938725765B4D00BB25A9 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528A938625765B4D00BB25A9 /* PostViewModel.swift */; };
+		528A938925765B5600BB25A9 /* PostFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528A938825765B5600BB25A9 /* PostFeed.swift */; };
+		5295840025761E23000B3A7D /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 529583FF25761E23000B3A7D /* FacebookLogin */; };
+		5295840225761E23000B3A7D /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = 5295840125761E23000B3A7D /* FacebookCore */; };
+		5295840425761E23000B3A7D /* FacebookShare in Frameworks */ = {isa = PBXBuildFile; productRef = 5295840325761E23000B3A7D /* FacebookShare */; };
 		AF03AC46249A33710029CAFE /* MessagesNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF03AC45249A33710029CAFE /* MessagesNavBar.swift */; };
 		AF2CB90C24223679007C352F /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2CB90B24223679007C352F /* SignupViewController.swift */; };
 		AF2CB90E24223688007C352F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2CB90D24223688007C352F /* LoginViewController.swift */; };
 		AF2CB91324223912007C352F /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2CB91224223912007C352F /* WelcomeViewController.swift */; };
-		AF2DC08B25384AF200356082 /* FeedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2DC08A25384AF200356082 /* FeedController.swift */; };
 		AF367F9524E934C2001F5716 /* PanelInteractionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF367F9024E9337A001F5716 /* PanelInteractionController.swift */; };
 		AF367F9624E934C2001F5716 /* PanelPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF367F8F24E9337A001F5716 /* PanelPresentationController.swift */; };
 		AF367F9724E934C2001F5716 /* PanelTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF367F8E24E9337A001F5716 /* PanelTransitioningDelegate.swift */; };
@@ -88,6 +96,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5227B449257677B4005C5CC5 /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
+		528A937D257658D900BB25A9 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		528A938025765B0000BB25A9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		528A938625765B4D00BB25A9 /* PostViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
+		528A938825765B5600BB25A9 /* PostFeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostFeed.swift; sourceTree = "<group>"; };
 		6C3A948466A2D38AD39622C7 /* Pods_KixApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KixApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		954CEAF7294F8CD22A326425 /* Pods-KixApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KixApp.debug.xcconfig"; path = "Target Support Files/Pods-KixApp/Pods-KixApp.debug.xcconfig"; sourceTree = "<group>"; };
 		998EDF648D4ECDBCF361D8DA /* Pods-KixApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KixApp.release.xcconfig"; path = "Target Support Files/Pods-KixApp/Pods-KixApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -95,7 +108,6 @@
 		AF2CB90B24223679007C352F /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		AF2CB90D24223688007C352F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		AF2CB91224223912007C352F /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
-		AF2DC08A25384AF200356082 /* FeedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedController.swift; sourceTree = "<group>"; };
 		AF367F8E24E9337A001F5716 /* PanelTransitioningDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelTransitioningDelegate.swift; sourceTree = "<group>"; };
 		AF367F8F24E9337A001F5716 /* PanelPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelPresentationController.swift; sourceTree = "<group>"; };
 		AF367F9024E9337A001F5716 /* PanelInteractionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelInteractionController.swift; sourceTree = "<group>"; };
@@ -179,6 +191,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				471439EC5E3987FAF68D753F /* Pods_KixApp.framework in Frameworks */,
+				52391F852575301100E8CC32 /* ASCollectionView in Frameworks */,
+				5295840025761E23000B3A7D /* FacebookLogin in Frameworks */,
+				5295840425761E23000B3A7D /* FacebookShare in Frameworks */,
+				5295840225761E23000B3A7D /* FacebookCore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,7 +340,11 @@
 				AF7163C224642FB800415F42 /* LikedNavBar.swift */,
 				AF5E6A142449ECAD006D53A7 /* LikesController.swift */,
 				AF9763DD25627B1B0006BDDF /* FavoritesController.swift */,
-				AF2DC08A25384AF200356082 /* FeedController.swift */,
+				528A937D257658D900BB25A9 /* FeedViewController.swift */,
+				528A938025765B0000BB25A9 /* ContentView.swift */,
+				5227B449257677B4005C5CC5 /* PostCell.swift */,
+				528A938825765B5600BB25A9 /* PostFeed.swift */,
+				528A938625765B4D00BB25A9 /* PostViewModel.swift */,
 			);
 			path = LikedPage;
 			sourceTree = "<group>";
@@ -509,6 +529,12 @@
 			dependencies = (
 			);
 			name = KixApp;
+			packageProductDependencies = (
+				52391F842575301100E8CC32 /* ASCollectionView */,
+				529583FF25761E23000B3A7D /* FacebookLogin */,
+				5295840125761E23000B3A7D /* FacebookCore */,
+				5295840325761E23000B3A7D /* FacebookShare */,
+			);
 			productName = ShoeSwiperMenus;
 			productReference = AF3E7156241F97230010DE24 /* KixApp.app */;
 			productType = "com.apple.product-type.application";
@@ -540,6 +566,8 @@
 			mainGroup = AF3E714D241F97230010DE24;
 			packageReferences = (
 				AF9A0C7B24979BCE00846FE3 /* XCRemoteSwiftPackageReference "LBTATools" */,
+				52391F832575301100E8CC32 /* XCRemoteSwiftPackageReference "ASCollectionView" */,
+				529583FE25761E23000B3A7D /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
 			);
 			productRefGroup = AF3E7157241F97230010DE24 /* Products */;
 			projectDirPath = "";
@@ -654,10 +682,11 @@
 				AF55CE9524472E3F00D9A57F /* SwipingPhotosController.swift in Sources */,
 				AF8140D52574FA4A005C5C5B /* FillAnimationView.swift in Sources */,
 				AF8140D82574FA4A005C5C5B /* PaperOnboarding.swift in Sources */,
+				528A937E257658D900BB25A9 /* FeedViewController.swift in Sources */,
 				AF58B4402441DAAC00135387 /* SettingsController.swift in Sources */,
+				528A938125765B0000BB25A9 /* ContentView.swift in Sources */,
 				AF7163C324642FB800415F42 /* LikedNavBar.swift in Sources */,
 				AF8140D72574FA4A005C5C5B /* GestureControl.swift in Sources */,
-				AF2DC08B25384AF200356082 /* FeedController.swift in Sources */,
 				AF8140D02574FA4A005C5C5B /* PageViewItem.swift in Sources */,
 				AFB5A46C242A3F0400E9BC3A /* SwipeBottomControlsUIStackView.swift in Sources */,
 				AF5E6A122448721E006D53A7 /* PhotoController.swift in Sources */,
@@ -684,10 +713,12 @@
 				AF855AAC25000FCD00033162 /* GradientDescent.swift in Sources */,
 				AF8140D62574FA4A005C5C5B /* PaperOnboardingDataSource.swift in Sources */,
 				AF8140D22574FA4A005C5C5B /* OnboardingContentView.swift in Sources */,
+				528A938925765B5600BB25A9 /* PostFeed.swift in Sources */,
 				AF8140CF2574FA4A005C5C5B /* PageContainer.swift in Sources */,
 				AFF03160242A56B60092312A /* TopNavigationStackView.swift in Sources */,
 				AF2CB91324223912007C352F /* WelcomeViewController.swift in Sources */,
 				AFBBC063242650AD0099399B /* Utilities.swift in Sources */,
+				528A938725765B4D00BB25A9 /* PostViewModel.swift in Sources */,
 				AF6500F82429F84A00C126F8 /* SwiperViewController.swift in Sources */,
 				AF55CE902445803A00D9A57F /* LogoutTableViewCell.swift in Sources */,
 				AFF03162242A610E0092312A /* CardView.swift in Sources */,
@@ -695,6 +726,7 @@
 				AFDB9FA0253F40B200FD15B0 /* OnboardingViewController.swift in Sources */,
 				AF5EFE9F244DAF89006642BE /* Shoe.swift in Sources */,
 				AF58B444244462CA00135387 /* ActualUser.swift in Sources */,
+				5227B44A257677B4005C5CC5 /* PostCell.swift in Sources */,
 				AF03AC46249A33710029CAFE /* MessagesNavBar.swift in Sources */,
 				AF8140D12574FA4A005C5C5B /* PageView.swift in Sources */,
 				AF367F9724E934C2001F5716 /* PanelTransitioningDelegate.swift in Sources */,
@@ -915,6 +947,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		52391F832575301100E8CC32 /* XCRemoteSwiftPackageReference "ASCollectionView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apptekstudios/ASCollectionView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.7.1;
+			};
+		};
+		529583FE25761E23000B3A7D /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/facebook/facebook-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.2.0;
+			};
+		};
 		AF9A0C7B24979BCE00846FE3 /* XCRemoteSwiftPackageReference "LBTATools" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/bhlvoong/LBTATools.git";
@@ -924,6 +972,29 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		52391F842575301100E8CC32 /* ASCollectionView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 52391F832575301100E8CC32 /* XCRemoteSwiftPackageReference "ASCollectionView" */;
+			productName = ASCollectionView;
+		};
+		529583FF25761E23000B3A7D /* FacebookLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 529583FE25761E23000B3A7D /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookLogin;
+		};
+		5295840125761E23000B3A7D /* FacebookCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 529583FE25761E23000B3A7D /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookCore;
+		};
+		5295840325761E23000B3A7D /* FacebookShare */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 529583FE25761E23000B3A7D /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookShare;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = AF3E714E241F97230010DE24 /* Project object */;
 }

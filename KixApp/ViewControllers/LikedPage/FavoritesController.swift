@@ -27,7 +27,7 @@ class FavoritesController: LBTAListHeaderController<RecentMessageCell, RecentMes
     
     func didChangeToFeedView() {
         isRackViewMeta = 2
-        let controller = FeedController()
+        let controller  = FeedViewController()
         navigationController?.replaceTopViewController(with: controller, animated: false)
 
     }

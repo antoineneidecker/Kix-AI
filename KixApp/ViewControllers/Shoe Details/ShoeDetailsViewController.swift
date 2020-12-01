@@ -69,7 +69,13 @@ class ShoeDetailsViewController: UIViewController, UIScrollViewDelegate, PanelAn
     
     var user: ActualUser! {
         didSet{
-            shoeSize = user.shoeSize ?? 42.0
+            if let shoeV = user.shoeSize{
+                shoeSize = shoeV
+            }
+            else{
+                shoeSize = 42.0
+            }
+            
         }
         
     }

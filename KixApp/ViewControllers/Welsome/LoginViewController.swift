@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import FacebookLogin
 
 protocol LoginControllerDelegate{
     func didFinishLogingIn()
@@ -54,9 +55,33 @@ class LoginViewController: UIViewController {
         let label = UILabel(frame: CGRect(x:0, y:0, width:50, height:21))
         label.numberOfLines = 0
         label.alpha = 0
+        label.heightAnchor.constraint(equalToConstant: 55).isActive = true
+
         return label
     }()
     
+    let facebookButton: UIButton = {
+            let button = UIButton(type: .system)
+            button.setTitle("Login with Facebook", for: .normal)
+            button.setTitleColor(.white, for: .normal)
+            button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .heavy)
+            button.backgroundColor = #colorLiteral(red: 0.05882352963, green: 0.180392161, blue: 0.2470588237, alpha: 1)
+            button.heightAnchor.constraint(equalToConstant: 55).isActive = true
+            button.layer.cornerRadius = 22
+            
+            return button
+        }()
+    let InstagramButton: UIButton = {
+            let button = UIButton(type: .system)
+            button.setTitle("Login with Instagram", for: .normal)
+            button.setTitleColor(.white, for: .normal)
+            button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .heavy)
+            button.backgroundColor = #colorLiteral(red: 0.05882352963, green: 0.180392161, blue: 0.2470588237, alpha: 1)
+            button.heightAnchor.constraint(equalToConstant: 55).isActive = true
+            button.layer.cornerRadius = 22
+            
+            return button
+        }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,7 +89,10 @@ class LoginViewController: UIViewController {
         setupNotificationObservers()
         setupTapGesture()
         
+        
         loginButton.addTarget(self, action: #selector(loginTapped), for: .touchUpInside)
+        facebookButton.addTarget(self, action: #selector(fbTapped), for: .touchUpInside)
+        InstagramButton.addTarget(self, action: #selector(instaTapped), for: .touchUpInside)
     }
     
     
@@ -112,7 +140,7 @@ class LoginViewController: UIViewController {
 
         }
     
-    lazy var stackView = UIStackView(arrangedSubviews: [emailTextField, passwordTextField,loginButton, errorLabel])
+    lazy var stackView = UIStackView(arrangedSubviews: [emailTextField, passwordTextField,loginButton, errorLabel, facebookButton])
     
     fileprivate func setupLayout() {
         
@@ -137,7 +165,72 @@ class LoginViewController: UIViewController {
         self.view.endEditing(true)
         
     }
-    
+    @objc fileprivate func fbTapped() {
+       // sender.startAnimation()
+        
+        let loginManager = LoginManager()
+        loginManager.logOut()
+        
+        loginManager.logIn(permissions: [.email, .publicProfile], viewController: self) { (result) in
+            
+            switch result {
+            case .failed(let error):
+//                self.fbBtn.stopAnimation(animationStyle: .normal, revertAfterDelay: 0.1) {
+//                    self.fbBtn.setTitleColor(#colorLiteral(red: 0.7838708162, green: 0.6377519965, blue: 0.2381356955, alpha: 0.8470588235), for: .normal)
+//                    self.fbBtn.setTitle("Facebook".localized(), for: .normal)
+//                    self.fbBtn.layer.cornerRadius = self.fbBtn.frame.size.height/2
+//
+//                }
+                print(error)
+            case .cancelled:
+//                self.fbBtn.stopAnimation(animationStyle: .normal, revertAfterDelay: 0.1) {
+//                    self.fbBtn.setTitleColor(#colorLiteral(red: 0.7838708162, green: 0.6377519965, blue: 0.2381356955, alpha: 0.8470588235), for: .normal)
+//                    self.fbBtn.setTitle("Facebook".localized(), for: .normal)
+//                    self.fbBtn.layer.cornerRadius = self.fbBtn.frame.size.height/2
+//
+//                }
+                
+                print("User cancelled login.")
+            case .success(let grantedPermissions, _, _):
+                print("Logged in!")
+                
+                if grantedPermissions.contains("email") {
+                    self.getFBUserData()
+                }
+            }
+        }
+    }
+    func getFBUserData(){
+        if let _ = AccessToken.current {
+            let connection = GraphRequestConnection()
+            connection.add(GraphRequest(graphPath: "/me", parameters: ["fields":"name, email"])) { httpResponse, result, error   in
+                if error != nil {
+                    NSLog(error.debugDescription)
+                    return
+                }
+                
+                // Handle vars
+                if let result = result as? [String:String],
+                    let email: String = result["email"],
+                    let name:String = result["name"],
+                    let fbId: String = result["id"]
+                {
+                    let imgURLStr = "https://graph.facebook.com/\(fbId)/picture?type=large"
+                    //Add code for redirection to home
+                    ////Redirection for login after facebook success
+                }
+                
+            }
+            connection.start()
+        }
+        
+        
+        
+        
+        
+    }
+    @objc fileprivate func instaTapped() {
+    }
     
     @objc fileprivate func loginTapped() {
         //TODO:Validate text fields

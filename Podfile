@@ -24,4 +24,5 @@ inhibit_all_warnings!
   pod 'BetterSegmentedControl', '~> 2.0'
   pod 'DOFavoriteButtonNew'
   pod 'LGButton'
+  
 end

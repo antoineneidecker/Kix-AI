@@ -114,10 +114,15 @@ class LikesController: LBTAListHeaderController<RecentMessageCell, RecentMessage
     }
     
     func didChangeToFeedView() {
+
+//        isRackViewMeta = 2
+//        let storyBoardd =  UIStoryboard(name: "Main", bundle: nil)
+//        let controller = storyBoardd.instantiateViewController(withIdentifier: "FeedController") as! FeedController
+//        navigationController?.replaceTopViewController(with: controller, animated: false)
         isRackViewMeta = 2
-        let controller = FeedController()
+        let controller  = FeedViewController()
         navigationController?.replaceTopViewController(with: controller, animated: false)
-        
+
     }
 
     
