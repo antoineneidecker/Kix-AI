@@ -18,7 +18,7 @@ protocol SettingsControllerDelegate {
 }
 
 
-class SettingsController: UITableViewController {
+class SettingsController: UITableViewController ,UITextFieldDelegate {
 
     var delegate: SettingsControllerDelegate?
     
@@ -35,6 +35,7 @@ class SettingsController: UITableViewController {
         tableView.keyboardDismissMode = .interactive
         fetchCurrentUser()
         setupCrisp()
+
     }
     
     class HeaderLabel: UILabel{
@@ -78,6 +79,7 @@ class SettingsController: UITableViewController {
    }
     
     @objc fileprivate func handleLogout(){
+        
         try? Auth.auth().signOut()
         dismiss(animated: true)
     }
@@ -169,9 +171,13 @@ class SettingsController: UITableViewController {
     
     static let defaultMinSeekingPrice = 20
     static let defaultMaxSeekingPrice = 300
-    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("indexpath \(indexPath)")
+    }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //Price range cell
+        tableView.allowsSelection = false
+        tableView.delaysContentTouches = false
         if indexPath.section == 5 {
             let ageRangeCell = AgeRangeCell(style: .default, reuseIdentifier: nil)
             ageRangeCell.minSlider.addTarget(self, action: #selector(handleMinAgeChange), for: .valueChanged)
@@ -197,7 +203,8 @@ class SettingsController: UITableViewController {
         
         
         let cell = SettingsCell(style: .default, reuseIdentifier: nil)
-        
+        cell.textField.isUserInteractionEnabled = true
+        cell.textField.delegate = self
         switch indexPath.section {
         case 0:
             cell.textField.placeholder = "Enter First Name"
@@ -227,6 +234,10 @@ class SettingsController: UITableViewController {
         return cell
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return false
+    }
     @objc fileprivate func handleFirstNameChange(textField: UITextField){
         self.user?.firstName = textField.text
     }

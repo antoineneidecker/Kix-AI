@@ -49,7 +49,8 @@ class AgeRangeCell: UITableViewCell {
         let overAllStackView = UIStackView(arrangedSubviews: [UIStackView(arrangedSubviews: [minLabel,minSlider]),UIStackView(arrangedSubviews: [maxLabel,maxSlider])])
         overAllStackView.axis = .vertical
         overAllStackView.spacing = 16
-        addSubview(overAllStackView)
+        self.contentView.isUserInteractionEnabled = false
+        self.addSubview(overAllStackView)
         overAllStackView.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 16, left: 16, bottom: 16, right: 16))
     }
     

@@ -61,33 +61,52 @@ class FeedViewController: LBTAListHeaderController<RecentMessageCell, RecentMess
         fetchMatches()
         setupUI()
     }
-    
     fileprivate func setupUI() {
-
         customNavBar.delegate = self
-
-        collectionView.backgroundColor = .white
+        
 
         customNavBar.backButton.addTarget(self, action: #selector(handleBack), for: .touchUpInside)
         view.addSubview(customNavBar)
         customNavBar.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, size: .init(width: 0, height: 110))
+//        collectionView.backgroundColor = .white
         collectionView.contentInset.top = 110
         collectionView.verticalScrollIndicatorInsets.top = 110
-
+                
         let statusBarCover = UIView(backgroundColor: .white)
         view.addSubview(statusBarCover)
         statusBarCover.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: view.safeAreaLayoutGuide.topAnchor, trailing: view.trailingAnchor)
-        
-        
-        let childView = UIHostingController(rootView: ContentView())
-        childView.view.backgroundColor = .white
-        childView.navigationController?.isNavigationBarHidden = true
-        childView.navigationController?.setNavigationBarHidden(true, animated: false)
-                addChild(childView)
-        childView.view.frame = CGRect(x: 0, y: 164, width: self.view.bounds.width, height: self.view.bounds.height - 164)
-        self.view.addSubview(childView.view)
+        collectionView.backgroundColor = .white
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        navigationController?.navigationBar.isHidden = true
+                let childView = UIHostingController(rootView: ContentView())
+                childView.view.backgroundColor = .white
+                childView.navigationController?.isNavigationBarHidden = true
+                childView.navigationController?.setNavigationBarHidden(true, animated: false)
+                        addChild(childView)
+                childView.view.frame = CGRect(x: 0, y: 164, width: self.view.bounds.width, height: self.view.bounds.height - 164)
+                self.view.addSubview(childView.view)
                 childView.didMove(toParent: self)
+
     }
+    
+//    fileprivate func setupUI() {
+//
+//        customNavBar.delegate = self
+//
+//        collectionView.backgroundColor = .white
+//
+//        customNavBar.backButton.addTarget(self, action: #selector(handleBack), for: .touchUpInside)
+//        view.addSubview(customNavBar)
+//        customNavBar.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, size: .init(width: 0, height: 110))
+//        collectionView.contentInset.top = 110
+//        collectionView.verticalScrollIndicatorInsets.top = 110
+//
+//        let statusBarCover = UIView(backgroundColor: .white)
+//        view.addSubview(statusBarCover)
+//        statusBarCover.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: view.safeAreaLayoutGuide.topAnchor, trailing: view.trailingAnchor)
+//        
+//        
+//    }
     
     
     

@@ -26,16 +26,17 @@ class SettingsCell: UITableViewCell {
     let textField: UITextField = {
         let tf = SettingsTextField()
         tf.autocorrectionType = .no
+        tf.isUserInteractionEnabled = true
         return tf
     }()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        addSubview(textField)
+        self.selectionStyle = .none
+        self.contentView.addSubview(textField)
         textField.fillSuperview()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

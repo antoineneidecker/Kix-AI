@@ -49,7 +49,6 @@ class SwiperViewController: UIViewController, SettingsControllerDelegate, LoginC
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
         if Auth.auth().currentUser == nil{
             let loginController = LoginViewController()
             loginController.delegate = self

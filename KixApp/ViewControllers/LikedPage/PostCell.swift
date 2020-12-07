@@ -35,7 +35,9 @@ struct PostCell: View {
             
             
             
-        }
+        }.navigationBarTitle("")
+        .navigationBarHidden(true)
+
     }
     
     var actionButtons: some View {
@@ -59,6 +61,7 @@ struct PostCell: View {
         .font(.system(size: 21, weight: .light))
         .padding([.top, .bottom])
         .fixedSize(horizontal: false, vertical: true)
+        
     }
     
     var textContent: some View {
@@ -88,6 +91,7 @@ struct PostCell: View {
             
             Spacer()
         }
+
     }
     var pager : some View{
         
@@ -103,6 +107,7 @@ struct PostCell: View {
                 }
             }
         }
+
         
     }
 }

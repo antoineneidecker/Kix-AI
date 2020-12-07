@@ -21,6 +21,8 @@ struct ContentView: View {
     
     var body: some View {
         ASTableView(section: postSections)
+            .navigationBarTitle("")
+            .navigationBarHidden(true)
 
 
     }

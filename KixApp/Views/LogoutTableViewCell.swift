@@ -27,6 +27,7 @@ class LogoutTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         let logoutStyle: LGButton = {
             let button = LGButton()
+            button.isUserInteractionEnabled = true
             button.titleString = "Logout"
             button.fullyRoundedCorners = true
             button.titleFontSize = 20
@@ -54,7 +55,8 @@ class LogoutTableViewCell: UITableViewCell {
         
         let overAllStackView = UIStackView(arrangedSubviews:[logoutStyle])
         overAllStackView.spacing = 16
-        addSubview(overAllStackView)
+        self.contentView.addSubview(overAllStackView)
+       // addSubview(overAllStackView)
         overAllStackView.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 10, left: 10, bottom: 10, right: 10))
     }
     

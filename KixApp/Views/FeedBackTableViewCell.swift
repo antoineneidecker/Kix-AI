@@ -48,7 +48,7 @@ class FeedBackTableViewCell: UITableViewCell {
         
         let overAllStackView = UIStackView(arrangedSubviews:[logoutStyle])
         overAllStackView.spacing = 16
-        addSubview(overAllStackView)
+        self.contentView.addSubview(overAllStackView)
         overAllStackView.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 10, left: 10, bottom: 10, right: 10))
     }
     
